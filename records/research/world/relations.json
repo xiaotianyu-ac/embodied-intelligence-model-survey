@@ -1,0 +1,243 @@
+[
+  {
+    "source": "saycan",
+    "target": "palme",
+    "relation_type": "conceptual_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Observation-conditioned planning extends grounding beyond language relevance and affordance scoring; no weight inheritance asserted.",
+    "source_ids": [
+      "W001",
+      "W002"
+    ]
+  },
+  {
+    "source": "saycan",
+    "target": "voxposer",
+    "relation_type": "interface_alternative",
+    "evidence_type": "analytical",
+    "explanation": "Fixed skill selection versus geometry-grounded waypoint synthesis.",
+    "source_ids": [
+      "W001",
+      "W005"
+    ]
+  },
+  {
+    "source": "palme",
+    "target": "embodiedgpt",
+    "relation_type": "conceptual_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Both connect multimodal reasoning to low-level execution through explicit intermediate interfaces.",
+    "source_ids": [
+      "W002",
+      "W004"
+    ]
+  },
+  {
+    "source": "vima",
+    "target": "palme",
+    "relation_type": "interface_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Multimodal motor policy versus multimodal textual planner.",
+    "source_ids": [
+      "W002",
+      "W003"
+    ]
+  },
+  {
+    "source": "r3m",
+    "target": "vc1",
+    "relation_type": "representation_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Contrastive temporal alignment versus MAE-based broad sensorimotor evaluation; no direct weight reuse claimed.",
+    "source_ids": [
+      "W006",
+      "W007"
+    ]
+  },
+  {
+    "source": "peract",
+    "target": "rvt",
+    "relation_type": "explicit_comparison",
+    "evidence_type": "explicit",
+    "explanation": "RVT directly addresses explicit 3D compute cost and compares against PerAct.",
+    "source_ids": [
+      "W009"
+    ]
+  },
+  {
+    "source": "peract",
+    "target": "3d-diffuser-actor",
+    "relation_type": "action_representation_alternative",
+    "evidence_type": "analytical",
+    "explanation": "Discrete voxel/keypose classification versus continuous geometric action diffusion.",
+    "source_ids": [
+      "W008",
+      "W010"
+    ]
+  },
+  {
+    "source": "rvt",
+    "target": "3d-diffuser-actor",
+    "relation_type": "geometric_policy_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Both exploit 3D scene structure; action parameterization and attention differ.",
+    "source_ids": [
+      "W009",
+      "W010"
+    ]
+  },
+  {
+    "source": "gr1",
+    "target": "gr2",
+    "relation_type": "family_extension",
+    "evidence_type": "explicit",
+    "explanation": "GR-2 scales generative video pretraining and joint video-action modeling in the GR family.",
+    "source_ids": [
+      "W020",
+      "W022",
+      "W036"
+    ]
+  },
+  {
+    "source": "vjepa2",
+    "target": "vjepa2-ac",
+    "relation_type": "post_training",
+    "evidence_type": "explicit",
+    "explanation": "Action-conditioned predictor is post-trained using robot trajectories on V-JEPA 2 features.",
+    "source_ids": [
+      "W023",
+      "W026"
+    ]
+  },
+  {
+    "source": "vjepa2",
+    "target": "vjepa21",
+    "relation_type": "training_recipe_extension",
+    "evidence_type": "explicit",
+    "explanation": "2.1 adds dense/deep supervision and joint image/video scaling.",
+    "source_ids": [
+      "W025",
+      "W026"
+    ]
+  },
+  {
+    "source": "vjepa2-ac",
+    "target": "vjepa21",
+    "relation_type": "planning_framework_reuse",
+    "evidence_type": "explicit",
+    "explanation": "V-JEPA 2.1 robot experiments reuse 2-AC predictor architecture, public code and planning protocol, but retrain the action-conditioned predictor on DROID with the new encoder; no inherited predictor weights are claimed.",
+    "source_ids": [
+      "W025"
+    ]
+  },
+  {
+    "source": "genie1",
+    "target": "genie2",
+    "relation_type": "family_extension",
+    "evidence_type": "explicit",
+    "explanation": "Official Genie series progression; exact weight inheritance not stated.",
+    "source_ids": [
+      "W016",
+      "W017"
+    ]
+  },
+  {
+    "source": "genie2",
+    "target": "genie3",
+    "relation_type": "family_extension",
+    "evidence_type": "explicit",
+    "explanation": "Official next-generation interactive environment model; architecture reuse not asserted.",
+    "source_ids": [
+      "W017",
+      "W018"
+    ]
+  },
+  {
+    "source": "unisim",
+    "target": "dreamerv3",
+    "relation_type": "role_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Both support policy learning from imagined experience; video simulation and compact reward-driven latent RL have different interfaces.",
+    "source_ids": [
+      "W012",
+      "W015"
+    ]
+  },
+  {
+    "source": "gr1",
+    "target": "cosmos-policy",
+    "relation_type": "joint_prediction_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Both couple future observations and actions; Cosmos Policy additionally models values for optional search.",
+    "source_ids": [
+      "W020",
+      "W028"
+    ]
+  },
+  {
+    "source": "cosmos-policy",
+    "target": "cosmos3",
+    "relation_type": "convergent_capabilities",
+    "evidence_type": "analytical",
+    "explanation": "Both unify prediction and action; Cosmos 3 is a different reasoner/generator architecture, not established as a Policy checkpoint successor.",
+    "source_ids": [
+      "W028",
+      "W029"
+    ]
+  },
+  {
+    "source": "cosmos-predict25",
+    "target": "cosmos3",
+    "relation_type": "family_architecture_evolution",
+    "evidence_type": "explicit",
+    "explanation": "Cosmos 3 officially unifies formerly separated model lines; not a claim of direct parameter inheritance.",
+    "source_ids": [
+      "W027",
+      "W029"
+    ]
+  },
+  {
+    "source": "gaia2",
+    "target": "gaia3",
+    "relation_type": "family_extension",
+    "evidence_type": "explicit",
+    "explanation": "Wayve release describes GAIA lineage and evaluation focus.",
+    "source_ids": [
+      "W031",
+      "W032"
+    ]
+  },
+  {
+    "source": "gaia3",
+    "target": "gaia4",
+    "relation_type": "family_extension",
+    "evidence_type": "explicit",
+    "explanation": "GAIA-4 extends driver-in-the-loop simulation and coherent radar/camera generation.",
+    "source_ids": [
+      "W032",
+      "W033"
+    ]
+  },
+  {
+    "source": "genie3",
+    "target": "gaia4",
+    "relation_type": "scope_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Open-ended generated interactive worlds versus logged-scene-grounded driving counterfactual validation.",
+    "source_ids": [
+      "W018",
+      "W033"
+    ]
+  },
+  {
+    "source": "cosmos-predict2",
+    "target": "cosmos-policy",
+    "relation_type": "pretrained_initialization",
+    "evidence_type": "explicit",
+    "explanation": "Cosmos Policy directly initializes from Cosmos-Predict2-2B-Video2World and post-trains action/state/value latent frames.",
+    "source_ids": [
+      "W028",
+      "W035"
+    ]
+  }
+]

@@ -1,0 +1,594 @@
+[
+  {
+    "id": "saycan",
+    "name": "SayCan",
+    "year": 2022,
+    "family": "hierarchical_planning",
+    "inputs": [
+      "instruction",
+      "skill history",
+      "state affordances"
+    ],
+    "architecture": "Language relevance multiplied by learned skill feasibility.",
+    "action_representation": "Named skills",
+    "training": "Pretrained LLM plus skill policy/value learning.",
+    "data": "Language pretraining and robot skill experience.",
+    "inference": "Select skill, execute, repeat.",
+    "contribution": "Connects semantic intent to executable abilities.",
+    "limitations": "Fixed skills; incomplete failure feedback.",
+    "openness": "Tabletop simulation code and instruction dataset.",
+    "source_ids": [
+      "W001"
+    ]
+  },
+  {
+    "id": "palme",
+    "name": "PaLM-E",
+    "year": 2023,
+    "family": "embodied_reasoning",
+    "inputs": [
+      "images",
+      "continuous state",
+      "language"
+    ],
+    "architecture": "Continuous sensor embeddings inserted into decoder language model.",
+    "action_representation": "Textual low-level subgoals",
+    "training": "Joint multimodal and embodied task learning.",
+    "data": "Internet multimodal and robot data.",
+    "inference": "Generate plan; execute through separate policies; add feedback.",
+    "contribution": "Direct sensor-conditioned language reasoning.",
+    "limitations": "Large compute; low-level execution remains separate.",
+    "openness": "Paper/project; full public weights not verified.",
+    "source_ids": [
+      "W002"
+    ]
+  },
+  {
+    "id": "embodiedgpt",
+    "name": "EmbodiedGPT",
+    "year": 2023,
+    "family": "hierarchical_planning",
+    "inputs": [
+      "video",
+      "instruction"
+    ],
+    "architecture": "Prefix-tuned 7B language model plus planning-query features.",
+    "action_representation": "Subgoals and action-relevant features",
+    "training": "EgoCOT adaptation and downstream control training.",
+    "data": "Ego4D-derived EgoCOT; benchmark control data.",
+    "inference": "Plan and extract features for controller.",
+    "contribution": "Learned high-/low-level interface.",
+    "limitations": "Benchmark-specific transfer.",
+    "openness": "Paper; release completeness not audited.",
+    "source_ids": [
+      "W004"
+    ]
+  },
+  {
+    "id": "vima",
+    "name": "VIMA",
+    "year": 2023,
+    "family": "multimodal_policy",
+    "inputs": [
+      "text/image prompts",
+      "object observations",
+      "history"
+    ],
+    "architecture": "T5 prompt encoder; cross-attention causal decoder.",
+    "action_representation": "Tabletop manipulation primitives",
+    "training": "Behavior cloning.",
+    "data": "600K+ VIMA expert trajectories.",
+    "inference": "Autoregressively choose actions and observe outcomes.",
+    "contribution": "Unified visual/text task interface.",
+    "limitations": "Procedural simulation and object-token assumptions.",
+    "openness": "Code, weights, benchmark and dataset linked.",
+    "source_ids": [
+      "W003"
+    ]
+  },
+  {
+    "id": "voxposer",
+    "name": "VoxPoser",
+    "year": 2023,
+    "family": "geometric_planning",
+    "inputs": [
+      "RGB-D",
+      "instruction"
+    ],
+    "architecture": "LLM-generated programs compose VLM-grounded 3D value maps.",
+    "action_representation": "6-DoF end-effector waypoints",
+    "training": "Pretrained components; optional online dynamics.",
+    "data": "Pretrained foundation data; manipulation evaluation.",
+    "inference": "Recompute maps and plan trajectories with feedback.",
+    "contribution": "Inspectable geometric objectives.",
+    "limitations": "Perception/calibration/planner assumptions.",
+    "openness": "Project provides code and prompts.",
+    "source_ids": [
+      "W005"
+    ]
+  },
+  {
+    "id": "r3m",
+    "name": "R3M",
+    "year": 2022,
+    "family": "visual_representation",
+    "inputs": [
+      "RGB frames"
+    ],
+    "architecture": "Visual encoder with temporal and language-alignment objectives.",
+    "action_representation": "None; downstream controller required",
+    "training": "Contrastive and compactness pretraining.",
+    "data": "Ego4D human videos.",
+    "inference": "Encode observations for learned policy.",
+    "contribution": "Data-efficient reusable perception.",
+    "limitations": "No direct actions or transition model.",
+    "openness": "Paper links code and pretrained models.",
+    "source_ids": [
+      "W006"
+    ]
+  },
+  {
+    "id": "vc1",
+    "name": "VC-1",
+    "year": 2023,
+    "family": "visual_representation",
+    "inputs": [
+      "RGB images"
+    ],
+    "architecture": "MAE-pretrained vision transformer.",
+    "action_representation": "None; downstream controller required",
+    "training": "Visual pretraining plus optional adaptation.",
+    "data": "Egocentric video sources and ImageNet.",
+    "inference": "Encode sensor input for downstream policy.",
+    "contribution": "Broad sensorimotor representation evaluation.",
+    "limitations": "Adaptation and task protocol determine transfer.",
+    "openness": "Models/code described as released.",
+    "source_ids": [
+      "W007"
+    ]
+  },
+  {
+    "id": "peract",
+    "name": "PerAct",
+    "year": 2022,
+    "family": "geometric_policy",
+    "inputs": [
+      "RGB-D",
+      "language"
+    ],
+    "architecture": "Perceiver over voxel and language tokens.",
+    "action_representation": "Discrete 3D location, orientation, gripper",
+    "training": "Behavior cloning with keypose supervision.",
+    "data": "RLBench and real demonstrations.",
+    "inference": "Predict keypose; planner executes.",
+    "contribution": "Shared geometric observation/action space.",
+    "limitations": "Voxel cost and RGB-D calibration.",
+    "openness": "Official code, tutorial and checkpoints.",
+    "source_ids": [
+      "W008"
+    ]
+  },
+  {
+    "id": "rvt",
+    "name": "RVT",
+    "year": 2023,
+    "family": "geometric_policy",
+    "inputs": [
+      "RGB-D-derived scene",
+      "language"
+    ],
+    "architecture": "Virtual-view rendering and cross-view transformer.",
+    "action_representation": "Gripper keypose",
+    "training": "Behavior cloning.",
+    "data": "RLBench and real demonstrations.",
+    "inference": "Fuse views, predict pose, execute.",
+    "contribution": "Efficient spatial policy computation.",
+    "limitations": "View construction and protocol dependence.",
+    "openness": "Official project links code and trained model.",
+    "source_ids": [
+      "W009"
+    ]
+  },
+  {
+    "id": "3d-diffuser-actor",
+    "name": "3D Diffuser Actor",
+    "year": 2024,
+    "family": "geometric_diffusion_policy",
+    "inputs": [
+      "RGB-D",
+      "language",
+      "robot state"
+    ],
+    "architecture": "3D relative attention conditions pose denoising.",
+    "action_representation": "End-effector translations, rotations, gripper",
+    "training": "Conditional action diffusion.",
+    "data": "RLBench, CALVIN, real demonstrations.",
+    "inference": "Denoise action; execute with task controller/planner.",
+    "contribution": "Unifies 3D geometry and multimodal actions.",
+    "limitations": "Quaternion and benchmark conventions matter.",
+    "openness": "Code, weights and data links.",
+    "source_ids": [
+      "W010",
+      "W011"
+    ]
+  },
+  {
+    "id": "dreamerv3",
+    "name": "DreamerV3",
+    "year": 2023,
+    "family": "latent_model_based_rl",
+    "inputs": [
+      "observations",
+      "actions",
+      "rewards"
+    ],
+    "architecture": "Recurrent latent dynamics and actor-critic.",
+    "action_representation": "Environment-dependent controls",
+    "training": "World-model learning and imagined RL.",
+    "data": "Online environment interaction.",
+    "inference": "Infer state, act; update model and policy.",
+    "contribution": "Robust cross-domain algorithm configuration.",
+    "limitations": "Exploration, rewards and model error; not universal weights.",
+    "openness": "Official algorithm code; paper/author project.",
+    "source_ids": [
+      "W012",
+      "W013"
+    ]
+  },
+  {
+    "id": "unisim",
+    "name": "UniSim",
+    "year": 2023,
+    "family": "video_world_model",
+    "inputs": [
+      "observation history",
+      "language or numeric action"
+    ],
+    "architecture": "Conditional video diffusion trained across data domains.",
+    "action_representation": "Input action conditions future video",
+    "training": "Heterogeneous generative modeling.",
+    "data": "Images, videos, robot and navigation data.",
+    "inference": "Simulate transitions for planner/policy learning.",
+    "contribution": "Generated interaction as training experience.",
+    "limitations": "Task-bounded transfer and model exploitation.",
+    "openness": "Paper/project; full reproduction not verified.",
+    "source_ids": [
+      "W014",
+      "W015"
+    ]
+  },
+  {
+    "id": "genie1",
+    "name": "Genie",
+    "year": 2024,
+    "family": "interactive_world_model",
+    "inputs": [
+      "initial image",
+      "latent action",
+      "history"
+    ],
+    "architecture": "Video tokenizer, latent action model and autoregressive dynamics.",
+    "action_representation": "Learned latent actions",
+    "training": "Unsupervised action-label-free video learning.",
+    "data": "Internet video.",
+    "inference": "User action selects generated next frame.",
+    "contribution": "Controllability from unlabeled video.",
+    "limitations": "Latent controls not calibrated motor actions.",
+    "openness": "Research paper; open full checkpoint not verified.",
+    "source_ids": [
+      "W016"
+    ]
+  },
+  {
+    "id": "genie2",
+    "name": "Genie 2",
+    "year": 2024,
+    "family": "interactive_world_model",
+    "inputs": [
+      "initial image",
+      "user actions",
+      "history"
+    ],
+    "architecture": "Autoregressive latent diffusion with causal dynamics.",
+    "action_representation": "Interactive environment commands",
+    "training": "Large-scale video training.",
+    "data": "Video corpus; full composition undisclosed.",
+    "inference": "Generate next frame conditioned on actions.",
+    "contribution": "Interactive 3D environment diversity.",
+    "limitations": "Consistency and physical validity remain limited.",
+    "openness": "Official research demonstration.",
+    "source_ids": [
+      "W017"
+    ]
+  },
+  {
+    "id": "genie3",
+    "name": "Genie 3",
+    "year": 2025,
+    "family": "interactive_world_model",
+    "inputs": [
+      "prompt",
+      "interactive actions"
+    ],
+    "architecture": "Detailed architecture not disclosed in checked source.",
+    "action_representation": "Limited direct actions; promptable world events",
+    "training": "Training details not fully disclosed.",
+    "data": "Undisclosed full corpus.",
+    "inference": "Real-time interactive world generation.",
+    "contribution": "Higher resolution and longer coherent interaction.",
+    "limitations": "Minutes-long horizon, action and multi-agent limits.",
+    "openness": "Official model page and gated Project Genie prototype.",
+    "source_ids": [
+      "W018",
+      "W019"
+    ]
+  },
+  {
+    "id": "gr1",
+    "name": "GR-1",
+    "year": 2023,
+    "family": "video_action_policy",
+    "inputs": [
+      "language",
+      "image history",
+      "robot states"
+    ],
+    "architecture": "GPT-style joint image/action sequence model.",
+    "action_representation": "Robot motor actions",
+    "training": "Video pretraining then robot adaptation.",
+    "data": "Large video data; CALVIN and real robot trajectories.",
+    "inference": "Predict actions and future images; execute actions.",
+    "contribution": "Video generative priors for manipulation.",
+    "limitations": "Joint prediction not equivalent to explicit planning.",
+    "openness": "Project/paper; release completeness not audited.",
+    "source_ids": [
+      "W020",
+      "W021"
+    ]
+  },
+  {
+    "id": "gr2",
+    "name": "GR-2",
+    "year": 2024,
+    "family": "video_action_policy",
+    "inputs": [
+      "language",
+      "images",
+      "robot states"
+    ],
+    "architecture": "Scaled generative video-language-action model.",
+    "action_representation": "Robot actions",
+    "training": "Video pretraining then joint video/action fine-tuning.",
+    "data": "38M video clips, 50B+ tokens; robot trajectories.",
+    "inference": "Generate robot actions with visual predictions.",
+    "contribution": "Scales temporal pretraining for policy generalization.",
+    "limitations": "97.7% is the 105-task Simple setting; unseen manipulations remain substantially harder.",
+    "openness": "Paper; complete public reproduction not verified.",
+    "source_ids": [
+      "W022",
+      "W036"
+    ]
+  },
+  {
+    "id": "vjepa2",
+    "name": "V-JEPA 2",
+    "year": 2025,
+    "family": "predictive_visual_representation",
+    "inputs": [
+      "video patches"
+    ],
+    "architecture": "Encoder/predictor with masked latent targets.",
+    "action_representation": "None without action-conditioned adaptation",
+    "training": "Self-supervised latent prediction.",
+    "data": "Large unlabeled video corpus.",
+    "inference": "Encode and predict latent visual structure.",
+    "contribution": "Video understanding without pixel reconstruction.",
+    "limitations": "Base model is not a direct controller.",
+    "openness": "Code and model family released.",
+    "source_ids": [
+      "W023",
+      "W024",
+      "W026"
+    ]
+  },
+  {
+    "id": "vjepa2-ac",
+    "name": "V-JEPA 2-AC",
+    "year": 2025,
+    "family": "latent_world_model",
+    "inputs": [
+      "RGB",
+      "robot state/actions",
+      "goal image"
+    ],
+    "architecture": "Action-conditioned predictor on pretrained latent encoder.",
+    "action_representation": "Candidate robot action sequences",
+    "training": "Post-train dynamics with robot video/action records.",
+    "data": "Less than 62 hours of DROID.",
+    "inference": "Optimize image-goal latent distance with MPC.",
+    "contribution": "Deployment transfer without environment-specific collection.",
+    "limitations": "Action data used; small task collection and planning latency.",
+    "openness": "Official code/checkpoint and planning components.",
+    "source_ids": [
+      "W023",
+      "W024",
+      "W026"
+    ]
+  },
+  {
+    "id": "vjepa21",
+    "name": "V-JEPA 2.1",
+    "year": 2026,
+    "family": "predictive_visual_representation",
+    "inputs": [
+      "images/video",
+      "actions for adapted planner"
+    ],
+    "architecture": "Dense/deep predictive supervision; image/video tokenizers.",
+    "action_representation": "Via 2-AC-style planner",
+    "training": "Dense latent pretraining; action-conditioned adaptation.",
+    "data": "Scaled image/video corpus; DROID robot data.",
+    "inference": "Improved features support goal-directed MPC.",
+    "contribution": "Better spatially structured temporal representations.",
+    "limitations": "Grasp gain depends on planning budget; ten tasks per skill.",
+    "openness": "80M/300M/1B/2B models and code released.",
+    "source_ids": [
+      "W025",
+      "W026"
+    ]
+  },
+  {
+    "id": "cosmos-predict25",
+    "name": "Cosmos Predict 2.5",
+    "year": 2025,
+    "family": "video_world_model",
+    "inputs": [
+      "text",
+      "images",
+      "video"
+    ],
+    "architecture": "Video generative foundation model.",
+    "action_representation": "No direct control by default",
+    "training": "Generative world-model pretraining/adaptation.",
+    "data": "Physical-world video data; full corpus not audited.",
+    "inference": "Generate conditional future video.",
+    "contribution": "Unified text/image/video-to-world interface.",
+    "limitations": "Visual generation alone does not establish robot control.",
+    "openness": "NIM deployment and available model artifacts.",
+    "source_ids": [
+      "W027"
+    ]
+  },
+  {
+    "id": "cosmos-policy",
+    "name": "Cosmos Policy",
+    "year": 2026,
+    "family": "joint_policy_world_value",
+    "inputs": [
+      "multiview images",
+      "proprioception",
+      "language"
+    ],
+    "architecture": "Predict2-2B with action/state/value encoded as latent frames.",
+    "action_representation": "Continuous action chunks",
+    "training": "Single-stage target-platform post-training.",
+    "data": "Robot demonstrations; optional policy rollout data.",
+    "inference": "Direct policy or best-of-N imagined planning.",
+    "contribution": "Video priors become policy, dynamics and value.",
+    "limitations": "Search adds compute; training is platform-specific.",
+    "openness": "Official code, checkpoints and data links.",
+    "source_ids": [
+      "W028",
+      "W035"
+    ]
+  },
+  {
+    "id": "cosmos3",
+    "name": "Cosmos 3",
+    "year": 2026,
+    "family": "unified_reasoning_world_action",
+    "inputs": [
+      "text",
+      "image/video",
+      "actions"
+    ],
+    "architecture": "Autoregressive reasoner plus diffusion generator, Mixture-of-Transformers.",
+    "action_representation": "Embodiment-specific action outputs",
+    "training": "Multimodal training and domain post-training.",
+    "data": "Physical AI mixtures; specific DROID checkpoints.",
+    "inference": "Reason independently or generate futures/actions.",
+    "contribution": "Unifies world understanding, prediction and action.",
+    "limitations": "Mode/hardware limits; Edge lacks video-to-video transfer.",
+    "openness": "Super64B/Nano16B/Edge4B; current OpenMDW-1.1.",
+    "source_ids": [
+      "W029",
+      "W030"
+    ]
+  },
+  {
+    "id": "gaia2",
+    "name": "GAIA-2",
+    "year": 2025,
+    "family": "driving_world_model",
+    "inputs": [
+      "multicamera history",
+      "ego action",
+      "structured conditions"
+    ],
+    "architecture": "Latent multiview generative dynamics.",
+    "action_representation": "Ego driving conditions",
+    "training": "Controlled video generation.",
+    "data": "Driving sensor/video data.",
+    "inference": "Simulate action-conditioned driving futures.",
+    "contribution": "Controlled multi-camera synthetic driving scenes.",
+    "limitations": "Driving-specific; not manipulation policy.",
+    "openness": "Paper/official media; open weights not verified.",
+    "source_ids": [
+      "W031"
+    ]
+  },
+  {
+    "id": "gaia3",
+    "name": "GAIA-3",
+    "year": 2025,
+    "family": "driving_world_model",
+    "inputs": [
+      "driving scenes",
+      "conditions"
+    ],
+    "architecture": "Detailed architecture not established in checked release.",
+    "action_representation": "Driving scenario conditions",
+    "training": "Generative modeling; full recipe undisclosed.",
+    "data": "Driving data.",
+    "inference": "Generate scenarios for evaluation/validation.",
+    "contribution": "Moves world-model emphasis toward evaluation.",
+    "limitations": "Official report, not independent safety proof.",
+    "openness": "Official release; no open weights verified.",
+    "source_ids": [
+      "W032"
+    ]
+  },
+  {
+    "id": "gaia4",
+    "name": "GAIA-4",
+    "year": 2026,
+    "family": "closed_loop_driving_simulator",
+    "inputs": [
+      "recorded sensors",
+      "AI Driver actions"
+    ],
+    "architecture": "Learned multimodal simulator; architecture incompletely disclosed.",
+    "action_representation": "Ego controls; optional reactive-agent behavior",
+    "training": "World-on-rails and reactive generation training.",
+    "data": "Driving sensor logs; full recipe undisclosed.",
+    "inference": "Actions alter next camera/radar inputs.",
+    "contribution": "Behavioral counterfactual evaluation in a sensor loop.",
+    "limitations": "Simulation assumptions and fidelity bound validation.",
+    "openness": "Official technical account; no full open reproduction verified.",
+    "source_ids": [
+      "W033"
+    ]
+  },
+  {
+    "id": "cosmos-predict2",
+    "name": "Cosmos Predict2-2B",
+    "year": 2025,
+    "family": "video_world_model",
+    "inputs": [
+      "initial image",
+      "text"
+    ],
+    "architecture": "Latent video diffusion model used as Cosmos Policy initialization.",
+    "action_representation": "No robot controls in the base model.",
+    "training": "Video generative pretraining.",
+    "data": "Video pretraining data; complete corpus not audited.",
+    "inference": "Generate conditional future frames.",
+    "contribution": "Reusable temporal priors for subsequent policy adaptation.",
+    "limitations": "Base video generation is not calibrated robot control.",
+    "openness": "Base checkpoint identified by Cosmos Policy paper and code.",
+    "source_ids": [
+      "W028",
+      "W035"
+    ]
+  }
+]

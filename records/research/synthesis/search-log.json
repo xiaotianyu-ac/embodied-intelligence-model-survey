@@ -1,0 +1,31 @@
+{
+  "date": "2026-09-11",
+  "scope": "Data, evaluation, supplementary models and system synthesis",
+  "queries": [
+    "Open X Embodiment dataset RT-X official paper",
+    "DROID dataset robot manipulation official",
+    "LIBERO benchmark lifelong robot learning official",
+    "BEHAVIOR 1K OmniGibson benchmark embodied intelligence 2025 2026",
+    "SimplerEnv robot evaluation sim real official",
+    "ManiSkill 3 official GPU parallel simulation benchmark",
+    "RoboTwin 2.0 official benchmark robot 2025",
+    "CALVIN benchmark language conditioned long horizon manipulation official",
+    "AgiBot World dataset official 2025 million trajectories",
+    "RoboMIND dataset official multi embodiment",
+    "UMI Universal Manipulation Interface official paper",
+    "LeRobot official dataset training robot 2026 Isaac Lab GR00T",
+    "HIL SERL precise manipulation human loop reinforcement learning official serl",
+    "MolmoAct2 official Allen AI March 2026",
+    "AgiBot GO-1 latent planner action expert diffusion official",
+    "BridgeData V2 official robot dataset",
+    "RoboCasa365 official 365 tasks 2026",
+    "RoboTwin RMBench memory dependent manipulation official",
+    "Xiaomi Robotics 0 official asynchronous execution flow matching"
+  ],
+  "selection": "Primary sources retained; secondary search results used only for discovery. No fabricated screening counts.",
+  "conflicts": [
+    "DROID task counts differ by revision; omitted from table.",
+    "RoboCasa365 evaluation horizons changed in May 2026.",
+    "MolmoAct2 README contains a 2025 year typo among May 2026 release entries."
+  ]
+}

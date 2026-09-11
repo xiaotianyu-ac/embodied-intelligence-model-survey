@@ -1,0 +1,96 @@
+[
+  {
+    "id": "go1",
+    "name": "GO-1 / GO-1 Air",
+    "year": 2025,
+    "family": "Latent-action VLA",
+    "inputs": "Multi-view images, instruction, proprioception",
+    "architecture": "VLM plus latent-action planner plus diffusion action expert; Air removes planner",
+    "action_representation": "Discrete latent plan; continuous action chunks",
+    "training": "Latent action reconstruction/prediction followed by robot action denoising",
+    "data": "Human video, cross-embodiment robot data and AgiBot World",
+    "inference": "Predict latent plan then denoise action chunk and execute with feedback",
+    "contribution": "Separates transfer of video motion knowledge from embodiment-specific continuous execution",
+    "limitations": "Latent plan quality, embodiment alignment, data concentration and task-limited results",
+    "openness": "Code and listed checkpoints/dataset releases; exact training reproducibility must be audited",
+    "source_ids": [
+      "R005",
+      "R006"
+    ]
+  },
+  {
+    "id": "serl",
+    "name": "SERL",
+    "year": 2024,
+    "family": "Real-world reinforcement learning",
+    "inputs": "Visual observation, robot state and reward",
+    "architecture": "Off-policy actor-critic training and robot learning infrastructure",
+    "action_representation": "Continuous task-specific control",
+    "training": "Sample-efficient real-world RL with prior demonstrations or experience",
+    "data": "On-robot interaction and optional demonstrations",
+    "inference": "Learned actor executes within the robot control stack",
+    "contribution": "Operationalizes efficient online policy improvement",
+    "limitations": "Reward/reset design and interaction burden; not one universal pretrained model",
+    "openness": "Research software suite",
+    "source_ids": [
+      "R016"
+    ]
+  },
+  {
+    "id": "hil-serl",
+    "name": "HIL-SERL",
+    "year": 2024,
+    "family": "Human-in-the-loop reinforcement learning",
+    "inputs": "Images, state, learned success reward and human corrections",
+    "architecture": "Reward classifier, demonstration/replay buffers, actor-learner loop",
+    "action_representation": "Continuous control through task-specific robot interface",
+    "training": "Reward learning from positives/negatives, demonstrations and online off-policy RL with interventions",
+    "data": "Task-specific demonstrations, success labels and online interventions",
+    "inference": "Actor controls robot; human corrections become experience",
+    "contribution": "Uses failure recovery and feedback beyond pure imitation",
+    "limitations": "Human/reset cost, reward misspecification, narrow task protocols",
+    "openness": "Code and workflows available; hardware-specific integration required",
+    "source_ids": [
+      "R015",
+      "R026"
+    ]
+  },
+  {
+    "id": "molmoact2",
+    "name": "MolmoAct2",
+    "year": 2026,
+    "family": "Action-reasoning VLA",
+    "inputs": "Images, language, state",
+    "architecture": "Molmo2-ER embodied reasoning backbone plus continuous flow-matching action expert",
+    "action_representation": "Continuous action chunks",
+    "training": "Molmo2-ER backbone -> discrete autoregressive MolmoAct2-Pretrain -> flow-matching action expert; MolmoAct2-Think is a separate depth-token-reasoning variant.",
+    "data": "Released reasoning and robot training datasets, with embodiment-specific adaptation",
+    "inference": "Closed-loop manipulation using conditioned action expert",
+    "contribution": "Combines open embodied reasoning assets with continuous robot action learning",
+    "limitations": "Reasoning metrics alone do not establish contact reliability; base checkpoints are not universal deployment policies",
+    "openness": "Official code, models, staged checkpoints and dataset links",
+    "source_ids": [
+      "R017",
+      "R018"
+    ]
+  },
+  {
+    "id": "xiaomi-robotics-0",
+    "name": "Xiaomi-Robotics-0",
+    "year": 2026,
+    "family": "Asynchronous VLA",
+    "inputs": "Multi-view images, instruction and proprioception",
+    "architecture": "Qwen3-VL-4B-Instruct VLM plus diffusion transformer; 4.7B total per official page",
+    "action_representation": "30-step continuous action chunks",
+    "training": "Choice-policy VLM training; freeze VLM and train flow expert; prefix-conditioned post-training",
+    "data": "Robot and vision-language mixtures plus task-specific teleoperation",
+    "inference": "Buffered asynchronous chunks with committed prefix alignment",
+    "contribution": "Treats deployment scheduling and action responsiveness as training-design issues",
+    "limitations": "Requires matching async checkpoint, valid normalization, hardware adaptation and task data",
+    "openness": "Code, weights and full post-training pipeline announced April 2026",
+    "source_ids": [
+      "R024",
+      "R025"
+    ]
+  }
+]

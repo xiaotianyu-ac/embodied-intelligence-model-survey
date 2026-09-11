@@ -1,0 +1,199 @@
+[
+  {
+    "source": "DeepMimic",
+    "target": "AMP",
+    "relation_type": "problem-reformulation",
+    "evidence_type": "analytical",
+    "explanation": "Tracking a chosen clip becomes matching a movement distribution; conceptual comparison, not weight inheritance.",
+    "source_ids": [
+      "H001",
+      "H002"
+    ]
+  },
+  {
+    "source": "AMP",
+    "target": "ASE",
+    "relation_type": "method-extension",
+    "evidence_type": "explicit",
+    "explanation": "ASE uses adversarial motion priors with a learnable latent skill interface for reuse.",
+    "source_ids": [
+      "H002",
+      "H003"
+    ]
+  },
+  {
+    "source": "DeepMimic",
+    "target": "PHC",
+    "relation_type": "scaling-and-recovery",
+    "evidence_type": "analytical",
+    "explanation": "Both track motion; PHC makes capacity allocation and recovery central. No inherited checkpoint claimed.",
+    "source_ids": [
+      "H001",
+      "H004"
+    ]
+  },
+  {
+    "source": "H2O",
+    "target": "OmniH2O",
+    "relation_type": "direct-follow-up",
+    "evidence_type": "explicit",
+    "explanation": "OmniH2O names H2O as prior work and extends the universal interface and learned autonomy.",
+    "source_ids": [
+      "H007",
+      "H008"
+    ]
+  },
+  {
+    "source": "OmniH2O",
+    "target": "HumanPlus",
+    "relation_type": "parallel-data-control-pattern",
+    "evidence_type": "analytical",
+    "explanation": "Both use motion-following controllers to collect demonstrations for autonomous upper layers; neither is asserted to derive from the other.",
+    "source_ids": [
+      "H008",
+      "H009"
+    ]
+  },
+  {
+    "source": "PHC",
+    "target": "SONIC",
+    "relation_type": "scalable-motion-tracking",
+    "evidence_type": "analytical",
+    "explanation": "Both frame broad motor competence as motion tracking, but architecture and real-robot scope differ.",
+    "source_ids": [
+      "H004",
+      "H011"
+    ]
+  },
+  {
+    "source": "MaskedMimic",
+    "target": "SONIC",
+    "relation_type": "complementary-interfaces",
+    "evidence_type": "analytical",
+    "explanation": "Missing-motion completion and universal motion-token tracking solve adjacent interface problems; no direct lineage asserted.",
+    "source_ids": [
+      "H010",
+      "H011"
+    ]
+  },
+  {
+    "source": "GR00T N1.5",
+    "target": "SONIC",
+    "relation_type": "demonstrated-composition",
+    "evidence_type": "explicit",
+    "explanation": "Paper fine-tunes a VLA that emits teleoperation-format commands executed by SONIC; only a one-task compatibility PoC.",
+    "source_ids": [
+      "H011"
+    ]
+  },
+  {
+    "source": "GR00T N1.7",
+    "target": "GEAR-SONIC",
+    "relation_type": "released-workflow-composition",
+    "evidence_type": "explicit",
+    "explanation": "Current WBC repository documents collection, N1.7 fine-tuning and SONIC-backed VLA execution.",
+    "source_ids": [
+      "H012"
+    ]
+  },
+  {
+    "source": "ViNT",
+    "target": "NoMaD",
+    "relation_type": "encoder-reuse",
+    "evidence_type": "explicit",
+    "explanation": "NoMaD explicitly uses ViNT to encode observations/goals before diffusion decoding.",
+    "source_ids": [
+      "H015"
+    ]
+  },
+  {
+    "source": "ViNT",
+    "target": "GOAT",
+    "relation_type": "complementary-system-components",
+    "evidence_type": "analytical",
+    "explanation": "Local learned navigation and persistent semantic object memory could be composed; the survey does not claim an implemented coupling.",
+    "source_ids": [
+      "H013",
+      "H016"
+    ]
+  },
+  {
+    "source": "GOAT",
+    "target": "GOAT-Bench",
+    "relation_type": "task-to-benchmark",
+    "evidence_type": "explicit",
+    "explanation": "GOAT-Bench formalizes multi-modal lifelong navigation evaluation; benchmark is not a successor policy.",
+    "source_ids": [
+      "H016",
+      "H017"
+    ]
+  },
+  {
+    "source": "Helix",
+    "target": "Helix 02",
+    "relation_type": "version-extension",
+    "evidence_type": "explicit",
+    "explanation": "Figure extends S2/S1 with S0 and full-body sensing/actuation.",
+    "source_ids": [
+      "H018",
+      "H019"
+    ]
+  },
+  {
+    "source": "SONIC",
+    "target": "Helix 02",
+    "relation_type": "architectural-analogy",
+    "evidence_type": "analytical",
+    "explanation": "Both place learned motor competence below goal-level reasoning, but their clock rates, interfaces and disclosure differ; no code/weight lineage claimed.",
+    "source_ids": [
+      "H011",
+      "H012",
+      "H019"
+    ]
+  },
+  {
+    "source": "Skild Brain",
+    "target": "S1",
+    "relation_type": "product-family-evolution",
+    "evidence_type": "explicit",
+    "explanation": "Skild presents S1 as its latest flagship foundation model, emphasizing in-context task adaptation.",
+    "source_ids": [
+      "H020",
+      "H021",
+      "H022"
+    ]
+  },
+  {
+    "source": "Humanoid Transformer",
+    "target": "S1",
+    "relation_type": "two-forms-of-context-adaptation",
+    "evidence_type": "analytical",
+    "explanation": "Sensor/action history supports dynamics adaptation in one; demonstration context specifies tasks in the other. These are not equivalent evaluations.",
+    "source_ids": [
+      "H006",
+      "H021"
+    ]
+  },
+  {
+    "source": "GEN-1",
+    "target": "GEN-1.5",
+    "relation_type": "product-family-evolution",
+    "evidence_type": "explicit",
+    "explanation": "Generalist describes improved context-based and few-step adaptation after the GEN-1 stage.",
+    "source_ids": [
+      "H037",
+      "H038"
+    ]
+  },
+  {
+    "source": "S1",
+    "target": "GEN-1.5",
+    "relation_type": "contrasting-in-context-training",
+    "evidence_type": "analytical",
+    "explanation": "S1 describes episodic demonstration-conditioned pretraining; GEN-1.5 says ICL emerged from continuous physical-data pretraining without a dedicated ICL objective.",
+    "source_ids": [
+      "H021",
+      "H038"
+    ]
+  }
+]

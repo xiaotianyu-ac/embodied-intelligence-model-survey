@@ -1,0 +1,81 @@
+id,source,target,relation_type,evidence_type,explanation,source_ids
+E001,act,diffusion-policy,shared_design_axis,analytical,"Both predict action sequences to manage the control horizon, but CVAE chunking and diffusion are different policy distributions, not successive checkpoints.",S001; S003
+E002,diffusion-policy,octo,policy_family,explicit,Octo describes itself as a transformer-based diffusion policy scaled through diverse robot pretraining.,S003; S011; S012
+E003,rt1,rt2,research_successor,explicit,RT-2 succeeds RT-1 in the same research line but changes to a pretrained VLM and text-form actions; this is not RT-1 weight continuation.,S006; S008
+E004,rt1,rtx,architecture_reuse,explicit,RT-1-X applies the RT-1 architecture to cross-embodiment data.,S009; S010
+E005,rt2,rtx,architecture_reuse,explicit,RT-2-X is the VLM-based RT-X instantiation.,S009; S010
+E006,open-x-embodiment,octo,data_infrastructure,explicit,Octo pretraining uses the Open X-Embodiment dataset; RT-X weights are not the Octo backbone.,S009; S011
+E007,open-x-embodiment,openvla,data_infrastructure,explicit,OpenVLA uses the Open X-Embodiment data ecosystem while choosing its own VLM architecture.,S009; S013
+E008,rt2,openvla,shared_design_axis,analytical,"Both map VLM features to discretized autoregressive actions; similarity is architectural, not proof of inherited private RT-2 weights.",S007; S013
+E009,openvla,openvla-oft,checkpoint_and_recipe_adaptation,explicit,OFT modifies OpenVLA fine-tuning and action decoding while retaining its pretrained foundation.,S015; S016
+E010,pi0,pi0-fast,variant,explicit,pi0-FAST uses FAST tokenization to instantiate an autoregressive variant; FAST itself is a representation method.,S019; S020
+E011,pi0,pi05,model_successor,explicit,pi0.5 builds on pi0 and adds heterogeneous training and hierarchical task behavior.,S021
+E012,fast,pi05,training_representation,explicit,Knowledge insulation uses FAST action tokens as an auxiliary learning signal for the VLM backbone.,S022
+E013,pi05,pi06,model_successor,explicit,"The pi0.6 model card explicitly builds on pi0.5 while changing backbone, action expert and data.",S023
+E014,pi06,pi06-recap,reinforcement_post_training,explicit,"RECAP trains pi0.6 with offline and on-robot RL, yielding pi-star-0.6.",S024; S025
+E015,pi06,mem,memory_extension,explicit,The memory experiments augment pi0.6 with visual and language memory.,S028
+E016,pi06,pi07,architecture_inheritance,explicit,pi0.7 retains the pi0.6 architectural foundation and changes context conditioning.,S026
+E017,mem,pi07,module_inheritance,explicit,pi0.7 uses the MEM-style visual-history encoder and memory system.,S026; S028
+E018,pi06-recap,pi07,experience_distillation,explicit,pi0.7 uses experience from RL-trained specialists with strategy metadata to absorb their behaviors.,S026; S027
+E019,pi0,groot-n1,shared_design_axis,analytical,"Both couple VLM features to flow action generation, but GR00T uses cross-attention and embodiment adapters; they do not share published checkpoints.",S017; S031
+E020,act,groot-n1,cited_design,explicit,The GR00T N1 paper explicitly cites ACT for action chunking.,S031
+E021,groot-n1,groot-n15,model_successor,explicit,"N1.5 modifies the VLM, data and future-feature objective relative to N1.",S032
+E022,groot-n15,groot-n16,model_successor,explicit,"N1.6 replaces/updates the backbone, enlarges the DiT and changes action representations.",S033
+E023,groot-n16,groot-n17,model_successor,explicit,"The repository positions N1.7 as the next N1 release, with a new Cosmos-Reason2 backbone and deployment support.",S034; S035
+E024,gemini-robotics1,gemini-robotics15,model_successor,explicit,The 1.5 report extends the Gemini Robotics line through motion transfer and reasoning/action interleaving.,S038
+E025,gemini-robotics15,gemini-robotics2,model_successor,explicit,Robotics 2 extends the earlier upper-body focus into whole-body control.,S042
+E026,gemini-er15,gemini-er16,reasoning_branch_successor,explicit,ER 1.6 follows ER 1.5 within the reasoning branch; it does not replace the VLA action decoder.,S040; S041
+E027,gemini-er16,gemini-er2,reasoning_branch_successor,explicit,"ER 2 is the later embodied reasoning model in the same family, now based on Gemini 3.5 Flash.",S042; S043
+E028,gemini-er2,gemini-robotics2,system_composition,explicit,ER 2 supplies planning and coordination while Robotics 2 produces executable robot behavior.,S042
+E029,gemini-robotics15,gemini-ondevice2,technology_inheritance,explicit,The On-Device 2 model card explicitly names Robotics 1.5 technology and on-device Gemma as its basis.,S044
+E030,diffusion-policy,rdt1b,shared_design_axis,analytical,"RDT scales continuous generative action modeling and adds unified physical action semantics; comparison is methodological, not weight inheritance.",S003; S045
+E031,openvla,univla-odl,implementation_acknowledgment,explicit,OpenDriveLab UniVLA explicitly acknowledges OpenVLA code; its defining change is learning task-centric latent actions from video.,S047; S048
+E032,univla-odl,univla-baai,name_disambiguation,explicit,"Two independently authored UniVLA papers have different arXiv IDs, repositories, architectures and objectives.",S047; S048; S049; S050
+E033,rdt1b,lingbot-vla2,shared_design_axis,analytical,Both need canonical physical action mappings across embodiments; no direct RDT checkpoint inheritance is claimed.,S045; S053; S054
+E034,xvla,groot-n17,shared_design_axis,analytical,Soft prompts and embodiment adapters are alternative ways to separate shared representations from hardware-specific interfaces.,S031; S034; S051
+E035,rtc,pi0,execution_layer,explicit,RTC is introduced for action-chunking flow policies and addresses latency without replacing semantic pretraining.,S055
+E036,rtc,groot-n16,execution_integration,explicit,N1.6 reports using real-time chunking during asynchronous robot rollouts.,S033
+E037,saycan,palme,conceptual_comparison,analytical,Observation-conditioned planning extends grounding beyond language relevance and affordance scoring; no weight inheritance asserted.,S056; S057
+E038,saycan,voxposer,interface_alternative,analytical,Fixed skill selection versus geometry-grounded waypoint synthesis.,S056; S060
+E039,palme,embodiedgpt,conceptual_comparison,analytical,Both connect multimodal reasoning to low-level execution through explicit intermediate interfaces.,S057; S059
+E040,vima,palme,interface_comparison,analytical,Multimodal motor policy versus multimodal textual planner.,S057; S058
+E041,r3m,vc1,representation_comparison,analytical,Contrastive temporal alignment versus MAE-based broad sensorimotor evaluation; no direct weight reuse claimed.,S061; S062
+E042,peract,rvt,explicit_comparison,explicit,RVT directly addresses explicit 3D compute cost and compares against PerAct.,S064
+E043,peract,3d-diffuser-actor,action_representation_alternative,analytical,Discrete voxel/keypose classification versus continuous geometric action diffusion.,S063; S065
+E044,rvt,3d-diffuser-actor,geometric_policy_comparison,analytical,Both exploit 3D scene structure; action parameterization and attention differ.,S064; S065
+E045,gr1,gr2,family_extension,explicit,GR-2 scales generative video pretraining and joint video-action modeling in the GR family.,S075; S077; S091
+E046,vjepa2,vjepa2-ac,post_training,explicit,Action-conditioned predictor is post-trained using robot trajectories on V-JEPA 2 features.,S078; S081
+E047,vjepa2,vjepa21,training_recipe_extension,explicit,2.1 adds dense/deep supervision and joint image/video scaling.,S080; S081
+E048,vjepa2-ac,vjepa21,planning_framework_reuse,explicit,"V-JEPA 2.1 robot experiments reuse 2-AC predictor architecture, public code and planning protocol, but retrain the action-conditioned predictor on DROID with the new encoder; no inherited predictor weights are claimed.",S080
+E049,genie1,genie2,family_extension,explicit,Official Genie series progression; exact weight inheritance not stated.,S071; S072
+E050,genie2,genie3,family_extension,explicit,Official next-generation interactive environment model; architecture reuse not asserted.,S072; S073
+E051,unisim,dreamerv3,role_comparison,analytical,Both support policy learning from imagined experience; video simulation and compact reward-driven latent RL have different interfaces.,S067; S070
+E052,gr1,cosmos-policy,joint_prediction_comparison,analytical,Both couple future observations and actions; Cosmos Policy additionally models values for optional search.,S075; S083
+E053,cosmos-policy,cosmos3,convergent_capabilities,analytical,"Both unify prediction and action; Cosmos 3 is a different reasoner/generator architecture, not established as a Policy checkpoint successor.",S083; S084
+E054,cosmos-predict25,cosmos3,family_architecture_evolution,explicit,Cosmos 3 officially unifies formerly separated model lines; not a claim of direct parameter inheritance.,S082; S084
+E055,gaia2,gaia3,family_extension,explicit,Wayve release describes GAIA lineage and evaluation focus.,S086; S087
+E056,gaia3,gaia4,family_extension,explicit,GAIA-4 extends driver-in-the-loop simulation and coherent radar/camera generation.,S087; S088
+E057,genie3,gaia4,scope_comparison,analytical,Open-ended generated interactive worlds versus logged-scene-grounded driving counterfactual validation.,S073; S088
+E058,cosmos-predict2,cosmos-policy,pretrained_initialization,explicit,Cosmos Policy directly initializes from Cosmos-Predict2-2B-Video2World and post-trains action/state/value latent frames.,S083; S090
+E059,H-M01,amp,problem-reformulation,analytical,"Tracking a chosen clip becomes matching a movement distribution; conceptual comparison, not weight inheritance.",S092; S093
+E060,amp,ase,method-extension,explicit,ASE uses adversarial motion priors with a learnable latent skill interface for reuse.,S093; S094
+E061,H-M01,H-M03,scaling-and-recovery,analytical,Both track motion; PHC makes capacity allocation and recovery central. No inherited checkpoint claimed.,S092; S095
+E062,h2o,omnih2o,direct-follow-up,explicit,OmniH2O names H2O as prior work and extends the universal interface and learned autonomy.,S098; S099
+E063,omnih2o,H-M06,parallel-data-control-pattern,analytical,Both use motion-following controllers to collect demonstrations for autonomous upper layers; neither is asserted to derive from the other.,S099; S100
+E064,H-M03,sonic,scalable-motion-tracking,analytical,"Both frame broad motor competence as motion tracking, but architecture and real-robot scope differ.",S095; S102
+E065,H-M07,sonic,complementary-interfaces,analytical,Missing-motion completion and universal motion-token tracking solve adjacent interface problems; no direct lineage asserted.,S101; S102
+E066,groot-n15,sonic,demonstrated-composition,explicit,Paper fine-tunes a VLA that emits teleoperation-format commands executed by SONIC; only a one-task compatibility PoC.,S102
+E067,groot-n17,gear-sonic,released-workflow-composition,explicit,"Current WBC repository documents collection, N1.7 fine-tuning and SONIC-backed VLA execution.",S103
+E068,H-M09,H-M10,encoder-reuse,explicit,NoMaD explicitly uses ViNT to encode observations/goals before diffusion decoding.,S106
+E069,H-M09,H-M11,complementary-system-components,analytical,Local learned navigation and persistent semantic object memory could be composed; the survey does not claim an implemented coupling.,S104; S107
+E070,H-M11,goat-bench,task-to-benchmark,explicit,GOAT-Bench formalizes multi-modal lifelong navigation evaluation; benchmark is not a successor policy.,S107; S108
+E071,helix,helix02,version-extension,explicit,Figure extends S2/S1 with S0 and full-body sensing/actuation.,S109; S110
+E072,sonic,helix02,architectural-analogy,analytical,"Both place learned motor competence below goal-level reasoning, but their clock rates, interfaces and disclosure differ; no code/weight lineage claimed.",S102; S103; S110
+E073,skild-brain,skild-s1,product-family-evolution,explicit,"Skild presents S1 as its latest flagship foundation model, emphasizing in-context task adaptation.",S111; S112; S113
+E074,H-M04,skild-s1,two-forms-of-context-adaptation,analytical,Sensor/action history supports dynamics adaptation in one; demonstration context specifies tasks in the other. These are not equivalent evaluations.,S097; S112
+E075,gen1,gen15,product-family-evolution,explicit,Generalist describes improved context-based and few-step adaptation after the GEN-1 stage.,S125; S126
+E076,skild-s1,gen15,contrasting-in-context-training,analytical,S1 describes episodic demonstration-conditioned pretraining; GEN-1.5 says ICL emerged from continuous physical-data pretraining without a dedicated ICL objective.,S112; S126
+E077,serl,hil-serl,method_extension,explicit,"Human demonstrations, reward learning and interventions extend sample-efficient real-world RL into a practical correction loop.",S142; S143
+E078,vlm-latent-action-design,go1,method_combination,explicit,GO-1 inserts a latent planner before diffusion action generation; GO-1 Air removes the planner.,S132; S133
+E079,molmo2-er,molmoact2,backbone_initialization,explicit,The official repository identifies Molmo2-ER as the embodied reasoning backbone for a continuous action expert.,S144
+E080,flow-vla-design,xiaomi-robotics-0,execution_comparison,analytical,A shared action-generator family is augmented with explicit asynchronous training and runtime consistency; no weight inheritance from PI is implied.,S151; S152

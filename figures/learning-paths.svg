@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="840" height="650" viewBox="0 0 840 650">
+<title>VLA adaptation and world-model planning relationships</title>
+<desc>Three documented paths distinguish adaptation recipes, pretrained representations and action-conditioned planning. OpenVLA-OFT adapts OpenVLA. MolmoAct2's discrete pretraining and continuous action expert are different stages. V-JEPA 2.1 planning combines an updated encoder with an action-conditioned framework and retrains the predictor; series progression is not predictor-weight inheritance.</desc>
+<rect x="1" y="1" width="838" height="648" fill="white" stroke="#dddddd"/>
+<text x="30" y="37" font-size="23" font-weight="bold">Learning paths across VLA and world models</text>
+<text x="30" y="66" font-size="16" fill="#555555">The label on each connection states what is transferred or changed.</text>
+
+<text x="30" y="105" font-size="18" font-weight="bold">1. VLA adaptation and action-output recipe</text>
+<rect x="30" y="126" width="195" height="54" fill="#eceff1" stroke="#555555"/>
+<text x="127" y="160" font-size="18" text-anchor="middle" font-weight="bold">OpenVLA</text>
+<line x1="225" y1="153" x2="378" y2="153" stroke="#333333" stroke-width="2"/>
+<polygon points="371,147 381,153 371,159" fill="#333333"/>
+<rect x="386" y="126" width="210" height="54" fill="#eceff1" stroke="#555555"/>
+<text x="491" y="160" font-size="18" text-anchor="middle" font-weight="bold">OpenVLA-OFT</text>
+<text x="623" y="145" font-size="16">Adaptation and</text>
+<text x="623" y="168" font-size="16">output recipe</text>
+
+<line x1="30" y1="201" x2="810" y2="201" stroke="#d5d5d5"/>
+<text x="30" y="233" font-size="18" font-weight="bold">2. VLM initialization, discrete pretraining, continuous actions</text>
+<rect x="30" y="256" width="178" height="62" fill="#eceff1" stroke="#555555"/>
+<text x="119" y="293" font-size="18" text-anchor="middle" font-weight="bold">Molmo2-ER</text>
+<line x1="208" y1="287" x2="302" y2="287" stroke="#333333" stroke-width="2"/>
+<polygon points="295,281 305,287 295,293" fill="#333333"/>
+<rect x="310" y="256" width="230" height="62" fill="#eceff1" stroke="#555555"/>
+<text x="425" y="282" font-size="17" text-anchor="middle" font-weight="bold">MolmoAct2-Pretrain</text>
+<text x="425" y="306" font-size="16" text-anchor="middle">Discrete AR actions</text>
+<line x1="540" y1="287" x2="624" y2="287" stroke="#333333" stroke-width="2"/>
+<polygon points="617,281 627,287 617,293" fill="#333333"/>
+<rect x="632" y="256" width="178" height="62" fill="#eceff1" stroke="#555555"/>
+<text x="721" y="282" font-size="18" text-anchor="middle" font-weight="bold">MolmoAct2</text>
+<text x="721" y="306" font-size="16" text-anchor="middle">Flow action expert</text>
+<text x="229" y="342" font-size="15">Initialize</text>
+<text x="545" y="342" font-size="15">Post-train</text>
+
+<line x1="30" y1="367" x2="810" y2="367" stroke="#d5d5d5"/>
+<text x="30" y="400" font-size="18" font-weight="bold">3. Action conditioning and an updated visual representation</text>
+<rect x="30" y="423" width="178" height="55" fill="#eceff1" stroke="#555555"/>
+<text x="119" y="457" font-size="18" text-anchor="middle" font-weight="bold">V-JEPA 2</text>
+<line x1="208" y1="450" x2="321" y2="450" stroke="#333333" stroke-width="2"/>
+<polygon points="314,444 324,450 314,456" fill="#333333"/>
+<rect x="329" y="423" width="220" height="55" fill="#eceff1" stroke="#555555"/>
+<text x="439" y="457" font-size="18" text-anchor="middle" font-weight="bold">V-JEPA 2-AC</text>
+<text x="214" y="435" font-size="13">Action conditioning</text>
+<line x1="119" y1="478" x2="119" y2="514" stroke="#777777" stroke-width="1.5" stroke-dasharray="6 4"/>
+<polygon points="113,506 119,516 125,506" fill="#777777"/>
+<rect x="30" y="522" width="236" height="55" fill="#f5f5f5" stroke="#555555"/>
+<text x="148" y="556" font-size="18" text-anchor="middle" font-weight="bold">V-JEPA 2.1 encoder</text>
+<text x="133" y="504" font-size="14" fill="#555555">Series update</text>
+<rect x="584" y="488" width="226" height="76" fill="#edf3f6" stroke="#315b7c"/>
+<text x="697" y="516" font-size="18" text-anchor="middle" font-weight="bold">V-JEPA 2.1 planning</text>
+<text x="697" y="543" font-size="16" text-anchor="middle">Retrain action predictor</text>
+<polyline points="549,450 566,450 566,511 578,511" fill="none" stroke="#315b7c" stroke-width="2"/>
+<polygon points="573,505 583,511 573,517" fill="#315b7c"/>
+<polyline points="266,549 568,549 578,549" fill="none" stroke="#315b7c" stroke-width="2"/>
+<polygon points="573,543 583,549 573,555" fill="#315b7c"/>
+<text x="335" y="529" font-size="15" fill="#315b7c">Framework + encoder</text>
+
+<text x="30" y="610" font-size="16">Solid: specified method path. Blue: components combined for planning.</text>
+<text x="30" y="635" font-size="16" fill="#555555">Dashed: encoder-series progression, not inheritance of action-predictor weights.</text>
+</svg>

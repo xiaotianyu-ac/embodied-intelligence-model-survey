@@ -1,0 +1,33 @@
+{
+  "cutoff": "2026-09-11",
+  "scope": "whole-body control, navigation, productization",
+  "queries": [
+    "DeepMimic AMP ASE official project",
+    "PHC H2O OmniH2O HumanPlus official",
+    "Learning Humanoid Locomotion with Transformers",
+    "SONIC GEAR-SONIC whole-body control 2026",
+    "ViNT NoMaD GOAT navigation foundation model",
+    "Figure Helix 02 2026",
+    "Skild Brain S1 2026",
+    "GR00T N1.6 N1.7 humanoid reference hardware",
+    "GXO Agility Digit commercial deployment",
+    "1X NEO Expert Mode world model 2026",
+    "Gemini Robotics 2 On-Device 2",
+    "Physical Intelligence pi0.7 partner deployment",
+    "Boston Dynamics Atlas production 2026",
+    "Unitree UnifoLM VLA",
+    "Galbot AstraBrain",
+    "Generalist GEN-1 GEN-1.5"
+  ],
+  "selection": "Primary papers, author project sites, official repositories, official technical/product releases and a customer announcement only; media/social search hits were not used as evidence.",
+  "gaps": [
+    "Skild S1 exact architecture and full training recipe undisclosed in inspected launch article.",
+    "Figure Helix 02 lacks public independent broad reliability evaluation.",
+    "Commercial operation metrics are not standardized across vendors.",
+    "SONIC v1 preprint compute figures internally inconsistent; not reproduced as a unified compute total.",
+    "A number of dynamically updated official pages lack exact publication dates; these are marked undated.",
+    "PHC and visualnav project URL fetch failures were handled with official paper/repository alternatives.",
+    "NVIDIA reference-hardware announcement says late-2026 availability, after cutoff.",
+    "HoloMotion added as an emerging repository, not promoted into a quantitatively ranked core model."
+  ]
+}

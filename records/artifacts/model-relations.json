@@ -1,0 +1,1194 @@
+[
+  {
+    "source": "act",
+    "target": "diffusion-policy",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "Both predict action sequences to manage the control horizon, but CVAE chunking and diffusion are different policy distributions, not successive checkpoints.",
+    "source_ids": [
+      "S001",
+      "S003"
+    ],
+    "research_group": "vla",
+    "id": "E001",
+    "original_source": "act",
+    "original_target": "diffusion-policy"
+  },
+  {
+    "source": "diffusion-policy",
+    "target": "octo",
+    "relation_type": "policy_family",
+    "evidence_type": "explicit",
+    "explanation": "Octo describes itself as a transformer-based diffusion policy scaled through diverse robot pretraining.",
+    "source_ids": [
+      "S003",
+      "S011",
+      "S012"
+    ],
+    "research_group": "vla",
+    "id": "E002",
+    "original_source": "diffusion-policy",
+    "original_target": "octo"
+  },
+  {
+    "source": "rt1",
+    "target": "rt2",
+    "relation_type": "research_successor",
+    "evidence_type": "explicit",
+    "explanation": "RT-2 succeeds RT-1 in the same research line but changes to a pretrained VLM and text-form actions; this is not RT-1 weight continuation.",
+    "source_ids": [
+      "S006",
+      "S008"
+    ],
+    "research_group": "vla",
+    "id": "E003",
+    "original_source": "rt1",
+    "original_target": "rt2"
+  },
+  {
+    "source": "rt1",
+    "target": "rtx",
+    "relation_type": "architecture_reuse",
+    "evidence_type": "explicit",
+    "explanation": "RT-1-X applies the RT-1 architecture to cross-embodiment data.",
+    "source_ids": [
+      "S009",
+      "S010"
+    ],
+    "research_group": "vla",
+    "id": "E004",
+    "original_source": "rt1",
+    "original_target": "rtx"
+  },
+  {
+    "source": "rt2",
+    "target": "rtx",
+    "relation_type": "architecture_reuse",
+    "evidence_type": "explicit",
+    "explanation": "RT-2-X is the VLM-based RT-X instantiation.",
+    "source_ids": [
+      "S009",
+      "S010"
+    ],
+    "research_group": "vla",
+    "id": "E005",
+    "original_source": "rt2",
+    "original_target": "rtx"
+  },
+  {
+    "source": "open-x-embodiment",
+    "target": "octo",
+    "relation_type": "data_infrastructure",
+    "evidence_type": "explicit",
+    "explanation": "Octo pretraining uses the Open X-Embodiment dataset; RT-X weights are not the Octo backbone.",
+    "source_ids": [
+      "S009",
+      "S011"
+    ],
+    "research_group": "vla",
+    "id": "E006",
+    "original_source": "rtx",
+    "original_target": "octo",
+    "endpoint_note": "The cited reuse is the OXE dataset, not RT-X policy weights."
+  },
+  {
+    "source": "open-x-embodiment",
+    "target": "openvla",
+    "relation_type": "data_infrastructure",
+    "evidence_type": "explicit",
+    "explanation": "OpenVLA uses the Open X-Embodiment data ecosystem while choosing its own VLM architecture.",
+    "source_ids": [
+      "S009",
+      "S013"
+    ],
+    "research_group": "vla",
+    "id": "E007",
+    "original_source": "rtx",
+    "original_target": "openvla",
+    "endpoint_note": "The cited reuse is the OXE dataset, not RT-X policy weights."
+  },
+  {
+    "source": "rt2",
+    "target": "openvla",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "Both map VLM features to discretized autoregressive actions; similarity is architectural, not proof of inherited private RT-2 weights.",
+    "source_ids": [
+      "S007",
+      "S013"
+    ],
+    "research_group": "vla",
+    "id": "E008",
+    "original_source": "rt2",
+    "original_target": "openvla"
+  },
+  {
+    "source": "openvla",
+    "target": "openvla-oft",
+    "relation_type": "checkpoint_and_recipe_adaptation",
+    "evidence_type": "explicit",
+    "explanation": "OFT modifies OpenVLA fine-tuning and action decoding while retaining its pretrained foundation.",
+    "source_ids": [
+      "S015",
+      "S016"
+    ],
+    "research_group": "vla",
+    "id": "E009",
+    "original_source": "openvla",
+    "original_target": "openvla-oft"
+  },
+  {
+    "source": "pi0",
+    "target": "pi0-fast",
+    "relation_type": "variant",
+    "evidence_type": "explicit",
+    "explanation": "pi0-FAST uses FAST tokenization to instantiate an autoregressive variant; FAST itself is a representation method.",
+    "source_ids": [
+      "S019",
+      "S020"
+    ],
+    "research_group": "vla",
+    "id": "E010",
+    "original_source": "pi0",
+    "original_target": "fast",
+    "endpoint_note": "The explicit variant is the pi0-FAST policy; FAST alone denotes the tokenizer."
+  },
+  {
+    "source": "pi0",
+    "target": "pi05",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "pi0.5 builds on pi0 and adds heterogeneous training and hierarchical task behavior.",
+    "source_ids": [
+      "S021"
+    ],
+    "research_group": "vla",
+    "id": "E011",
+    "original_source": "pi0",
+    "original_target": "pi05"
+  },
+  {
+    "source": "fast",
+    "target": "pi05",
+    "relation_type": "training_representation",
+    "evidence_type": "explicit",
+    "explanation": "Knowledge insulation uses FAST action tokens as an auxiliary learning signal for the VLM backbone.",
+    "source_ids": [
+      "S022"
+    ],
+    "research_group": "vla",
+    "id": "E012",
+    "original_source": "fast",
+    "original_target": "pi05"
+  },
+  {
+    "source": "pi05",
+    "target": "pi06",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "The pi0.6 model card explicitly builds on pi0.5 while changing backbone, action expert and data.",
+    "source_ids": [
+      "S023"
+    ],
+    "research_group": "vla",
+    "id": "E013",
+    "original_source": "pi05",
+    "original_target": "pi06"
+  },
+  {
+    "source": "pi06",
+    "target": "pi06-recap",
+    "relation_type": "reinforcement_post_training",
+    "evidence_type": "explicit",
+    "explanation": "RECAP trains pi0.6 with offline and on-robot RL, yielding pi-star-0.6.",
+    "source_ids": [
+      "S024",
+      "S025"
+    ],
+    "research_group": "vla",
+    "id": "E014",
+    "original_source": "pi06",
+    "original_target": "pi06-recap"
+  },
+  {
+    "source": "pi06",
+    "target": "mem",
+    "relation_type": "memory_extension",
+    "evidence_type": "explicit",
+    "explanation": "The memory experiments augment pi0.6 with visual and language memory.",
+    "source_ids": [
+      "S028"
+    ],
+    "research_group": "vla",
+    "id": "E015",
+    "original_source": "pi06",
+    "original_target": "mem"
+  },
+  {
+    "source": "pi06",
+    "target": "pi07",
+    "relation_type": "architecture_inheritance",
+    "evidence_type": "explicit",
+    "explanation": "pi0.7 retains the pi0.6 architectural foundation and changes context conditioning.",
+    "source_ids": [
+      "S026"
+    ],
+    "research_group": "vla",
+    "id": "E016",
+    "original_source": "pi06",
+    "original_target": "pi07"
+  },
+  {
+    "source": "mem",
+    "target": "pi07",
+    "relation_type": "module_inheritance",
+    "evidence_type": "explicit",
+    "explanation": "pi0.7 uses the MEM-style visual-history encoder and memory system.",
+    "source_ids": [
+      "S026",
+      "S028"
+    ],
+    "research_group": "vla",
+    "id": "E017",
+    "original_source": "mem",
+    "original_target": "pi07"
+  },
+  {
+    "source": "pi06-recap",
+    "target": "pi07",
+    "relation_type": "experience_distillation",
+    "evidence_type": "explicit",
+    "explanation": "pi0.7 uses experience from RL-trained specialists with strategy metadata to absorb their behaviors.",
+    "source_ids": [
+      "S026",
+      "S027"
+    ],
+    "research_group": "vla",
+    "id": "E018",
+    "original_source": "pi06-recap",
+    "original_target": "pi07"
+  },
+  {
+    "source": "pi0",
+    "target": "groot-n1",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "Both couple VLM features to flow action generation, but GR00T uses cross-attention and embodiment adapters; they do not share published checkpoints.",
+    "source_ids": [
+      "S017",
+      "S031"
+    ],
+    "research_group": "vla",
+    "id": "E019",
+    "original_source": "pi0",
+    "original_target": "groot-n1"
+  },
+  {
+    "source": "act",
+    "target": "groot-n1",
+    "relation_type": "cited_design",
+    "evidence_type": "explicit",
+    "explanation": "The GR00T N1 paper explicitly cites ACT for action chunking.",
+    "source_ids": [
+      "S031"
+    ],
+    "research_group": "vla",
+    "id": "E020",
+    "original_source": "act",
+    "original_target": "groot-n1"
+  },
+  {
+    "source": "groot-n1",
+    "target": "groot-n15",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "N1.5 modifies the VLM, data and future-feature objective relative to N1.",
+    "source_ids": [
+      "S032"
+    ],
+    "research_group": "vla",
+    "id": "E021",
+    "original_source": "groot-n1",
+    "original_target": "groot-n15"
+  },
+  {
+    "source": "groot-n15",
+    "target": "groot-n16",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "N1.6 replaces/updates the backbone, enlarges the DiT and changes action representations.",
+    "source_ids": [
+      "S033"
+    ],
+    "research_group": "vla",
+    "id": "E022",
+    "original_source": "groot-n15",
+    "original_target": "groot-n16"
+  },
+  {
+    "source": "groot-n16",
+    "target": "groot-n17",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "The repository positions N1.7 as the next N1 release, with a new Cosmos-Reason2 backbone and deployment support.",
+    "source_ids": [
+      "S034",
+      "S035"
+    ],
+    "research_group": "vla",
+    "id": "E023",
+    "original_source": "groot-n16",
+    "original_target": "groot-n17"
+  },
+  {
+    "source": "gemini-robotics1",
+    "target": "gemini-robotics15",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "The 1.5 report extends the Gemini Robotics line through motion transfer and reasoning/action interleaving.",
+    "source_ids": [
+      "S038"
+    ],
+    "research_group": "vla",
+    "id": "E024",
+    "original_source": "gemini-robotics1",
+    "original_target": "gemini-robotics15"
+  },
+  {
+    "source": "gemini-robotics15",
+    "target": "gemini-robotics2",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "Robotics 2 extends the earlier upper-body focus into whole-body control.",
+    "source_ids": [
+      "S042"
+    ],
+    "research_group": "vla",
+    "id": "E025",
+    "original_source": "gemini-robotics15",
+    "original_target": "gemini-robotics2"
+  },
+  {
+    "source": "gemini-er15",
+    "target": "gemini-er16",
+    "relation_type": "reasoning_branch_successor",
+    "evidence_type": "explicit",
+    "explanation": "ER 1.6 follows ER 1.5 within the reasoning branch; it does not replace the VLA action decoder.",
+    "source_ids": [
+      "S040",
+      "S041"
+    ],
+    "research_group": "vla",
+    "id": "E026",
+    "original_source": "gemini-robotics15",
+    "original_target": "gemini-er16",
+    "endpoint_note": "The combined source card covers ER1.5 and VLA1.5; this particular successor edge is explicitly the ER branch."
+  },
+  {
+    "source": "gemini-er16",
+    "target": "gemini-er2",
+    "relation_type": "reasoning_branch_successor",
+    "evidence_type": "explicit",
+    "explanation": "ER 2 is the later embodied reasoning model in the same family, now based on Gemini 3.5 Flash.",
+    "source_ids": [
+      "S042",
+      "S043"
+    ],
+    "research_group": "vla",
+    "id": "E027",
+    "original_source": "gemini-er16",
+    "original_target": "gemini-er2"
+  },
+  {
+    "source": "gemini-er2",
+    "target": "gemini-robotics2",
+    "relation_type": "system_composition",
+    "evidence_type": "explicit",
+    "explanation": "ER 2 supplies planning and coordination while Robotics 2 produces executable robot behavior.",
+    "source_ids": [
+      "S042"
+    ],
+    "research_group": "vla",
+    "id": "E028",
+    "original_source": "gemini-er2",
+    "original_target": "gemini-robotics2"
+  },
+  {
+    "source": "gemini-robotics15",
+    "target": "gemini-ondevice2",
+    "relation_type": "technology_inheritance",
+    "evidence_type": "explicit",
+    "explanation": "The On-Device 2 model card explicitly names Robotics 1.5 technology and on-device Gemma as its basis.",
+    "source_ids": [
+      "S044"
+    ],
+    "research_group": "vla",
+    "id": "E029",
+    "original_source": "gemini-robotics15",
+    "original_target": "gemini-ondevice2"
+  },
+  {
+    "source": "diffusion-policy",
+    "target": "rdt1b",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "RDT scales continuous generative action modeling and adds unified physical action semantics; comparison is methodological, not weight inheritance.",
+    "source_ids": [
+      "S003",
+      "S045"
+    ],
+    "research_group": "vla",
+    "id": "E030",
+    "original_source": "diffusion-policy",
+    "original_target": "rdt1b"
+  },
+  {
+    "source": "openvla",
+    "target": "univla-odl",
+    "relation_type": "implementation_acknowledgment",
+    "evidence_type": "explicit",
+    "explanation": "OpenDriveLab UniVLA explicitly acknowledges OpenVLA code; its defining change is learning task-centric latent actions from video.",
+    "source_ids": [
+      "S047",
+      "S048"
+    ],
+    "research_group": "vla",
+    "id": "E031",
+    "original_source": "openvla",
+    "original_target": "univla-odl"
+  },
+  {
+    "source": "univla-odl",
+    "target": "univla-baai",
+    "relation_type": "name_disambiguation",
+    "evidence_type": "explicit",
+    "explanation": "Two independently authored UniVLA papers have different arXiv IDs, repositories, architectures and objectives.",
+    "source_ids": [
+      "S047",
+      "S048",
+      "S049",
+      "S050"
+    ],
+    "research_group": "vla",
+    "id": "E032",
+    "original_source": "univla-odl",
+    "original_target": "univla-baai"
+  },
+  {
+    "source": "rdt1b",
+    "target": "lingbot-vla2",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "Both need canonical physical action mappings across embodiments; no direct RDT checkpoint inheritance is claimed.",
+    "source_ids": [
+      "S045",
+      "S053",
+      "S054"
+    ],
+    "research_group": "vla",
+    "id": "E033",
+    "original_source": "rdt1b",
+    "original_target": "lingbot-vla2"
+  },
+  {
+    "source": "xvla",
+    "target": "groot-n17",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "Soft prompts and embodiment adapters are alternative ways to separate shared representations from hardware-specific interfaces.",
+    "source_ids": [
+      "S031",
+      "S034",
+      "S051"
+    ],
+    "research_group": "vla",
+    "id": "E034",
+    "original_source": "xvla",
+    "original_target": "groot-n17"
+  },
+  {
+    "source": "rtc",
+    "target": "pi0",
+    "relation_type": "execution_layer",
+    "evidence_type": "explicit",
+    "explanation": "RTC is introduced for action-chunking flow policies and addresses latency without replacing semantic pretraining.",
+    "source_ids": [
+      "S055"
+    ],
+    "research_group": "vla",
+    "id": "E035",
+    "original_source": "rtc",
+    "original_target": "pi0"
+  },
+  {
+    "source": "rtc",
+    "target": "groot-n16",
+    "relation_type": "execution_integration",
+    "evidence_type": "explicit",
+    "explanation": "N1.6 reports using real-time chunking during asynchronous robot rollouts.",
+    "source_ids": [
+      "S033"
+    ],
+    "research_group": "vla",
+    "id": "E036",
+    "original_source": "rtc",
+    "original_target": "groot-n16"
+  },
+  {
+    "source": "saycan",
+    "target": "palme",
+    "relation_type": "conceptual_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Observation-conditioned planning extends grounding beyond language relevance and affordance scoring; no weight inheritance asserted.",
+    "source_ids": [
+      "S056",
+      "S057"
+    ],
+    "research_group": "world",
+    "id": "E037",
+    "original_source": "saycan",
+    "original_target": "palme"
+  },
+  {
+    "source": "saycan",
+    "target": "voxposer",
+    "relation_type": "interface_alternative",
+    "evidence_type": "analytical",
+    "explanation": "Fixed skill selection versus geometry-grounded waypoint synthesis.",
+    "source_ids": [
+      "S056",
+      "S060"
+    ],
+    "research_group": "world",
+    "id": "E038",
+    "original_source": "saycan",
+    "original_target": "voxposer"
+  },
+  {
+    "source": "palme",
+    "target": "embodiedgpt",
+    "relation_type": "conceptual_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Both connect multimodal reasoning to low-level execution through explicit intermediate interfaces.",
+    "source_ids": [
+      "S057",
+      "S059"
+    ],
+    "research_group": "world",
+    "id": "E039",
+    "original_source": "palme",
+    "original_target": "embodiedgpt"
+  },
+  {
+    "source": "vima",
+    "target": "palme",
+    "relation_type": "interface_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Multimodal motor policy versus multimodal textual planner.",
+    "source_ids": [
+      "S057",
+      "S058"
+    ],
+    "research_group": "world",
+    "id": "E040",
+    "original_source": "vima",
+    "original_target": "palme"
+  },
+  {
+    "source": "r3m",
+    "target": "vc1",
+    "relation_type": "representation_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Contrastive temporal alignment versus MAE-based broad sensorimotor evaluation; no direct weight reuse claimed.",
+    "source_ids": [
+      "S061",
+      "S062"
+    ],
+    "research_group": "world",
+    "id": "E041",
+    "original_source": "r3m",
+    "original_target": "vc1"
+  },
+  {
+    "source": "peract",
+    "target": "rvt",
+    "relation_type": "explicit_comparison",
+    "evidence_type": "explicit",
+    "explanation": "RVT directly addresses explicit 3D compute cost and compares against PerAct.",
+    "source_ids": [
+      "S064"
+    ],
+    "research_group": "world",
+    "id": "E042",
+    "original_source": "peract",
+    "original_target": "rvt"
+  },
+  {
+    "source": "peract",
+    "target": "3d-diffuser-actor",
+    "relation_type": "action_representation_alternative",
+    "evidence_type": "analytical",
+    "explanation": "Discrete voxel/keypose classification versus continuous geometric action diffusion.",
+    "source_ids": [
+      "S063",
+      "S065"
+    ],
+    "research_group": "world",
+    "id": "E043",
+    "original_source": "peract",
+    "original_target": "3d-diffuser-actor"
+  },
+  {
+    "source": "rvt",
+    "target": "3d-diffuser-actor",
+    "relation_type": "geometric_policy_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Both exploit 3D scene structure; action parameterization and attention differ.",
+    "source_ids": [
+      "S064",
+      "S065"
+    ],
+    "research_group": "world",
+    "id": "E044",
+    "original_source": "rvt",
+    "original_target": "3d-diffuser-actor"
+  },
+  {
+    "source": "gr1",
+    "target": "gr2",
+    "relation_type": "family_extension",
+    "evidence_type": "explicit",
+    "explanation": "GR-2 scales generative video pretraining and joint video-action modeling in the GR family.",
+    "source_ids": [
+      "S075",
+      "S077",
+      "S091"
+    ],
+    "research_group": "world",
+    "id": "E045",
+    "original_source": "gr1",
+    "original_target": "gr2"
+  },
+  {
+    "source": "vjepa2",
+    "target": "vjepa2-ac",
+    "relation_type": "post_training",
+    "evidence_type": "explicit",
+    "explanation": "Action-conditioned predictor is post-trained using robot trajectories on V-JEPA 2 features.",
+    "source_ids": [
+      "S078",
+      "S081"
+    ],
+    "research_group": "world",
+    "id": "E046",
+    "original_source": "vjepa2",
+    "original_target": "vjepa2-ac"
+  },
+  {
+    "source": "vjepa2",
+    "target": "vjepa21",
+    "relation_type": "training_recipe_extension",
+    "evidence_type": "explicit",
+    "explanation": "2.1 adds dense/deep supervision and joint image/video scaling.",
+    "source_ids": [
+      "S080",
+      "S081"
+    ],
+    "research_group": "world",
+    "id": "E047",
+    "original_source": "vjepa2",
+    "original_target": "vjepa21"
+  },
+  {
+    "source": "vjepa2-ac",
+    "target": "vjepa21",
+    "relation_type": "planning_framework_reuse",
+    "evidence_type": "explicit",
+    "explanation": "V-JEPA 2.1 robot experiments reuse 2-AC predictor architecture, public code and planning protocol, but retrain the action-conditioned predictor on DROID with the new encoder; no inherited predictor weights are claimed.",
+    "source_ids": [
+      "S080"
+    ],
+    "research_group": "world",
+    "id": "E048",
+    "original_source": "vjepa2-ac",
+    "original_target": "vjepa21"
+  },
+  {
+    "source": "genie1",
+    "target": "genie2",
+    "relation_type": "family_extension",
+    "evidence_type": "explicit",
+    "explanation": "Official Genie series progression; exact weight inheritance not stated.",
+    "source_ids": [
+      "S071",
+      "S072"
+    ],
+    "research_group": "world",
+    "id": "E049",
+    "original_source": "genie1",
+    "original_target": "genie2"
+  },
+  {
+    "source": "genie2",
+    "target": "genie3",
+    "relation_type": "family_extension",
+    "evidence_type": "explicit",
+    "explanation": "Official next-generation interactive environment model; architecture reuse not asserted.",
+    "source_ids": [
+      "S072",
+      "S073"
+    ],
+    "research_group": "world",
+    "id": "E050",
+    "original_source": "genie2",
+    "original_target": "genie3"
+  },
+  {
+    "source": "unisim",
+    "target": "dreamerv3",
+    "relation_type": "role_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Both support policy learning from imagined experience; video simulation and compact reward-driven latent RL have different interfaces.",
+    "source_ids": [
+      "S067",
+      "S070"
+    ],
+    "research_group": "world",
+    "id": "E051",
+    "original_source": "unisim",
+    "original_target": "dreamerv3"
+  },
+  {
+    "source": "gr1",
+    "target": "cosmos-policy",
+    "relation_type": "joint_prediction_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Both couple future observations and actions; Cosmos Policy additionally models values for optional search.",
+    "source_ids": [
+      "S075",
+      "S083"
+    ],
+    "research_group": "world",
+    "id": "E052",
+    "original_source": "gr1",
+    "original_target": "cosmos-policy"
+  },
+  {
+    "source": "cosmos-policy",
+    "target": "cosmos3",
+    "relation_type": "convergent_capabilities",
+    "evidence_type": "analytical",
+    "explanation": "Both unify prediction and action; Cosmos 3 is a different reasoner/generator architecture, not established as a Policy checkpoint successor.",
+    "source_ids": [
+      "S083",
+      "S084"
+    ],
+    "research_group": "world",
+    "id": "E053",
+    "original_source": "cosmos-policy",
+    "original_target": "cosmos3"
+  },
+  {
+    "source": "cosmos-predict25",
+    "target": "cosmos3",
+    "relation_type": "family_architecture_evolution",
+    "evidence_type": "explicit",
+    "explanation": "Cosmos 3 officially unifies formerly separated model lines; not a claim of direct parameter inheritance.",
+    "source_ids": [
+      "S082",
+      "S084"
+    ],
+    "research_group": "world",
+    "id": "E054",
+    "original_source": "cosmos-predict25",
+    "original_target": "cosmos3"
+  },
+  {
+    "source": "gaia2",
+    "target": "gaia3",
+    "relation_type": "family_extension",
+    "evidence_type": "explicit",
+    "explanation": "Wayve release describes GAIA lineage and evaluation focus.",
+    "source_ids": [
+      "S086",
+      "S087"
+    ],
+    "research_group": "world",
+    "id": "E055",
+    "original_source": "gaia2",
+    "original_target": "gaia3"
+  },
+  {
+    "source": "gaia3",
+    "target": "gaia4",
+    "relation_type": "family_extension",
+    "evidence_type": "explicit",
+    "explanation": "GAIA-4 extends driver-in-the-loop simulation and coherent radar/camera generation.",
+    "source_ids": [
+      "S087",
+      "S088"
+    ],
+    "research_group": "world",
+    "id": "E056",
+    "original_source": "gaia3",
+    "original_target": "gaia4"
+  },
+  {
+    "source": "genie3",
+    "target": "gaia4",
+    "relation_type": "scope_comparison",
+    "evidence_type": "analytical",
+    "explanation": "Open-ended generated interactive worlds versus logged-scene-grounded driving counterfactual validation.",
+    "source_ids": [
+      "S073",
+      "S088"
+    ],
+    "research_group": "world",
+    "id": "E057",
+    "original_source": "genie3",
+    "original_target": "gaia4"
+  },
+  {
+    "source": "cosmos-predict2",
+    "target": "cosmos-policy",
+    "relation_type": "pretrained_initialization",
+    "evidence_type": "explicit",
+    "explanation": "Cosmos Policy directly initializes from Cosmos-Predict2-2B-Video2World and post-trains action/state/value latent frames.",
+    "source_ids": [
+      "S083",
+      "S090"
+    ],
+    "research_group": "world",
+    "id": "E058",
+    "original_source": "cosmos-predict2",
+    "original_target": "cosmos-policy"
+  },
+  {
+    "source": "H-M01",
+    "target": "amp",
+    "relation_type": "problem-reformulation",
+    "evidence_type": "analytical",
+    "explanation": "Tracking a chosen clip becomes matching a movement distribution; conceptual comparison, not weight inheritance.",
+    "source_ids": [
+      "S092",
+      "S093"
+    ],
+    "research_group": "wholebody",
+    "id": "E059",
+    "original_source": "DeepMimic",
+    "original_target": "AMP"
+  },
+  {
+    "source": "amp",
+    "target": "ase",
+    "relation_type": "method-extension",
+    "evidence_type": "explicit",
+    "explanation": "ASE uses adversarial motion priors with a learnable latent skill interface for reuse.",
+    "source_ids": [
+      "S093",
+      "S094"
+    ],
+    "research_group": "wholebody",
+    "id": "E060",
+    "original_source": "AMP",
+    "original_target": "ASE"
+  },
+  {
+    "source": "H-M01",
+    "target": "H-M03",
+    "relation_type": "scaling-and-recovery",
+    "evidence_type": "analytical",
+    "explanation": "Both track motion; PHC makes capacity allocation and recovery central. No inherited checkpoint claimed.",
+    "source_ids": [
+      "S092",
+      "S095"
+    ],
+    "research_group": "wholebody",
+    "id": "E061",
+    "original_source": "DeepMimic",
+    "original_target": "PHC"
+  },
+  {
+    "source": "h2o",
+    "target": "omnih2o",
+    "relation_type": "direct-follow-up",
+    "evidence_type": "explicit",
+    "explanation": "OmniH2O names H2O as prior work and extends the universal interface and learned autonomy.",
+    "source_ids": [
+      "S098",
+      "S099"
+    ],
+    "research_group": "wholebody",
+    "id": "E062",
+    "original_source": "H2O",
+    "original_target": "OmniH2O"
+  },
+  {
+    "source": "omnih2o",
+    "target": "H-M06",
+    "relation_type": "parallel-data-control-pattern",
+    "evidence_type": "analytical",
+    "explanation": "Both use motion-following controllers to collect demonstrations for autonomous upper layers; neither is asserted to derive from the other.",
+    "source_ids": [
+      "S099",
+      "S100"
+    ],
+    "research_group": "wholebody",
+    "id": "E063",
+    "original_source": "OmniH2O",
+    "original_target": "HumanPlus"
+  },
+  {
+    "source": "H-M03",
+    "target": "sonic",
+    "relation_type": "scalable-motion-tracking",
+    "evidence_type": "analytical",
+    "explanation": "Both frame broad motor competence as motion tracking, but architecture and real-robot scope differ.",
+    "source_ids": [
+      "S095",
+      "S102"
+    ],
+    "research_group": "wholebody",
+    "id": "E064",
+    "original_source": "PHC",
+    "original_target": "SONIC"
+  },
+  {
+    "source": "H-M07",
+    "target": "sonic",
+    "relation_type": "complementary-interfaces",
+    "evidence_type": "analytical",
+    "explanation": "Missing-motion completion and universal motion-token tracking solve adjacent interface problems; no direct lineage asserted.",
+    "source_ids": [
+      "S101",
+      "S102"
+    ],
+    "research_group": "wholebody",
+    "id": "E065",
+    "original_source": "MaskedMimic",
+    "original_target": "SONIC"
+  },
+  {
+    "source": "groot-n15",
+    "target": "sonic",
+    "relation_type": "demonstrated-composition",
+    "evidence_type": "explicit",
+    "explanation": "Paper fine-tunes a VLA that emits teleoperation-format commands executed by SONIC; only a one-task compatibility PoC.",
+    "source_ids": [
+      "S102"
+    ],
+    "research_group": "wholebody",
+    "id": "E066",
+    "original_source": "GR00T N1.5",
+    "original_target": "SONIC"
+  },
+  {
+    "source": "groot-n17",
+    "target": "gear-sonic",
+    "relation_type": "released-workflow-composition",
+    "evidence_type": "explicit",
+    "explanation": "Current WBC repository documents collection, N1.7 fine-tuning and SONIC-backed VLA execution.",
+    "source_ids": [
+      "S103"
+    ],
+    "research_group": "wholebody",
+    "id": "E067",
+    "original_source": "GR00T N1.7",
+    "original_target": "GEAR-SONIC"
+  },
+  {
+    "source": "H-M09",
+    "target": "H-M10",
+    "relation_type": "encoder-reuse",
+    "evidence_type": "explicit",
+    "explanation": "NoMaD explicitly uses ViNT to encode observations/goals before diffusion decoding.",
+    "source_ids": [
+      "S106"
+    ],
+    "research_group": "wholebody",
+    "id": "E068",
+    "original_source": "ViNT",
+    "original_target": "NoMaD"
+  },
+  {
+    "source": "H-M09",
+    "target": "H-M11",
+    "relation_type": "complementary-system-components",
+    "evidence_type": "analytical",
+    "explanation": "Local learned navigation and persistent semantic object memory could be composed; the survey does not claim an implemented coupling.",
+    "source_ids": [
+      "S104",
+      "S107"
+    ],
+    "research_group": "wholebody",
+    "id": "E069",
+    "original_source": "ViNT",
+    "original_target": "GOAT"
+  },
+  {
+    "source": "H-M11",
+    "target": "goat-bench",
+    "relation_type": "task-to-benchmark",
+    "evidence_type": "explicit",
+    "explanation": "GOAT-Bench formalizes multi-modal lifelong navigation evaluation; benchmark is not a successor policy.",
+    "source_ids": [
+      "S107",
+      "S108"
+    ],
+    "research_group": "wholebody",
+    "id": "E070",
+    "original_source": "GOAT",
+    "original_target": "GOAT-Bench"
+  },
+  {
+    "source": "helix",
+    "target": "helix02",
+    "relation_type": "version-extension",
+    "evidence_type": "explicit",
+    "explanation": "Figure extends S2/S1 with S0 and full-body sensing/actuation.",
+    "source_ids": [
+      "S109",
+      "S110"
+    ],
+    "research_group": "wholebody",
+    "id": "E071",
+    "original_source": "Helix",
+    "original_target": "Helix 02"
+  },
+  {
+    "source": "sonic",
+    "target": "helix02",
+    "relation_type": "architectural-analogy",
+    "evidence_type": "analytical",
+    "explanation": "Both place learned motor competence below goal-level reasoning, but their clock rates, interfaces and disclosure differ; no code/weight lineage claimed.",
+    "source_ids": [
+      "S102",
+      "S103",
+      "S110"
+    ],
+    "research_group": "wholebody",
+    "id": "E072",
+    "original_source": "SONIC",
+    "original_target": "Helix 02"
+  },
+  {
+    "source": "skild-brain",
+    "target": "skild-s1",
+    "relation_type": "product-family-evolution",
+    "evidence_type": "explicit",
+    "explanation": "Skild presents S1 as its latest flagship foundation model, emphasizing in-context task adaptation.",
+    "source_ids": [
+      "S111",
+      "S112",
+      "S113"
+    ],
+    "research_group": "wholebody",
+    "id": "E073",
+    "original_source": "Skild Brain",
+    "original_target": "S1"
+  },
+  {
+    "source": "H-M04",
+    "target": "skild-s1",
+    "relation_type": "two-forms-of-context-adaptation",
+    "evidence_type": "analytical",
+    "explanation": "Sensor/action history supports dynamics adaptation in one; demonstration context specifies tasks in the other. These are not equivalent evaluations.",
+    "source_ids": [
+      "S097",
+      "S112"
+    ],
+    "research_group": "wholebody",
+    "id": "E074",
+    "original_source": "Humanoid Transformer",
+    "original_target": "S1"
+  },
+  {
+    "source": "gen1",
+    "target": "gen15",
+    "relation_type": "product-family-evolution",
+    "evidence_type": "explicit",
+    "explanation": "Generalist describes improved context-based and few-step adaptation after the GEN-1 stage.",
+    "source_ids": [
+      "S125",
+      "S126"
+    ],
+    "research_group": "wholebody",
+    "id": "E075",
+    "original_source": "GEN-1",
+    "original_target": "GEN-1.5"
+  },
+  {
+    "source": "skild-s1",
+    "target": "gen15",
+    "relation_type": "contrasting-in-context-training",
+    "evidence_type": "analytical",
+    "explanation": "S1 describes episodic demonstration-conditioned pretraining; GEN-1.5 says ICL emerged from continuous physical-data pretraining without a dedicated ICL objective.",
+    "source_ids": [
+      "S112",
+      "S126"
+    ],
+    "research_group": "wholebody",
+    "id": "E076",
+    "original_source": "S1",
+    "original_target": "GEN-1.5"
+  },
+  {
+    "source": "serl",
+    "target": "hil-serl",
+    "relation_type": "method_extension",
+    "evidence_type": "explicit",
+    "explanation": "Human demonstrations, reward learning and interventions extend sample-efficient real-world RL into a practical correction loop.",
+    "source_ids": [
+      "S142",
+      "S143"
+    ],
+    "research_group": "synthesis",
+    "id": "E077",
+    "original_source": "SERL",
+    "original_target": "HIL-SERL"
+  },
+  {
+    "source": "vlm-latent-action-design",
+    "target": "go1",
+    "relation_type": "method_combination",
+    "evidence_type": "explicit",
+    "explanation": "GO-1 inserts a latent planner before diffusion action generation; GO-1 Air removes the planner.",
+    "source_ids": [
+      "S132",
+      "S133"
+    ],
+    "research_group": "synthesis",
+    "id": "E078",
+    "original_source": "VLM + latent action learning",
+    "original_target": "GO-1"
+  },
+  {
+    "source": "molmo2-er",
+    "target": "molmoact2",
+    "relation_type": "backbone_initialization",
+    "evidence_type": "explicit",
+    "explanation": "The official repository identifies Molmo2-ER as the embodied reasoning backbone for a continuous action expert.",
+    "source_ids": [
+      "S144"
+    ],
+    "research_group": "synthesis",
+    "id": "E079",
+    "original_source": "Molmo2-ER",
+    "original_target": "MolmoAct2"
+  },
+  {
+    "source": "flow-vla-design",
+    "target": "xiaomi-robotics-0",
+    "relation_type": "execution_comparison",
+    "evidence_type": "analytical",
+    "explanation": "A shared action-generator family is augmented with explicit asynchronous training and runtime consistency; no weight inheritance from PI is implied.",
+    "source_ids": [
+      "S151",
+      "S152"
+    ],
+    "research_group": "synthesis",
+    "id": "E080",
+    "original_source": "Flow-based VLA",
+    "original_target": "Xiaomi-Robotics-0"
+  }
+]

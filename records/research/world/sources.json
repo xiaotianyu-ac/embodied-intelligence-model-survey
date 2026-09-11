@@ -1,0 +1,542 @@
+[
+  {
+    "id": "W001",
+    "title": "Do As I Can, Not As I Say: Grounding Language in Robotic Affordances",
+    "authors_or_org": "Michael Ahn et al.; Google Robotics / Everyday Robots",
+    "date": "2022-04-04",
+    "url": "https://say-can.github.io/",
+    "type": "project",
+    "claims": [
+      "LLM relevance and affordance scores select executable skills; original feedback limitations; tabletop release."
+    ],
+    "limitations": [
+      "Public simulation is not the complete real mobile manipulation stack."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W002",
+    "title": "PaLM-E: An Embodied Multimodal Language Model",
+    "authors_or_org": "Danny Driess et al.; Google / TU Berlin",
+    "date": "2023",
+    "url": "https://palm-e.github.io/",
+    "type": "project",
+    "claims": [
+      "Continuous observations inserted as language-space embeddings; text plans; joint multimodal training."
+    ],
+    "limitations": [
+      "Text planning is not direct servo control."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W003",
+    "title": "VIMA: General Robot Manipulation with Multimodal Prompts",
+    "authors_or_org": "Yunfan Jiang et al.; Stanford / NVIDIA and collaborators",
+    "date": "2023",
+    "url": "https://vimalabs.github.io/",
+    "type": "project",
+    "claims": [
+      "Object-centric multimodal prompting, T5 and cross-attention decoder; 600K+ trajectories; four-level generalization."
+    ],
+    "limitations": [
+      "Primarily procedural tabletop simulation."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W004",
+    "title": "EmbodiedGPT: Vision-Language Pre-Training via Embodied Chain of Thought",
+    "authors_or_org": "Yao Mu et al.",
+    "date": "2023-05-24",
+    "url": "https://arxiv.org/abs/2305.15021",
+    "type": "paper",
+    "claims": [
+      "EgoCOT, prefix-tuned 7B language model, planning features for control."
+    ],
+    "limitations": [
+      "Embodied benchmarks do not prove arbitrary real-world control."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W005",
+    "title": "VoxPoser: Composable 3D Value Maps for Robotic Manipulation with Language Models",
+    "authors_or_org": "Wenlong Huang et al.; Stanford / UIUC",
+    "date": "2023",
+    "url": "https://voxposer.github.io/",
+    "type": "project",
+    "claims": [
+      "Language-generated code composes geometry-grounded value maps; motion planning and feedback."
+    ],
+    "limitations": [
+      "Depends on perception, planning assumptions and system integration."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W006",
+    "title": "R3M: A Universal Visual Representation for Robot Manipulation",
+    "authors_or_org": "Suraj Nair, Aravind Rajeswaran, Vikash Kumar, Chelsea Finn, Abhinav Gupta",
+    "date": "2022-03-23",
+    "url": "https://arxiv.org/abs/2203.12601",
+    "type": "paper",
+    "claims": [
+      "Ego4D visual pretraining with temporal and language alignment; frozen-feature policy learning."
+    ],
+    "limitations": [
+      "Encoder is not a complete policy or dynamics model."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W007",
+    "title": "Where are we in the search for an Artificial Visual Cortex for Embodied Intelligence?",
+    "authors_or_org": "Arjun Majumdar et al.; Meta and collaborators",
+    "date": "2023",
+    "url": "https://arxiv.org/abs/2303.18240",
+    "type": "paper",
+    "claims": [
+      "VC-1 MAE pretraining; CortexBench 17 tasks; adaptation changes downstream performance."
+    ],
+    "limitations": [
+      "Cross-domain conclusions depend on adaptation and downstream training."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W008",
+    "title": "Perceiver-Actor: A Multi-Task Transformer for Robotic Manipulation",
+    "authors_or_org": "Mohit Shridhar, Lucas Manuelli, Dieter Fox",
+    "date": "2022",
+    "url": "https://peract.github.io/",
+    "type": "project",
+    "claims": [
+      "Voxel observation-action alignment; Perceiver; discretized 6-DoF keyposes; 18 RLBench tasks."
+    ],
+    "limitations": [
+      "Voxel cost and calibrated RGB-D requirements."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W009",
+    "title": "RVT: Robotic View Transformer for 3D Object Manipulation",
+    "authors_or_org": "Ankit Goyal et al.; NVIDIA",
+    "date": "2023-06-26",
+    "url": "https://arxiv.org/abs/2306.14896",
+    "type": "paper",
+    "claims": [
+      "Virtual-view rendering and cross-view attention; direct comparison with PerAct."
+    ],
+    "limitations": [
+      "Speedups refer to specified implementation and matched performance."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W010",
+    "title": "3D Diffuser Actor: Policy Diffusion with 3D Scene Representations",
+    "authors_or_org": "Tsung-Wei Ke, Nikolaos Gkanatsios, Katerina Fragkiadaki",
+    "date": "2024",
+    "url": "https://3d-diffuser-actor.github.io/",
+    "type": "project",
+    "claims": [
+      "Diffusion over end-effector poses conditioned on 3D relative attention."
+    ],
+    "limitations": [
+      "An action policy, not a video simulator."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W011",
+    "title": "3D Diffuser Actor official implementation",
+    "authors_or_org": "Tsung-Wei Ke, Nikolaos Gkanatsios and collaborators",
+    "date": "undated; accessed 2026-09-11",
+    "url": "https://github.com/nickgkan/3d_diffuser_actor/blob/master/README.md",
+    "type": "code",
+    "claims": [
+      "Weights and evaluation scripts; quaternion format correction; benchmark protocol details."
+    ],
+    "limitations": [
+      "Repository updates can differ from original published results."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W012",
+    "title": "Mastering Diverse Domains through World Models",
+    "authors_or_org": "Danijar Hafner, Jurgis Pasukonis, Jimmy Ba, Timothy Lillicrap",
+    "date": "2023-01-10; revised 2024-04-17",
+    "url": "https://arxiv.org/html/2301.04104v2",
+    "type": "paper",
+    "claims": [
+      "DreamerV3 latent imagination, actor-critic learning and robust normalization."
+    ],
+    "limitations": [
+      "Shared configuration does not mean shared zero-shot weights."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W013",
+    "title": "Mastering diverse control tasks through world models",
+    "authors_or_org": "Danijar Hafner et al.",
+    "date": "2025",
+    "url": "https://www.nature.com/articles/s41586-025-08744-2",
+    "type": "paper",
+    "claims": [
+      "Nature publication of DreamerV3 lineage and diverse control evaluation."
+    ],
+    "limitations": [
+      "Full publisher page encountered redirect restriction; abstract/indexed text checked alongside arXiv."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W014",
+    "title": "UniSim: Learning Interactive Real-World Simulators",
+    "authors_or_org": "Sherry Yang et al.; UC Berkeley / Google DeepMind / MIT",
+    "date": "2023; ICLR 2024",
+    "url": "https://universal-simulator.github.io/unisim/",
+    "type": "project",
+    "claims": [
+      "Action-conditioned interactive experiences train planners and low-level RL policies."
+    ],
+    "limitations": [
+      "Shown transfer is task-specific; unrelated to namesake driving sensor simulator."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W015",
+    "title": "Learning Interactive Real-World Simulators",
+    "authors_or_org": "Sherry Yang et al.",
+    "date": "2023",
+    "url": "https://arxiv.org/html/2310.06114v2",
+    "type": "paper",
+    "claims": [
+      "Heterogeneous datasets support conditional video simulation and robot policy learning."
+    ],
+    "limitations": [
+      "Generative artifacts and long-horizon action fidelity limit extrapolation."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W016",
+    "title": "Genie: Generative Interactive Environments",
+    "authors_or_org": "Jake Bruce et al.; Google DeepMind",
+    "date": "2024-02-23",
+    "url": "https://arxiv.org/abs/2402.15391",
+    "type": "paper",
+    "claims": [
+      "Video tokenizer, latent action model and dynamics; action-label-free interaction learning."
+    ],
+    "limitations": [
+      "Latent actions are not calibrated physical motor commands."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W017",
+    "title": "Genie 2: A large-scale foundation world model",
+    "authors_or_org": "Google DeepMind",
+    "date": "2024-12-04",
+    "url": "https://deepmind.google/blog/genie-2-a-large-scale-foundation-world-model/",
+    "type": "official_release",
+    "claims": [
+      "Autoregressive latent diffusion conditioned on historical frames and actions."
+    ],
+    "limitations": [
+      "Generated interactive worlds are not validated physical robot controllers."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W018",
+    "title": "Genie 3: A new frontier for world models",
+    "authors_or_org": "Jack Parker-Holder and Shlomi Fruchter; Google DeepMind",
+    "date": "2025-08-05",
+    "url": "https://deepmind.google/blog/genie-3-a-new-frontier-for-world-models/",
+    "type": "official_release",
+    "claims": [
+      "720p, 24fps, minutes of interaction; explicitly limited action space and multi-agent fidelity."
+    ],
+    "limitations": [
+      "Full architecture and dataset not disclosed in checked page."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W019",
+    "title": "Project Genie: Experiment with infinite, interactive worlds",
+    "authors_or_org": "Google",
+    "date": "2026",
+    "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/project-genie/",
+    "type": "official_release",
+    "claims": [
+      "User-facing prototype exposes a subset of Genie 3 capabilities."
+    ],
+    "limitations": [
+      "Availability is gated; prototype omits some research capabilities."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W020",
+    "title": "Unleashing Large-Scale Video Generative Pre-training for Visual Robot Manipulation",
+    "authors_or_org": "Hongtao Wu et al.",
+    "date": "2023-12-20",
+    "url": "https://arxiv.org/abs/2312.13139",
+    "type": "paper",
+    "claims": [
+      "GR-1 jointly predicts future images and robot actions from language, images and state."
+    ],
+    "limitations": [
+      "Joint prediction does not establish explicit inference-time planning."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W021",
+    "title": "GR-1 project: Unleashing Large-Scale Video Generative Pre-training for Visual Robot Manipulation",
+    "authors_or_org": "Hongtao Wu et al.",
+    "date": "2023",
+    "url": "https://gr1-manipulation.github.io/",
+    "type": "project",
+    "claims": [
+      "Video pretraining and policy adaptation; CALVIN and robot demonstrations."
+    ],
+    "limitations": [
+      "Benchmark and embodiment-specific evidence."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W022",
+    "title": "GR-2: A Generative Video-Language-Action Model with Web-Scale Knowledge for Robot Manipulation",
+    "authors_or_org": "Chi-Lam Cheang et al.",
+    "date": "2024-10-08",
+    "url": "https://arxiv.org/abs/2410.06158",
+    "type": "paper",
+    "claims": [
+      "38 million clips, 50 billion-plus tokens, joint video-action adaptation."
+    ],
+    "limitations": [
+      "97.7% success is author task-suite aggregate, not open-world guarantee."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W023",
+    "title": "V-JEPA 2: Self-Supervised Video Models Enable Understanding, Prediction and Planning",
+    "authors_or_org": "Mahmoud Assran et al.; Meta FAIR",
+    "date": "2025-06",
+    "url": "https://arxiv.org/abs/2506.09985",
+    "type": "paper",
+    "claims": [
+      "Video latent prediction and action-conditioned robot adaptation using less than 62 hours DROID."
+    ],
+    "limitations": [
+      "Zero-shot refers to deployment environment; action data is used during post-training."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W024",
+    "title": "Introducing V-JEPA 2",
+    "authors_or_org": "Meta FAIR",
+    "date": "2025",
+    "url": "https://ai.meta.com/research/vjepa/",
+    "type": "official_project",
+    "claims": [
+      "Latent understanding/prediction and image-goal robot planning."
+    ],
+    "limitations": [
+      "Small robot tasks do not establish broad physical competence."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W025",
+    "title": "V-JEPA 2.1: Unlocking Dense Features in Video Self-Supervised Learning",
+    "authors_or_org": "Lorenzo Mur-Labadia et al.; Meta FAIR",
+    "date": "2026-03-15",
+    "url": "https://arxiv.org/html/2603.14482v1",
+    "type": "paper",
+    "claims": [
+      "Dense/deep supervision; Table 6 shows 60-to-70 grasp success at 3s and 80 at 14s."
+    ],
+    "limitations": [
+      "Ten test tasks per skill; longer planning changes compute budget; gripper failures remain."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W026",
+    "title": "V-JEPA 2, 2-AC and 2.1 official code and checkpoints",
+    "authors_or_org": "Meta FAIR",
+    "date": "updated 2026; accessed 2026-09-11",
+    "url": "https://github.com/facebookresearch/vjepa2",
+    "type": "code",
+    "claims": [
+      "2.1 release and models; action-conditioned code; exact checkpoint families."
+    ],
+    "limitations": [
+      "Code and weights availability does not imply full data release."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W027",
+    "title": "Supported Models: NVIDIA NIM for Cosmos WFM",
+    "authors_or_org": "NVIDIA",
+    "date": "undated; accessed 2026-09-11",
+    "url": "https://docs.nvidia.com/nim/cosmos/latest/support-matrix.html",
+    "type": "documentation",
+    "claims": [
+      "Predict2.5 text/image/video-to-world; Transfer2.5 conditioned transformation."
+    ],
+    "limitations": [
+      "Version-specific hardware requirements; not a robot policy."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W028",
+    "title": "Cosmos Policy: Fine-Tuning Video Models for Visuomotor Control and Planning",
+    "authors_or_org": "Moo Jin Kim et al.; NVIDIA / Stanford",
+    "date": "2026-01-22",
+    "url": "https://arxiv.org/html/2601.16163v1",
+    "type": "paper",
+    "claims": [
+      "Predict2-2B initialized joint latent-frame action, state, value model; optional best-of-N planning."
+    ],
+    "limitations": [
+      "Direct-policy and planning modes have different resource and data requirements."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W029",
+    "title": "Develop Physical AI Reasoning, World, and Action Models with NVIDIA Cosmos 3",
+    "authors_or_org": "Asawaree Bhide and Alexander Schwarz; NVIDIA",
+    "date": "2026-05-31",
+    "url": "https://developer.nvidia.com/blog/develop-physical-ai-reasoning-world-and-action-models-with-nvidia-cosmos-3/",
+    "type": "official_technical_blog",
+    "claims": [
+      "Mixture-of-Transformers reasoning and generation towers; Nano and Super releases."
+    ],
+    "limitations": [
+      "Initial release post is older than current Edge-inclusive repository."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W030",
+    "title": "NVIDIA Cosmos official repository",
+    "authors_or_org": "NVIDIA",
+    "date": "current repository; accessed 2026-09-11",
+    "url": "https://github.com/nvidia/Cosmos",
+    "type": "code",
+    "claims": [
+      "Super64B/Nano16B/Edge4B; DROID policies; Edge limits; current OpenMDW-1.1 license."
+    ],
+    "limitations": [
+      "Mode- and hardware-specific latency; complete pretraining reproduction not implied."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W031",
+    "title": "GAIA-2: A Controllable Multi-View Generative World Model for Autonomous Driving",
+    "authors_or_org": "Wayve research team",
+    "date": "2025-03-26",
+    "url": "https://arxiv.org/abs/2503.20523",
+    "type": "paper",
+    "claims": [
+      "Multiview action/condition-guided driving world model."
+    ],
+    "limitations": [
+      "Driving data and sensors; not general manipulation."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W032",
+    "title": "Wayve launches GAIA-3, advancing world models from simulation to evaluation",
+    "authors_or_org": "Wayve",
+    "date": "2025-12-02",
+    "url": "https://wayve.ai/press/wayve-launches-gaia3/",
+    "type": "official_release",
+    "claims": [
+      "World-model evolution toward driving evaluation."
+    ],
+    "limitations": [
+      "Official system claim; no open checkpoint verified."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W033",
+    "title": "GAIA-4: Multimodal World Models Powering Closed-Loop Simulation for Safe and Scalable Autonomy",
+    "authors_or_org": "Wayve",
+    "date": "2026-08-03",
+    "url": "https://wayve.ai/thinking/gaia-4/",
+    "type": "official_technical_blog",
+    "claims": [
+      "AI Driver closed loop; camera/radar generation; world-on-rails and optional reactive agents."
+    ],
+    "limitations": [
+      "Network and training details not fully disclosed; counterfactual assumptions matter."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W034",
+    "title": "MoLe-VLA: Dynamic Layer-skipping Vision Language Action Model via Mixture-of-Layers for Efficient Robot Manipulation",
+    "authors_or_org": "Rongyu Zhang et al.",
+    "date": "2025-03-26",
+    "url": "https://arxiv.org/abs/2503.20384",
+    "type": "paper",
+    "claims": [
+      "Dynamic VLA layer routing and cognitive self-distillation."
+    ],
+    "limitations": [
+      "Efficiency method, not world-model dynamics or video simulation."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W035",
+    "title": "Cosmos Policy official implementation",
+    "authors_or_org": "NVIDIA / Stanford contributors",
+    "date": "current repository; accessed 2026-09-11",
+    "url": "https://github.com/NVlabs/cosmos-policy",
+    "type": "code",
+    "claims": [
+      "Public implementation, checkpoints/data links, direct and planning resource requirements."
+    ],
+    "limitations": [
+      "Planning and training consume more compute than the direct policy."
+    ],
+    "accessed": "2026-09-11"
+  },
+  {
+    "id": "W036",
+    "title": "GR-2: A Generative Video-Language-Action Model with Web-Scale Knowledge for Robot Manipulation (full text)",
+    "authors_or_org": "Chi-Lam Cheang et al.",
+    "date": "2024-10-08",
+    "url": "https://arxiv.org/html/2410.06158v1",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Explicit GR-1 extension; 97.7% is the 105-task Simple setting; unseen-manipulation results are lower."
+    ],
+    "limitations": [
+      "Different generalization settings must not be combined into one universal success claim."
+    ]
+  }
+]

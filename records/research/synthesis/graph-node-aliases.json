@@ -1,0 +1,446 @@
+{
+  "schema_version": 1,
+  "cutoff": "2026-09-11",
+  "description": "Typed graph-node overrides and aliases for the current 77-card survey. This file does not create or change evidence-bearing relations.",
+  "integration_order": [
+    "Create default nodes from model-card ids.",
+    "Overlay nodes below by id; card_id links shared cards without asserting identity of the split components.",
+    "For each raw relation apply matching relation_endpoint_overrides before generic aliases.",
+    "Resolve aliases once and retain the original relation_type, evidence_type, explanation and source_ids.",
+    "Reject unresolved endpoints and self-loops after normalization; render model families, methods, implementations, benchmarks and design patterns distinctly."
+  ],
+  "nodes": [
+    {
+      "id": "gemini-robotics1",
+      "label": "Gemini Robotics (VLA)",
+      "type": "model_version",
+      "card_id": "gemini-robotics1",
+      "family": "Gemini Robotics",
+      "note": "VLA branch of the combined Gemini Robotics / ER card; not the ER reasoning model."
+    },
+    {
+      "id": "gemini-er1",
+      "label": "Gemini Robotics-ER (initial release)",
+      "type": "model_version",
+      "card_id": "gemini-robotics1",
+      "family": "Gemini Robotics ER",
+      "note": "Reasoning branch covered by the combined card; no independent card."
+    },
+    {
+      "id": "gemini-robotics15",
+      "label": "Gemini Robotics 1.5 (VLA)",
+      "type": "model_version",
+      "card_id": "gemini-robotics15",
+      "family": "Gemini Robotics",
+      "note": "Action-model branch of the combined 1.5 / ER1.5 card."
+    },
+    {
+      "id": "gemini-er15",
+      "label": "Gemini Robotics-ER 1.5",
+      "type": "model_version",
+      "card_id": "gemini-robotics15",
+      "family": "Gemini Robotics ER",
+      "note": "Separate reasoning branch covered by the combined 1.5 card; no independent card."
+    },
+    {
+      "id": "gemini-er16",
+      "label": "Gemini Robotics-ER 1.6",
+      "type": "model_version",
+      "card_id": "gemini-er16",
+      "family": "Gemini Robotics ER"
+    },
+    {
+      "id": "gemini-er2",
+      "label": "Gemini Robotics-ER 2",
+      "type": "model_version",
+      "card_id": "gemini-er2",
+      "family": "Gemini Robotics ER"
+    },
+    {
+      "id": "gemini-robotics2",
+      "label": "Gemini Robotics 2 (VLA)",
+      "type": "model_version",
+      "card_id": "gemini-robotics2",
+      "family": "Gemini Robotics"
+    },
+    {
+      "id": "gemini-ondevice2",
+      "label": "Gemini Robotics On-Device 2",
+      "type": "model_version",
+      "card_id": "gemini-ondevice2",
+      "family": "Gemini Robotics On-Device",
+      "note": "Its stated Robotics1.5/Gemma basis must not be rendered as quantization of Robotics2."
+    },
+    {
+      "id": "H-M02",
+      "label": "AMP / ASE (shared comparison card)",
+      "type": "method_family",
+      "card_id": "H-M02",
+      "family": "Adversarial motion priors",
+      "note": "Card container only; relation endpoints must use amp or ase, never collapse AMP -> ASE into a self-loop."
+    },
+    {
+      "id": "amp",
+      "label": "AMP",
+      "type": "method",
+      "card_id": "H-M02",
+      "family": "Adversarial motion priors",
+      "note": "AMP component of a shared comparison card; no independent card."
+    },
+    {
+      "id": "ase",
+      "label": "ASE",
+      "type": "method",
+      "card_id": "H-M02",
+      "family": "Adversarial motion priors",
+      "note": "ASE component of a shared comparison card; no independent card."
+    },
+    {
+      "id": "H-M05",
+      "label": "H2O / OmniH2O (shared comparison card)",
+      "type": "model_family",
+      "card_id": "H-M05",
+      "family": "Human-to-humanoid control",
+      "note": "Card container; concrete method endpoints are h2o and omnih2o."
+    },
+    {
+      "id": "h2o",
+      "label": "H2O",
+      "type": "method",
+      "card_id": "H-M05",
+      "family": "Human-to-humanoid control",
+      "note": "Original H2O system, covered in a shared card."
+    },
+    {
+      "id": "omnih2o",
+      "label": "OmniH2O",
+      "type": "method",
+      "card_id": "H-M05",
+      "family": "Human-to-humanoid control",
+      "note": "Follow-up system, covered in a shared card."
+    },
+    {
+      "id": "H-M08",
+      "label": "SONIC / GEAR-SONIC (shared card)",
+      "type": "model_family",
+      "card_id": "H-M08",
+      "family": "SONIC",
+      "note": "Card container distinguishes research controller from released integration."
+    },
+    {
+      "id": "sonic",
+      "label": "SONIC",
+      "type": "model",
+      "card_id": "H-M08",
+      "family": "SONIC",
+      "note": "Research whole-body motion controller, including the original N1.5 composition."
+    },
+    {
+      "id": "gear-sonic",
+      "label": "GEAR-SONIC deployment integration",
+      "type": "implementation",
+      "card_id": "H-M08",
+      "family": "SONIC",
+      "note": "Released SONIC deployment/integration endpoint; not asserted to be a new separately trained foundation model."
+    },
+    {
+      "id": "H-M12",
+      "label": "Helix / Helix 02 (shared comparison card)",
+      "type": "model_family",
+      "card_id": "H-M12",
+      "family": "Helix",
+      "note": "Card container only; explicit version edge uses helix -> helix02."
+    },
+    {
+      "id": "helix",
+      "label": "Helix",
+      "type": "model_version",
+      "card_id": "H-M12",
+      "family": "Helix",
+      "note": "Original upper-body architecture in the combined card."
+    },
+    {
+      "id": "helix02",
+      "label": "Helix 02",
+      "type": "model_version",
+      "card_id": "H-M12",
+      "family": "Helix",
+      "note": "Full-body extension with S0 in the combined card."
+    },
+    {
+      "id": "H-M13",
+      "label": "Skild Brain / S1 (shared card)",
+      "type": "model_family",
+      "card_id": "H-M13",
+      "family": "Skild",
+      "note": "Card container; brand/product family and named version remain distinct."
+    },
+    {
+      "id": "skild-brain",
+      "label": "Skild Brain",
+      "type": "model_family",
+      "card_id": "H-M13",
+      "family": "Skild",
+      "note": "Product/model family; does not imply an identifiable shared checkpoint across all deployments."
+    },
+    {
+      "id": "skild-s1",
+      "label": "Skild S1",
+      "type": "model_version",
+      "card_id": "H-M13",
+      "family": "Skild",
+      "note": "Named 2026 foundation model; the ambiguous endpoint S1 means Skild here, not Figure System1."
+    },
+    {
+      "id": "gen1",
+      "label": "Generalist GEN-1",
+      "type": "model_version",
+      "family": "Generalist",
+      "note": "Narrative context node covered by H037; no independent model card in the current registry.",
+      "context_only": true
+    },
+    {
+      "id": "gen15",
+      "label": "Generalist GEN-1.5",
+      "type": "model_version",
+      "family": "Generalist",
+      "note": "Narrative context node covered by H038; no independent model card in the current registry.",
+      "context_only": true
+    },
+    {
+      "id": "goat-bench",
+      "label": "GOAT-Bench",
+      "type": "benchmark",
+      "family": "GOAT",
+      "note": "Evaluation benchmark covered by H017; not a successor policy; no independent model card.",
+      "context_only": true
+    },
+    {
+      "id": "rtx",
+      "label": "RT-X policies (RT-1-X / RT-2-X)",
+      "type": "model_family",
+      "card_id": "rtx",
+      "family": "RT-X / Open X-Embodiment",
+      "note": "Policy component of the combined RT-X/OXE card. Model-architecture reuse edges land here."
+    },
+    {
+      "id": "open-x-embodiment",
+      "label": "Open X-Embodiment dataset",
+      "type": "dataset",
+      "card_id": "rtx",
+      "family": "RT-X / Open X-Embodiment",
+      "note": "Dataset component of the combined RT-X/OXE card; data-infrastructure edges originate here."
+    },
+    {
+      "id": "fast",
+      "label": "FAST action tokenizer",
+      "type": "method",
+      "card_id": "fast",
+      "family": "FAST",
+      "note": "Representation method in the FAST / pi0-FAST card, distinct from the policy using it."
+    },
+    {
+      "id": "pi0-fast",
+      "label": "pi0-FAST",
+      "type": "model_version",
+      "card_id": "fast",
+      "family": "Physical Intelligence pi",
+      "note": "Autoregressive policy variant in the FAST / pi0-FAST card; no separate card."
+    },
+    {
+      "id": "rtc",
+      "label": "Real-Time Chunking (RTC)",
+      "type": "method",
+      "card_id": "rtc",
+      "family": "Action-chunk execution",
+      "note": "Runtime/chunking method rather than a separate pretrained foundation model."
+    },
+    {
+      "id": "go1",
+      "label": "GO-1",
+      "type": "model_version",
+      "card_id": "go1",
+      "family": "AgiBot GO",
+      "note": "Full model with latent planner; the shared card also discusses GO-1 Air."
+    },
+    {
+      "id": "go1-air",
+      "label": "GO-1 Air",
+      "type": "model_version",
+      "card_id": "go1",
+      "family": "AgiBot GO",
+      "note": "Planner-free variant mentioned in the shared GO-1 card. No new relation is invented here."
+    },
+    {
+      "id": "serl",
+      "label": "SERL",
+      "type": "method",
+      "card_id": "serl",
+      "family": "Real-world RL"
+    },
+    {
+      "id": "hil-serl",
+      "label": "HIL-SERL",
+      "type": "method",
+      "card_id": "hil-serl",
+      "family": "Real-world RL"
+    },
+    {
+      "id": "vlm-latent-action-design",
+      "label": "VLM + latent-action learning (design pattern)",
+      "type": "design_pattern",
+      "note": "Abstract methodological input to an existing composition edge; not a paper or checkpoint.",
+      "context_only": true
+    },
+    {
+      "id": "flow-vla-design",
+      "label": "Flow-based VLA (policy family)",
+      "type": "design_pattern",
+      "note": "Abstract policy family used for analytical execution comparison; not a PI model or inherited checkpoint.",
+      "context_only": true
+    },
+    {
+      "id": "molmo2-er",
+      "label": "Molmo2-ER",
+      "type": "backbone_model",
+      "family": "Molmo",
+      "note": "Backbone context named in R017; no independent model card in this registry.",
+      "context_only": true
+    }
+  ],
+  "aliases": {
+    "DeepMimic": "H-M01",
+    "AMP": "amp",
+    "ASE": "ase",
+    "AMP / ASE": "H-M02",
+    "PHC": "H-M03",
+    "Humanoid Transformer": "H-M04",
+    "H2O": "h2o",
+    "OmniH2O": "omnih2o",
+    "H2O / OmniH2O": "H-M05",
+    "HumanPlus": "H-M06",
+    "MaskedMimic": "H-M07",
+    "SONIC": "sonic",
+    "GEAR-SONIC": "gear-sonic",
+    "SONIC / GEAR-SONIC": "H-M08",
+    "ViNT": "H-M09",
+    "NoMaD": "H-M10",
+    "GOAT": "H-M11",
+    "GOAT-Bench": "goat-bench",
+    "Helix": "helix",
+    "Helix 02": "helix02",
+    "Helix / Helix 02": "H-M12",
+    "Skild Brain": "skild-brain",
+    "S1": "skild-s1",
+    "Skild S1": "skild-s1",
+    "Skild Brain / S1": "H-M13",
+    "GEN-1": "gen1",
+    "GEN-1.5": "gen15",
+    "GR00T N1.5": "groot-n15",
+    "GR00T N1.7": "groot-n17",
+    "SERL": "serl",
+    "HIL-SERL": "hil-serl",
+    "GO-1": "go1",
+    "GO-1 Air": "go1-air",
+    "Molmo2-ER": "molmo2-er",
+    "MolmoAct2": "molmoact2",
+    "Xiaomi-Robotics-0": "xiaomi-robotics-0",
+    "VLM + latent action learning": "vlm-latent-action-design",
+    "Flow-based VLA": "flow-vla-design",
+    "Gemini Robotics 1.5": "gemini-robotics15",
+    "Gemini Robotics ER 1.5": "gemini-er15",
+    "Gemini Robotics-ER 1.5": "gemini-er15",
+    "Gemini Robotics-ER 1.6": "gemini-er16",
+    "FAST": "fast",
+    "pi0-FAST": "pi0-fast",
+    "Open X-Embodiment": "open-x-embodiment",
+    "RT-X": "rtx"
+  },
+  "relation_endpoint_overrides": [
+    {
+      "match": {
+        "source": "gemini-robotics15",
+        "target": "gemini-er16",
+        "relation_type": "reasoning_branch_successor"
+      },
+      "source": "gemini-er15",
+      "reason": "The combined source card covers ER1.5 and VLA1.5; this particular successor edge is explicitly the ER branch."
+    },
+    {
+      "match": {
+        "source": "rtx",
+        "target": "octo",
+        "relation_type": "data_infrastructure"
+      },
+      "source": "open-x-embodiment",
+      "reason": "The cited reuse is the OXE dataset, not RT-X policy weights."
+    },
+    {
+      "match": {
+        "source": "rtx",
+        "target": "openvla",
+        "relation_type": "data_infrastructure"
+      },
+      "source": "open-x-embodiment",
+      "reason": "The cited reuse is the OXE dataset, not RT-X policy weights."
+    },
+    {
+      "match": {
+        "source": "pi0",
+        "target": "fast",
+        "relation_type": "variant"
+      },
+      "target": "pi0-fast",
+      "reason": "The explicit variant is the pi0-FAST policy; FAST alone denotes the tokenizer."
+    }
+  ],
+  "validation": {
+    "model_cards_at_creation": 77,
+    "relation_records_at_creation": 80,
+    "override_nodes": 38,
+    "distinct_merged_nodes": 98,
+    "name_endpoints_covered": [
+      "AMP",
+      "ASE",
+      "DeepMimic",
+      "Flow-based VLA",
+      "GEAR-SONIC",
+      "GEN-1",
+      "GEN-1.5",
+      "GO-1",
+      "GOAT",
+      "GOAT-Bench",
+      "GR00T N1.5",
+      "GR00T N1.7",
+      "H2O",
+      "HIL-SERL",
+      "Helix",
+      "Helix 02",
+      "HumanPlus",
+      "Humanoid Transformer",
+      "MaskedMimic",
+      "Molmo2-ER",
+      "MolmoAct2",
+      "NoMaD",
+      "OmniH2O",
+      "PHC",
+      "S1",
+      "SERL",
+      "SONIC",
+      "Skild Brain",
+      "VLM + latent action learning",
+      "ViNT",
+      "Xiaomi-Robotics-0"
+    ],
+    "unresolved_endpoints": [],
+    "self_loops_after_resolution": 0,
+    "new_relations_added": 0
+  },
+  "notes": [
+    "Do not apply gemini-robotics15 -> gemini-er15 as a global alias: other edges genuinely refer to the VLA branch.",
+    "Grouped-card container nodes may be retained for catalog navigation or hidden from a relation-only view when isolated; the constituent nodes are the relation endpoints.",
+    "S1 is resolved to Skild S1 only because every current bare-S1 edge is sourced from H021/H022. Figure System1 would need its own unambiguous id if added later.",
+    "GEN-1, GEN-1.5, Molmo2-ER and GOAT-Bench are context nodes without independent current cards. Their presence in this graph is not a claim that complete model cards exist.",
+    "Contextual endpoint disambiguation does not turn analytical similarity, composition or dataset reuse into weight inheritance."
+  ]
+}

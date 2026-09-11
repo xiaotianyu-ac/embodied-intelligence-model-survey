@@ -1,0 +1,72 @@
+{
+  "accessed": "2026-09-11",
+  "scope": "Manipulation policies and VLA/embodied reasoning model families",
+  "primary_sources_only": true,
+  "search_batches": [
+    {
+      "queries": [
+        "Physical Intelligence pi0.6 pi0.5 pi0.7 official research",
+        "NVIDIA GR00T N1.5 N1.6 N1.7 official",
+        "Gemini Robotics 1.5 ER1.6 ER2 official",
+        "Hugging Face SmolVLA paper"
+      ],
+      "decision": "Version search expanded the 2025 baseline to verified 2026 releases; retained exact dates and access distinctions."
+    },
+    {
+      "queries": [
+        "ACT Learning Fine Grained Bimanual Manipulation",
+        "Diffusion Policy action diffusion",
+        "RT-1 RT-2 robot transformer",
+        "Open X Embodiment RT-X Octo OpenVLA OFT"
+      ],
+      "decision": "Read original abstracts, project pages and official code; classify action modeling and data inheritance separately."
+    },
+    {
+      "queries": [
+        "RDT-1B paper official code",
+        "UniVLA task-centric latent actions",
+        "Unified Vision Language Action Model BAAI",
+        "X-VLA soft prompts",
+        "LingBot-VLA 2.0 official repository and technical report"
+      ],
+      "decision": "Disambiguated two UniVLA works; verified LingBot action dimension and evaluation scope from paper and repository."
+    },
+    {
+      "queries": [
+        "pi0.7 paper architecture Gemma MEM",
+        "pi0.5 knowledge insulation gradients",
+        "Gemini Robotics2 model cards",
+        "Real-Time Execution of Action Chunking Flow Policies"
+      ],
+      "decision": "Read full paper sections for mechanisms; no invented hidden architectures for closed models."
+    }
+  ],
+  "retrieval_limitations": [
+    "Diffusion Policy project homepage timed out; original paper and extended author manuscript were accessible.",
+    "Some live product FAQs lag newer versioned code/model cards; conflicts are documented in sources and report."
+  ],
+  "source_count": 55,
+  "model_count": 32,
+  "relation_count": 36,
+  "validation": {
+    "status": "passed",
+    "accessed": "2026-09-11",
+    "files": 6,
+    "sources": 55,
+    "models": 32,
+    "relations": 36,
+    "citations_per_language": 83,
+    "checks": [
+      "same ordered citation sequence across Chinese/English",
+      "all citations resolve",
+      "all model/relationship source IDs resolve",
+      "all relationship endpoints resolve",
+      "newest version dates checked against original model cards"
+    ],
+    "not_performed": [
+      "training or running model checkpoints",
+      "independent robot experiments",
+      "full quantitative reproduction of author results"
+    ]
+  }
+}

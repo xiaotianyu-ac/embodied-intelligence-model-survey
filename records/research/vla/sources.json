@@ -1,0 +1,717 @@
+[
+  {
+    "id": "V001",
+    "title": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware",
+    "authors_or_org": "Tony Z. Zhao et al.",
+    "date": "2023-04-23",
+    "url": "https://arxiv.org/abs/2304.13705",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "ACT; action chunks; CVAE; teleoperation and imitation learning"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V002",
+    "title": "ALOHA / ACT project",
+    "authors_or_org": "Tony Z. Zhao et al.",
+    "date": null,
+    "url": "https://tonyzhaozh.github.io/aloha/",
+    "type": "project",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Multi-view and joint inputs; CVAE inference; closed-loop manipulation; code links"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V003",
+    "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+    "authors_or_org": "Cheng Chi et al.",
+    "date": "2023-03-07",
+    "url": "https://arxiv.org/abs/2303.04137",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Conditional action diffusion; multimodal action distributions; receding horizon control"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V004",
+    "title": "Diffusion Policy (IJRR manuscript)",
+    "authors_or_org": "Cheng Chi et al.",
+    "date": null,
+    "url": "https://diffusion-policy.cs.columbia.edu/diffusion_policy_ijrr.pdf",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Diffusion policy formulation; visual conditioning; temporal architectures"
+    ],
+    "limitations": "Extended manuscript has different task coverage from the initial preprint; do not mix denominators."
+  },
+  {
+    "id": "V005",
+    "title": "RT-1: Robotics Transformer for Real-World Control at Scale",
+    "authors_or_org": "Anthony Brohan et al.",
+    "date": "2022-12-13",
+    "url": "https://arxiv.org/abs/2212.06817",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Scaling robotic behavior cloning; task and action tokenization"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V006",
+    "title": "RT-1 project",
+    "authors_or_org": "Robotics at Google",
+    "date": null,
+    "url": "https://robotics-transformer1.github.io/",
+    "type": "project",
+    "accessed": "2026-09-11",
+    "claims": [
+      "EfficientNet FiLM TokenLearner transformer; 3 Hz control; 130k episodes; seven arm and three base dimensions plus mode"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V007",
+    "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+    "authors_or_org": "Anthony Brohan et al.",
+    "date": "2023-07-28",
+    "url": "https://arxiv.org/abs/2307.15818",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "VLM co-fine-tuning with robot trajectories and web vision-language data; text action tokens"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V008",
+    "title": "RT-2 project",
+    "authors_or_org": "Google DeepMind",
+    "date": null,
+    "url": "https://robotics-transformer2.github.io/",
+    "type": "project",
+    "accessed": "2026-09-11",
+    "claims": [
+      "PaLM-E and PaLI-X backbones; detokenized closed-loop actions; semantic generalization"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V009",
+    "title": "Open X-Embodiment: Robotic Learning Datasets and RT-X Models",
+    "authors_or_org": "Open X-Embodiment Collaboration",
+    "date": "2023-10-13",
+    "url": "https://arxiv.org/abs/2310.08864",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Cross-robot dataset and RT-X policies; positive cross-embodiment transfer"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V010",
+    "title": "Open X-Embodiment repository",
+    "authors_or_org": "Google DeepMind and collaborators",
+    "date": null,
+    "url": "https://github.com/google-deepmind/open_x_embodiment",
+    "type": "code",
+    "accessed": "2026-09-11",
+    "claims": [
+      "RLDS data interface; model and dataset access; cross-embodiment action normalization"
+    ],
+    "limitations": "Dataset composition evolves; source-level licenses and physical meanings remain heterogeneous."
+  },
+  {
+    "id": "V011",
+    "title": "Octo: An Open-Source Generalist Robot Policy",
+    "authors_or_org": "Octo Model Team",
+    "date": "2024-05-20",
+    "url": "https://arxiv.org/abs/2405.12213",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "800k OXE trajectories; flexible observations and actions; language and image goals"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V012",
+    "title": "Octo repository",
+    "authors_or_org": "Octo Model Team",
+    "date": null,
+    "url": "https://github.com/octo-models/octo",
+    "type": "code",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Transformer diffusion policy; open training and adaptation code"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V013",
+    "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+    "authors_or_org": "Moo Jin Kim et al.",
+    "date": "2024-06-13",
+    "url": "https://arxiv.org/abs/2406.09246",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "7B VLA; 970k robot demonstrations; open adaptation recipe"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V014",
+    "title": "OpenVLA repository",
+    "authors_or_org": "OpenVLA team",
+    "date": null,
+    "url": "https://github.com/openvla/openvla",
+    "type": "code",
+    "accessed": "2026-09-11",
+    "claims": [
+      "DINOv2 and SigLIP visual features; Llama 2; discretized actions and fine-tuning"
+    ],
+    "limitations": "Code availability does not override pretrained backbone or dataset licenses."
+  },
+  {
+    "id": "V015",
+    "title": "Fine-Tuning Vision-Language-Action Models: Optimizing Speed and Success",
+    "authors_or_org": "Moo Jin Kim, Chelsea Finn, Percy Liang",
+    "date": "2025-02-27",
+    "url": "https://arxiv.org/abs/2502.19645",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "OFT: parallel decoding, action chunking, continuous actions, L1 regression; reported LIBERO 97.1 percent"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V016",
+    "title": "OpenVLA-OFT project",
+    "authors_or_org": "Moo Jin Kim, Chelsea Finn, Percy Liang",
+    "date": null,
+    "url": "https://openvla-oft.github.io/",
+    "type": "project",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Regression versus diffusion caveats; language grounding with FiLM; reproducible model releases"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V017",
+    "title": "pi0: A Vision-Language-Action Flow Model for General Robot Control",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2024-10-31",
+    "url": "https://www.pi.website/download/pi0.pdf",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "PaliGemma backbone and 300M action expert; flow matching; action chunks; robot post-training"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V018",
+    "title": "pi0: Our First Generalist Policy",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2024-10-31",
+    "url": "https://www.pi.website/blog/pi0",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Multi-robot pretraining and dexterous post-training demonstrations"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V019",
+    "title": "FAST: Efficient Robot Action Tokenization",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2025-01-16",
+    "url": "https://www.pi.website/research/fast",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "DCT quantization and BPE compress action chunks; pi0-FAST autoregressive policy"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V020",
+    "title": "openpi repository",
+    "authors_or_org": "Physical Intelligence",
+    "date": null,
+    "url": "https://github.com/Physical-Intelligence/openpi",
+    "type": "code",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Public pi0, pi0-FAST, pi0.5 weights and training/inference packages; flow-head-only pi0.5 implementation"
+    ],
+    "limitations": "The inspected README lists these three public families, not public pi0.6/pi0.7 checkpoints. Do not equate company model announcement with an open release."
+  },
+  {
+    "id": "V021",
+    "title": "pi0.5: a Vision-Language-Action Model with Open-World Generalization",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2025-04-22",
+    "url": "https://www.pi.website/download/pi05.pdf",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Hierarchical subtask prediction; heterogeneous co-training; continuous and discrete action objectives"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V022",
+    "title": "VLAs that Train Fast, Run Fast, and Generalize Better",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2025-05-28",
+    "url": "https://www.pi.website/research/knowledge_insulation",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Knowledge insulation stops action-expert gradients into VLM; discrete action and VLM objectives still adapt the backbone"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V023",
+    "title": "pi0.6 Model Card",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2025-11-17",
+    "url": "https://website.pi-asset.com/pi06star/PI06_model_card.pdf",
+    "type": "model_card",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Gemma 3 4B backbone and 860M action expert; pi0.5 hierarchical inheritance"
+    ],
+    "limitations": "Prefer this architectural model card over the less precise 5B VLM wording in the RECAP blog."
+  },
+  {
+    "id": "V024",
+    "title": "pi-star-0.6: a VLA that Learns from Experience",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2025-11-17",
+    "url": "https://www.pi.website/blog/pistar06",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "RECAP combines demonstrations, interventions and autonomous reward-labeled experience; advantage conditioning"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V025",
+    "title": "pi-star-0.6 / RECAP technical report",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2025-11-17",
+    "url": "https://www.pi.website/download/pistar06.pdf",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Offline RL pretraining and task adaptation; value-based advantages; throughput and success evaluation"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V026",
+    "title": "pi0.7: a Steerable Model with Emergent Capabilities",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2026-04-16",
+    "url": "https://www.pi.website/download/pi07.pdf",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "pi0.6 architecture plus MEM; multimodal context conditioning; 4B VLM and 860M action expert; world-model subgoals"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V027",
+    "title": "pi0.7: a Steerable Model with Emergent Capabilities",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2026-04-16",
+    "url": "https://www.pi.website/blog/pi07",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Diverse strategy/quality/speed metadata and visual subgoals; language coaching; specialist experience distillation"
+    ],
+    "limitations": "Compositional generalization is author-reported, and some new tasks use language coaching or high-level policy adaptation rather than a single autonomous zero-shot prompt."
+  },
+  {
+    "id": "V028",
+    "title": "VLAs with Long and Short-Term Memory",
+    "authors_or_org": "Physical Intelligence",
+    "date": "2026-03-03",
+    "url": "https://www.pi.website/research/memory",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "MEM combines compressed visual history and language-based long-horizon memory; pi0.6-MEM"
+    ],
+    "limitations": "Task-memory evidence is not proof of persistent lifelong memory or unconditional failure recovery."
+  },
+  {
+    "id": "V029",
+    "title": "SmolVLA: A Vision-Language-Action Model for Affordable and Efficient Robotics",
+    "authors_or_org": "Hugging Face and collaborators",
+    "date": "2025-06-02",
+    "url": "https://arxiv.org/abs/2506.01844",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "450M model; truncated SmolVLM2; frozen VLM and flow expert; community robot data"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V030",
+    "title": "SmolVLA: Efficient Vision-Language-Action Model trained on LeRobot Community Data",
+    "authors_or_org": "Hugging Face",
+    "date": "2025-06-03",
+    "url": "https://huggingface.co/blog/smolvla",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Flow action expert; asynchronous execution; compact training and inference"
+    ],
+    "limitations": "Asynchronous demonstration results should be distinguished from synchronous and per-step evaluation protocols."
+  },
+  {
+    "id": "V031",
+    "title": "GR00T N1: An Open Foundation Model for Generalist Humanoid Robots",
+    "authors_or_org": "NVIDIA GEAR Team",
+    "date": "2025-03-18",
+    "url": "https://arxiv.org/abs/2503.14734",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Eagle VLM cross-attended by flow DiT; embodiment-specific adapters; latent actions and mixed real/synthetic/human data"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V032",
+    "title": "GR00T N1.5: An Improved Open Foundation Model",
+    "authors_or_org": "NVIDIA GEAR Team",
+    "date": "2025-06-11",
+    "url": "https://research.nvidia.com/labs/gear/gr00t-n1_5/",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Frozen Eagle 2.5 VLM; FLARE future latent alignment; DreamGen data"
+    ],
+    "limitations": "Research-page date differs from earlier product announcement; new-verb synthetic training is not unrestricted zero-shot generalization."
+  },
+  {
+    "id": "V033",
+    "title": "GR00T N1.6: An Improved Open Foundation Model",
+    "authors_or_org": "NVIDIA GEAR Team",
+    "date": "2025-12-15",
+    "url": "https://research.nvidia.com/labs/gear/gr00t-n1_6/",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Internal Cosmos-2B VLM; 32-layer DiT; relative action chunks; expanded embodiment data"
+    ],
+    "limitations": "This technical page specifies a Cosmos-2B variant; a later N1.7 blog loosely calls the N1.6 backbone Eagle. Preserve the discrepancy instead of silently conflating versions."
+  },
+  {
+    "id": "V034",
+    "title": "Develop Humanoid Robot Policies End-to-End with NVIDIA Isaac GR00T",
+    "authors_or_org": "Edith Llontop and Brandon Neel / NVIDIA",
+    "date": "2026-07-07",
+    "url": "https://developer.nvidia.com/blog/develop-humanoid-robot-policies-end-to-end-with-nvidia-isaac-gr00t/",
+    "type": "official_engineering",
+    "accessed": "2026-09-11",
+    "claims": [
+      "GR00T 1.7 Cosmos-Reason2-2B backbone; around 32k real/human and 8k simulated hours; export tooling"
+    ],
+    "limitations": "Marketing commercial usability is not independent field reliability evidence; raw performance deltas require their denominators and protocols."
+  },
+  {
+    "id": "V035",
+    "title": "NVIDIA Isaac-GR00T repository",
+    "authors_or_org": "NVIDIA",
+    "date": null,
+    "url": "https://github.com/NVIDIA/Isaac-GR00T",
+    "type": "code",
+    "accessed": "2026-09-11",
+    "claims": [
+      "N1.7 GA status in inspected repository; Apache 2.0 statement; code and weight links"
+    ],
+    "limitations": "Live repository is more current than an older product FAQ still describing early access. Licenses must be checked per checkpoint; an older H-N1.7 artifact may carry a different model license."
+  },
+  {
+    "id": "V036",
+    "title": "Gemini Robotics: Bringing AI into the Physical World",
+    "authors_or_org": "Gemini Robotics Team",
+    "date": "2025-03-25",
+    "url": "https://arxiv.org/abs/2503.20020",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Gemini-based VLA and separate embodied reasoning model"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V037",
+    "title": "Gemini Robotics brings AI into the physical world",
+    "authors_or_org": "Google DeepMind",
+    "date": "2025-03-12",
+    "url": "https://deepmind.google/blog/gemini-robotics-brings-ai-into-the-physical-world/",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "VLA control and ER reasoning roles; partner-controlled access"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V038",
+    "title": "Gemini Robotics 1.5: Pushing the Frontier of Generalist Robots with Advanced Embodied Reasoning, Thinking, and Motion Transfer",
+    "authors_or_org": "Gemini Robotics Team",
+    "date": "2025-10-02",
+    "url": "https://arxiv.org/abs/2510.03342",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Motion Transfer; interleaved reasoning and actions; heterogeneous embodiments; ER agent orchestration"
+    ],
+    "limitations": "Some long-horizon tests add Franka post-training; architecture and data are not completely disclosed, and not every result is strict zero-shot."
+  },
+  {
+    "id": "V039",
+    "title": "Gemini Robotics 1.5 brings AI agents into the physical world",
+    "authors_or_org": "Google DeepMind",
+    "date": "2025-09-25",
+    "url": "https://deepmind.google/blog/gemini-robotics-15-brings-ai-agents-into-the-physical-world/",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "ER 1.5 API access versus VLA select-partner access; tool use and high-level planning"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V040",
+    "title": "Gemini Robotics-ER 1.6 Model Card",
+    "authors_or_org": "Google DeepMind",
+    "date": "2026-04-20",
+    "url": "https://deepmind.google/models/model-cards/gemini-robotics-er-1-6/",
+    "type": "model_card",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Gemini 3.0 Flash basis; text outputs; embodied reasoning datasets; usage limitations"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V041",
+    "title": "Gemini Robotics-ER 1.6: Powering real-world robotics tasks through enhanced embodied reasoning",
+    "authors_or_org": "Laura Graesser and Peng Xu / Google DeepMind",
+    "date": "2026-04-14",
+    "url": "https://deepmind.google/blog/gemini-robotics-er-1-6/",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Pointing, instrument reading, multiview success detection; API availability"
+    ],
+    "limitations": "Single-view and multiview success detection use different examples; instrument-reading comparisons use different agentic-vision support."
+  },
+  {
+    "id": "V042",
+    "title": "Gemini Robotics 2 brings whole body intelligence to robots",
+    "authors_or_org": "Carolina Parada / Google DeepMind",
+    "date": "2026-07-30",
+    "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+    "type": "official_research",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Robotics 2 VLA, ER 2, and On-Device 2; whole-body and multifinger tasks; access tiers"
+    ],
+    "limitations": "Company evaluations; multifinger dexterity remains weak on several tasks; detailed reproducible architecture and full data not available in release article."
+  },
+  {
+    "id": "V043",
+    "title": "Gemini Robotics ER 2 Model Card",
+    "authors_or_org": "Google DeepMind",
+    "date": "2026-07-30",
+    "url": "https://deepmind.google/models/model-cards/gemini-robotics-er-2/",
+    "type": "model_card",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Gemini 3.5 Flash backbone; embodied reasoning training; orchestration role"
+    ],
+    "limitations": "Parameter count and full training recipe not disclosed."
+  },
+  {
+    "id": "V044",
+    "title": "Gemini Robotics On-Device 2 Model Card",
+    "authors_or_org": "Google DeepMind",
+    "date": "2026-07-30",
+    "url": "https://deepmind.google/models/model-cards/gemini-robotics-on-device-2/",
+    "type": "model_card",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Images text proprioception to numeric actions; Robotics 1.5 technology plus on-device Gemma"
+    ],
+    "limitations": "On-device is a deployment property, not an open-weight release; exact hardware and performance must be confirmed with partner integration."
+  },
+  {
+    "id": "V045",
+    "title": "RDT-1B: a Diffusion Foundation Model for Bimanual Manipulation",
+    "authors_or_org": "Songming Liu et al.",
+    "date": "2024-10-10",
+    "url": "https://arxiv.org/abs/2410.07864",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "1.2B diffusion transformer; physically interpretable unified action space; bimanual post-training"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V046",
+    "title": "RoboticsDiffusionTransformer repository",
+    "authors_or_org": "Tsinghua RDT team",
+    "date": null,
+    "url": "https://github.com/thu-ml/RoboticsDiffusionTransformer",
+    "type": "code",
+    "accessed": "2026-09-11",
+    "claims": [
+      "RDT weights code and data preparation; multimodal inputs and action spaces"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V047",
+    "title": "UniVLA: Learning to Act Anywhere with Task-centric Latent Actions",
+    "authors_or_org": "Qingwen Bu et al.",
+    "date": "2025-05-09",
+    "url": "https://arxiv.org/abs/2505.06111",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Language-conditioned DINO-feature latent actions; VQ-VAE inverse dynamics; embodiment adaptation"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V048",
+    "title": "UniVLA repository (OpenDriveLab)",
+    "authors_or_org": "OpenDriveLab",
+    "date": null,
+    "url": "https://github.com/OpenDriveLab/UniVLA",
+    "type": "code",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Latent action model, VLA and robot decoder stages; OpenX and Ego4D checkpoints"
+    ],
+    "limitations": "This UniVLA is distinct from BAAI Unified VLA, arXiv 2506.19850."
+  },
+  {
+    "id": "V049",
+    "title": "Unified Vision-Language-Action Model",
+    "authors_or_org": "Yuqi Wang et al.",
+    "date": "2025-06-24",
+    "url": "https://arxiv.org/abs/2506.19850",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Unified autoregressive visual-language-action tokens; world-model post-training"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V050",
+    "title": "UniVLA repository (BAAI)",
+    "authors_or_org": "BAAI Vision",
+    "date": null,
+    "url": "https://github.com/baaivision/UniVLA",
+    "type": "code",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Emu3 basis; world-model and policy training; CALVIN protocols"
+    ],
+    "limitations": "Some displayed CALVIN results allow five times inference steps; do not compare to fixed-budget evaluations without matching the budget."
+  },
+  {
+    "id": "V051",
+    "title": "X-VLA: Soft-Prompted Transformer as Scalable Cross-Embodiment Vision-Language-Action Model",
+    "authors_or_org": "Jinliang Zheng et al.",
+    "date": "2025-10-11",
+    "url": "https://arxiv.org/abs/2510.10274",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "Embodiment/data-source soft prompts; Florence-Large and separate wrist-view encoding; flow matching"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V052",
+    "title": "X-VLA project",
+    "authors_or_org": "Tsinghua AIR / Shanghai AI Laboratory and collaborators",
+    "date": null,
+    "url": "https://thu-air-dream.github.io/X-VLA/",
+    "type": "project",
+    "accessed": "2026-09-11",
+    "claims": [
+      "0.9B standard-transformer VLA; cross-embodiment adaptation and model links"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V053",
+    "title": "From Foundation to Application: Improving VLA Models in Practice",
+    "authors_or_org": "Wei Wu et al.",
+    "date": "2026-07-07",
+    "url": "https://arxiv.org/abs/2607.06403",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "LingBot-VLA 2.0; 60k curated hours; MoE action expert; future semantic/depth distillation; GM-100 and OOD tests"
+    ],
+    "limitations": "Only nine GM-100 tasks are evaluated in the reported mixed-task table, not all 100; two long-horizon tasks have 15 trials per setting."
+  },
+  {
+    "id": "V054",
+    "title": "LingBot-VLA 2.0 repository",
+    "authors_or_org": "Robbyant",
+    "date": null,
+    "url": "https://github.com/Robbyant/lingbot-vla-v2",
+    "type": "code",
+    "accessed": "2026-09-11",
+    "claims": [
+      "6B released native-depth checkpoint; Qwen3-VL-4B; 55-dimensional canonical state/action including four reserved dimensions"
+    ],
+    "limitations": "Primary-author evidence; reported evaluations are specific to the stated setup and are not independently reproduced here."
+  },
+  {
+    "id": "V055",
+    "title": "Real-Time Execution of Action Chunking Flow Policies",
+    "authors_or_org": "Kevin Black, Manuel Y. Galliker, Sergey Levine",
+    "date": "2025-06-09",
+    "url": "https://arxiv.org/abs/2506.07339",
+    "type": "paper",
+    "accessed": "2026-09-11",
+    "claims": [
+      "RTC asynchronous chunk generation with inpainting of committed action prefix"
+    ],
+    "limitations": "RTC changes execution scheduling and conditioning; it is not itself a more knowledgeable backbone or a new robot dataset."
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "cutoff": "2026-09-11",
+  "items": [
+    {
+      "subject": "GR00T N1.6 backbone",
+      "status": "public-source wording conflict retained",
+      "source_ids": [
+        "V033",
+        "V034"
+      ]
+    },
+    {
+      "subject": "SONIC training compute",
+      "status": "inconsistent public counts excluded from quantitative comparison",
+      "source_ids": [
+        "H011",
+        "H012"
+      ]
+    },
+    {
+      "subject": "DROID task-count revisions",
+      "status": "omitted variant task counts",
+      "source_ids": [
+        "R002"
+      ]
+    },
+    {
+      "subject": "Proprietary model internals",
+      "status": "undisclosed architecture and training details remain unknown",
+      "source_ids": [
+        "H021",
+        "H038"
+      ]
+    },
+    {
+      "subject": "Cross-paper performance",
+      "status": "incompatible protocols; no normalized ranking or reproduced claim",
+      "source_ids": []
+    }
+  ]
+}

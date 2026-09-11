@@ -1,0 +1,1630 @@
+[
+  {
+    "id": "act",
+    "name": "ACT",
+    "year": 2023,
+    "family": "chunked imitation",
+    "inputs": "Multi-view RGB and joint state",
+    "architecture": "Visual encoder and transformer CVAE",
+    "action_representation": "Joint-position action chunks",
+    "training": "Action reconstruction plus KL regularization",
+    "data": "Task-specific teleoperation demonstrations",
+    "inference": "Zero latent at deployment; repeatedly predict chunks and combine overlapping predictions",
+    "contribution": "Reduce effective imitation horizon on low-cost bimanual hardware",
+    "limitations": "Limited demonstration support; no built-in language foundation model or guaranteed contact-force reasoning",
+    "openness": "Code and hardware design available",
+    "source_ids": [
+      "S001",
+      "S002"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "diffusion-policy",
+    "name": "Diffusion Policy",
+    "year": 2023,
+    "family": "generative imitation",
+    "inputs": "Recent visual observations and robot state",
+    "architecture": "Conditional temporal diffusion network",
+    "action_representation": "Continuous future action sequence",
+    "training": "Denoising / score learning on expert actions",
+    "data": "Robot manipulation demonstration benchmarks",
+    "inference": "Iterative denoising; execute a prefix and re-observe",
+    "contribution": "Model multimodal action distributions with receding-horizon feedback",
+    "limitations": "Sampling cost and data coverage remain limiting; original model is not automatically a web-pretrained VLA",
+    "openness": "Code and training materials available",
+    "source_ids": [
+      "S003",
+      "S004"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "rt1",
+    "name": "RT-1",
+    "year": 2022,
+    "family": "robotics transformer",
+    "inputs": "Short image history and language instruction",
+    "architecture": "EfficientNet with FiLM, TokenLearner, transformer",
+    "action_representation": "Discretized arm/base controls and termination mode",
+    "training": "Supervised action-token prediction",
+    "data": "Over 130k episodes, over 700 tasks, 13 robots",
+    "inference": "3 Hz policy loop with termination condition",
+    "contribution": "Demonstrated scalable multitask robot behavior cloning",
+    "limitations": "Mostly restricted robot/task distribution; language conditioning is not equivalent to large VLM reasoning",
+    "openness": "Code and data links public",
+    "source_ids": [
+      "S005",
+      "S006"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "rt2",
+    "name": "RT-2",
+    "year": 2023,
+    "family": "autoregressive VLA",
+    "inputs": "RGB and task text",
+    "architecture": "Pretrained PaLI-X or PaLM-E adapted to robot control",
+    "action_representation": "Robot action bins serialized as text tokens",
+    "training": "Co-fine-tuning robot trajectories and web vision-language tasks",
+    "data": "Robot actions plus web VLM corpora",
+    "inference": "Autoregressively generate and detokenize actions, then re-observe",
+    "contribution": "Transfer semantic web knowledge directly into action selection",
+    "limitations": "New semantic concepts do not imply new low-level motor skills; large decoder adds latency",
+    "openness": "Research report; complete trained model not openly reproduced",
+    "source_ids": [
+      "S007",
+      "S008"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "rtx",
+    "name": "RT-X / Open X-Embodiment",
+    "year": 2023,
+    "family": "cross-embodiment policy and data",
+    "inputs": "Robot images and language across platforms",
+    "architecture": "RT-1-X and RT-2-X retain their respective base architectures",
+    "action_representation": "Standardized action interfaces with dataset-specific semantics",
+    "training": "Multirobot supervised policy learning",
+    "data": "Pooled data from 22 robot embodiments in initial report",
+    "inference": "Decode to target robot interface within a feedback loop",
+    "contribution": "Established positive transfer from heterogeneous robot experience",
+    "limitations": "Common file schema does not ensure identical physics, control frequency, or coordinates",
+    "openness": "Dataset/code resources; openness differs between RT variants",
+    "source_ids": [
+      "S009",
+      "S010"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "octo",
+    "name": "Octo",
+    "year": 2024,
+    "family": "generalist diffusion policy",
+    "inputs": "Language or goal image; flexible observation streams",
+    "architecture": "Modular tokenizers, transformer and diffusion action head",
+    "action_representation": "Continuous action chunks; replaceable action heads",
+    "training": "Robot pretraining plus efficient domain fine-tuning",
+    "data": "800k Open X-Embodiment trajectories",
+    "inference": "Sample action chunk, execute prefix, replan",
+    "contribution": "Flexible sensors and action spaces without requiring a giant language decoder",
+    "limitations": "Needs adaptation for new interfaces; robot pretraining does not by itself give broad conversational reasoning",
+    "openness": "Open code and checkpoints",
+    "source_ids": [
+      "S011",
+      "S012"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "openvla",
+    "name": "OpenVLA",
+    "year": 2024,
+    "family": "autoregressive VLA",
+    "inputs": "Robot image and instruction",
+    "architecture": "DINOv2/SigLIP visual features with Llama 2 language backbone",
+    "action_representation": "Discretized robot action tokens",
+    "training": "Action-token cross-entropy and optional efficient fine-tuning",
+    "data": "970k real robot demonstrations; 7B model",
+    "inference": "Sequential action-token decoding and robot feedback",
+    "contribution": "Accessible VLA pretraining and adaptation reference",
+    "limitations": "Original decoder is expensive for high-frequency chunks; new hardware generally requires tuning",
+    "openness": "Code and weights available; component licenses apply",
+    "source_ids": [
+      "S013",
+      "S014"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "openvla-oft",
+    "name": "OpenVLA-OFT",
+    "year": 2025,
+    "family": "VLA fine-tuning recipe",
+    "inputs": "Images, instruction and configurable robot state",
+    "architecture": "OpenVLA adapted for parallel chunk prediction",
+    "action_representation": "Continuous action chunks",
+    "training": "L1 regression with parallel decoding and chunking",
+    "data": "Task-adaptation data; LIBERO and real ALOHA evaluations",
+    "inference": "Predict multiple actions in parallel; update observations during control",
+    "contribution": "Shows fine-tuning/output design can dominate practical speed and success",
+    "limitations": "L1 favors a conditional median; multimodal behavior and language grounding need separate checks",
+    "openness": "Code and checkpoints public",
+    "source_ids": [
+      "S015",
+      "S016"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "pi0",
+    "name": "pi0",
+    "year": 2024,
+    "family": "flow VLA",
+    "inputs": "Multi-view images, text, proprioception and noisy actions",
+    "architecture": "PaliGemma 3B plus roughly 300M robot action expert",
+    "action_representation": "Continuous chunks of 50 actions in the reported setup",
+    "training": "Conditional flow matching; broad pretraining then dexterous post-training",
+    "data": "Private multirobot data mixed with open robot datasets",
+    "inference": "Cache observation prefix; integrate action vector field and execute chunks",
+    "contribution": "Combine semantic VLM features with continuous dexterous control",
+    "limitations": "Base generality and specialist performance are different settings; dataset mixture is not fully open",
+    "openness": "openpi releases code and selected weights",
+    "source_ids": [
+      "S017",
+      "S018",
+      "S020"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "fast",
+    "name": "FAST / pi0-FAST",
+    "year": 2025,
+    "family": "action tokenization and autoregressive VLA",
+    "inputs": "Normalized continuous action chunks during tokenization; image/text at policy time",
+    "architecture": "DCT, quantization and BPE tokenizer with autoregressive policy",
+    "action_representation": "Compressed frequency-domain action tokens",
+    "training": "Next-token learning on compressed robot sequences",
+    "data": "Robot trajectories including dexterous tasks and DROID adaptation",
+    "inference": "Generate tokens; inverse transform to continuous chunks",
+    "contribution": "Removes redundancy in high-frequency action sequences",
+    "limitations": "Token compression and training speed do not guarantee low closed-loop latency; quantization is a design tradeoff",
+    "openness": "Tokenizer and pi0-FAST models available",
+    "source_ids": [
+      "S019",
+      "S020"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "pi05",
+    "name": "pi0.5 / knowledge insulation",
+    "year": 2025,
+    "family": "hierarchical flow VLA",
+    "inputs": "Images, task/subtask text and robot state",
+    "architecture": "PaliGemma VLM plus continuous action expert and token objectives",
+    "action_representation": "Language subtasks; discrete auxiliary actions; continuous motor chunks",
+    "training": "Heterogeneous co-training; KI blocks expert gradients while token/VLM objectives train backbone",
+    "data": "Multirobot trajectories, semantic/subtask annotations and nonrobot VLM data",
+    "inference": "High-level subtask prediction conditions faster low-level action generation",
+    "contribution": "Improve open-environment generalization while preserving semantic features",
+    "limitations": "KI is not simply freezing the VLM; original paper and open implementation differ in supported heads",
+    "openness": "openpi code and pi0.5 flow checkpoints available",
+    "source_ids": [
+      "S021",
+      "S022",
+      "S020"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "pi06",
+    "name": "pi0.6",
+    "year": 2025,
+    "family": "hierarchical flow VLA",
+    "inputs": "Images, robot state, text and heterogeneous prompt metadata",
+    "architecture": "Gemma 3 4B backbone plus about 860M action expert",
+    "action_representation": "Discrete outputs and continuous action chunks",
+    "training": "Supervised VLA training with revised architecture and data",
+    "data": "Expanded heterogeneous robot training data; full corpus undisclosed",
+    "inference": "Predict subtasks and conditional motor chunks",
+    "contribution": "Refinement of pi0.5 and starting point for real-world RL",
+    "limitations": "Architecture change is distinct from RECAP improvement; do not call the base model RL-trained",
+    "openness": "Model card available; inspected openpi does not list this checkpoint",
+    "source_ids": [
+      "S023",
+      "S024"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "pi06-recap",
+    "name": "pi-star-0.6 / RECAP",
+    "year": 2025,
+    "family": "reinforcement post-training",
+    "inputs": "pi0.6 observations with desired advantage condition",
+    "architecture": "pi0.6 policy plus learned value function during training",
+    "action_representation": "Advantage-conditioned continuous robot actions",
+    "training": "Offline RL, demonstrations, corrective takeovers and autonomous reward-labeled rollouts",
+    "data": "Generalist data and task-specific on-robot experience",
+    "inference": "Condition on high advantage at execution; value learning improves next policy iteration",
+    "contribution": "Improve both successful completions per hour and reliability",
+    "limitations": "Reward and intervention infrastructure is task-specific; results do not establish unconstrained autonomous self-improvement",
+    "openness": "Paper and model details; complete RL pipeline/data not publicly reproducible",
+    "source_ids": [
+      "S024",
+      "S025"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "mem",
+    "name": "MEM / pi0.6-MEM",
+    "year": 2026,
+    "family": "memory-augmented VLA",
+    "inputs": "Video history, language memory, current observations and state",
+    "architecture": "Compressed short-term visual encoder plus long-term textual state",
+    "action_representation": "Subtasks and continuous action chunks from augmented VLA",
+    "training": "Train with robot/nonrobot images and video plus task history",
+    "data": "Diverse robot and nonrobot corpus; evaluated memory-dependent tasks",
+    "inference": "Update memory and condition subsequent decisions on prior attempts",
+    "contribution": "Address partial observability and repeated failed strategies",
+    "limitations": "Task memory is not lifelong retention; summaries can lose or corrupt state",
+    "openness": "Research page/paper; no complete public checkpoint confirmed",
+    "source_ids": [
+      "S028"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "pi07",
+    "name": "pi0.7",
+    "year": 2026,
+    "family": "steerable generalist VLA",
+    "inputs": "Current/history observations, task/subtask, quality/speed metadata, optional visual subgoals",
+    "architecture": "pi0.6 architecture plus MEM; Gemma 3 4B and 860M flow expert",
+    "action_representation": "Continuous actions conditioned on varied multimodal prompts",
+    "training": "Conditioned learning from diverse-quality data; absorb RL specialist experience",
+    "data": "Multirobot, human and autonomous data; exact mixture not fully released",
+    "inference": "High-level policy and optional BAGEL-based world model generate subgoals; VLA acts and updates memory",
+    "contribution": "Compositional skill reuse through better conditioning rather than a wholly new backbone",
+    "limitations": "Some tasks require language coaching or adapted high-level policy; broad generality remains author-evaluated",
+    "openness": "Technical report; inspected openpi does not list public pi0.7 weights",
+    "source_ids": [
+      "S026",
+      "S027",
+      "S020"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "smolvla",
+    "name": "SmolVLA",
+    "year": 2025,
+    "family": "compact flow VLA",
+    "inputs": "Images, language and projected robot state",
+    "architecture": "Truncated SmolVLM2 with approximately 100M action expert; 450M total",
+    "action_representation": "Continuous action chunks",
+    "training": "Freeze VLM and learn flow-matching expert",
+    "data": "LeRobot community demonstrations and target fine-tuning",
+    "inference": "Iterative flow generation; synchronous and asynchronous scheduling evaluated separately",
+    "contribution": "Lower model footprint and accessible robot-policy experimentation",
+    "limitations": "Community/task coverage and execution schedule affect results; no universal real-time frequency",
+    "openness": "Open code, checkpoints and community datasets",
+    "source_ids": [
+      "S029",
+      "S030"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "groot-n1",
+    "name": "GR00T N1",
+    "year": 2025,
+    "family": "generalist humanoid VLA",
+    "inputs": "Images, language and embodiment-specific state",
+    "architecture": "Eagle VLM features cross-attended by flow DiT; embodiment MLPs",
+    "action_representation": "Continuous chunks, with robot and learned latent action targets",
+    "training": "Flow matching across real, simulated, neural-generated and human data",
+    "data": "Multirobot demonstrations, simulation, human videos",
+    "inference": "Action expert samples chunks; hardware controller tracks commands",
+    "contribution": "Connect semantic perception to multiple embodiments and synthetic-data pipelines",
+    "limitations": "System 2 naming does not prove explicit planning; transfer still needs target post-training",
+    "openness": "Open weights/code with release-specific terms",
+    "source_ids": [
+      "S031"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "groot-n15",
+    "name": "GR00T N1.5",
+    "year": 2025,
+    "family": "generalist humanoid VLA",
+    "inputs": "Images, text, state and noised actions",
+    "architecture": "Frozen Eagle 2.5-derived VLM and DiT",
+    "action_representation": "Continuous flow actions with future-feature auxiliary target",
+    "training": "Flow loss plus FLARE latent future alignment",
+    "data": "N1 mixture expanded with DreamGen and other robot sources",
+    "inference": "Cross-attended chunk generation and target adaptation",
+    "contribution": "Stronger language grounding; learn useful future representation from videos",
+    "limitations": "New verbs supplied through synthetic trajectories are trained skills, not unrestricted zero-shot transfer",
+    "openness": "Versioned code and model cards available",
+    "source_ids": [
+      "S032",
+      "S035"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "groot-n16",
+    "name": "GR00T N1.6",
+    "year": 2025,
+    "family": "generalist humanoid VLA",
+    "inputs": "Flexible-resolution images, language and robot state",
+    "architecture": "Cosmos-2B internal VLM variant; 32-layer DiT; top VLM layers unfrozen",
+    "action_representation": "Mostly state-relative action chunks",
+    "training": "Mixed pretraining and regularized target post-training",
+    "data": "Additional YAM, AgiBot, BEHAVIOR and Unitree G1 data",
+    "inference": "Chunk generation with optional real-time chunking",
+    "contribution": "Expanded embodiments and improved motion modeling",
+    "limitations": "Relative actions can accumulate errors; language/OOD generalization remains explicitly unresolved",
+    "openness": "Code and model-card releases available",
+    "source_ids": [
+      "S033",
+      "S035"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "groot-n17",
+    "name": "GR00T N1.7",
+    "year": 2026,
+    "family": "generalist humanoid VLA",
+    "inputs": "Images, instruction and robot state",
+    "architecture": "Cosmos-Reason2-2B / Qwen3-VL backbone plus action DiT; 3B checkpoint",
+    "action_representation": "Continuous robot action chunks",
+    "training": "Generalist pretraining and robot-specific post-training",
+    "data": "Vendor reports around 32k hours real/human and 8k simulated data",
+    "inference": "ONNX/TensorRT export and robot runtime support",
+    "contribution": "Stronger backbone and end-to-end deployment tooling",
+    "limitations": "Availability is not field reliability; earlier FAQ and newer GA repository differ",
+    "openness": "Official repository labels N1.7 GA. License section: code Apache 2.0; model weights NVIDIA Open Model License. The README also contains a broader Apache 2.0 commercialization statement; do not conflate code and weight terms, and check the specific checkpoint.",
+    "source_ids": [
+      "S034",
+      "S035"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "gemini-robotics1",
+    "name": "Gemini Robotics / ER",
+    "year": 2025,
+    "family": "proprietary VLA and reasoning pair",
+    "inputs": "VLA: images, instructions and robot state; ER: multimodal context",
+    "architecture": "Gemini-based action model alongside separate embodied reasoning VLM",
+    "action_representation": "VLA motor commands; ER plans, spatial outputs and tool calls",
+    "training": "Robot adaptation of multimodal pretrained models; full recipe undisclosed",
+    "data": "Web multimodal and robot data",
+    "inference": "ER can plan; VLA repeatedly grounds observations into movement",
+    "contribution": "Clear separation between physical reasoning and executable control",
+    "limitations": "ER alone is not a motor policy; complete model/data access limited",
+    "openness": "Research report and partner access; no open full VLA weights",
+    "source_ids": [
+      "S036",
+      "S037"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "gemini-robotics15",
+    "name": "Gemini Robotics 1.5 / ER 1.5",
+    "year": 2025,
+    "family": "thinking VLA and orchestration",
+    "inputs": "Multirobot visual/state observations, instructions and tool context",
+    "architecture": "Multi-embodiment VLA with Motion Transfer; separate ER orchestration",
+    "action_representation": "Motor actions interleaved with language reasoning; ER task plans",
+    "training": "Cross-embodiment training and thinking behavior; exact full recipe undisclosed",
+    "data": "ALOHA, bimanual Franka, Apollo and web text/image/video",
+    "inference": "ER calls tools and dispatches subtasks; VLA reasons and acts with feedback",
+    "contribution": "Motion transfer and agentic multi-step behavior",
+    "limitations": "Some long-horizon Franka results include additional post-training; reasoning text is not a safety proof",
+    "openness": "ER API availability; VLA restricted to partners at release",
+    "source_ids": [
+      "S038",
+      "S039"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "gemini-er16",
+    "name": "Gemini Robotics-ER 1.6",
+    "year": 2026,
+    "family": "embodied reasoning VLM",
+    "inputs": "Text, images, audio and video",
+    "architecture": "Gemini 3.0 Flash-derived reasoning model",
+    "action_representation": "Text/spatial representations and function calls, not direct torques",
+    "training": "Gemini training plus embodied reasoning data; exact objective undisclosed",
+    "data": "General multimodal and specialized embodied reasoning datasets",
+    "inference": "Infer geometry/progress, invoke tools or downstream policies",
+    "contribution": "Better instrument reading, pointing and multiview success estimation",
+    "limitations": "Success-detector mistakes propagate; single/multiview benchmark examples differ",
+    "openness": "API/model card; closed weights",
+    "source_ids": [
+      "S040",
+      "S041"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "gemini-robotics2",
+    "name": "Gemini Robotics 2",
+    "year": 2026,
+    "family": "whole-body VLA",
+    "inputs": "Visual observations, language and robot state",
+    "architecture": "Next-generation multi-embodiment Gemini VLA; internal details undisclosed",
+    "action_representation": "Whole-body and dexterous motor commands",
+    "training": "Robot foundation-model training; full losses and corpus not disclosed",
+    "data": "Vendor robot experiments across Apollo and bimanual platforms",
+    "inference": "Execute whole-body tasks under observation feedback and ER coordination",
+    "contribution": "Extend control from upper-body manipulation to whole-body tasks",
+    "limitations": "Author reports remaining speed and multifinger failures; no public full training recipe",
+    "openness": "Early-access partner VLA",
+    "source_ids": [
+      "S042"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "gemini-er2",
+    "name": "Gemini Robotics ER 2",
+    "year": 2026,
+    "family": "embodied reasoning VLM",
+    "inputs": "Multimodal scene and task context",
+    "architecture": "Gemini 3.5 Flash-derived embodied reasoning model",
+    "action_representation": "Plans, text, coordination and tool calls",
+    "training": "Gemini 3.5 data plus specialized embodied reasoning data",
+    "data": "Undisclosed complete corpus",
+    "inference": "Orchestrate robot activities and coordinate multiple robots",
+    "contribution": "Agentic coordination complements whole-body VLA",
+    "limitations": "Reasoning benchmark gains do not establish motor reliability",
+    "openness": "AI Studio access; enterprise private preview stated at launch",
+    "source_ids": [
+      "S042",
+      "S043"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "gemini-ondevice2",
+    "name": "Gemini Robotics On-Device 2",
+    "year": 2026,
+    "family": "local VLA",
+    "inputs": "Images, instruction and numerical proprioception",
+    "architecture": "Robotics 1.5 technology combined with on-device Gemma",
+    "action_representation": "Numerical robot action outputs",
+    "training": "Robot sensor/action and multimodal training; detailed losses undisclosed",
+    "data": "Proprietary training corpus; adaptation data for new embodiment",
+    "inference": "Run local inference and act under sensor feedback",
+    "contribution": "Local deployment and faster new-embodiment adaptation",
+    "limitations": "On-device does not mean open weights; adaptation hours are data requirements, not a universal deployment guarantee",
+    "openness": "Early-access partner model",
+    "source_ids": [
+      "S042",
+      "S044"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "rdt1b",
+    "name": "RDT-1B",
+    "year": 2024,
+    "family": "bimanual diffusion foundation policy",
+    "inputs": "Language, multiview images, state and control frequency",
+    "architecture": "Scalable 1.2B robotics diffusion transformer",
+    "action_representation": "Physically interpretable unified continuous action space",
+    "training": "Denoising pretraining followed by bimanual fine-tuning",
+    "data": "Large multirobot collection and over 6k bimanual episodes",
+    "inference": "Denoise action chunks and execute with feedback",
+    "contribution": "Explicit action semantics support heterogeneous robot transfer",
+    "limitations": "Unified slots still require correct units, masks and robot-specific mapping; iterative sampling costs",
+    "openness": "Code and weights available",
+    "source_ids": [
+      "S045",
+      "S046"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "univla-odl",
+    "name": "UniVLA (OpenDriveLab)",
+    "year": 2025,
+    "family": "latent-action VLA",
+    "inputs": "Video frame pairs and task language for learning; observation and language for policy",
+    "architecture": "Task-conditioned VQ-VAE in DINO feature space; VLA plus lightweight action decoder",
+    "action_representation": "Embodiment-agnostic latent action tokens decoded to physical controls",
+    "training": "Latent-action learning, policy pretraining and robot decoder adaptation",
+    "data": "Cross-embodiment OpenX and human Ego4D videos",
+    "inference": "Predict latent action, decode for target robot, re-observe",
+    "contribution": "Use videos lacking robot action labels while suppressing task-irrelevant motion",
+    "limitations": "Latent action abstraction may omit contact/control detail; decoder still needs real robot supervision",
+    "openness": "Code and checkpoints public",
+    "source_ids": [
+      "S047",
+      "S048"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "univla-baai",
+    "name": "UniVLA (BAAI)",
+    "year": 2025,
+    "family": "unified multimodal generative VLA",
+    "inputs": "Image/video, language and action sequences",
+    "architecture": "Emu3-based autoregressive multimodal model",
+    "action_representation": "Discrete visual, language and action tokens",
+    "training": "World-model post-training and downstream policy learning",
+    "data": "Video and robot benchmark data",
+    "inference": "Generate action tokens using learned temporal representations",
+    "contribution": "Unify visual prediction and action learning in one token framework",
+    "limitations": "Distinct from OpenDriveLab UniVLA; inference budgets and benchmark variants matter",
+    "openness": "Code, models and training paths available",
+    "source_ids": [
+      "S049",
+      "S050"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "xvla",
+    "name": "X-VLA",
+    "year": 2025,
+    "family": "soft-prompt flow VLA",
+    "inputs": "Fixed and wrist images, language, state, dataset/embodiment identity",
+    "architecture": "Florence-Large vision-language stream, separate auxiliary vision, soft-prompted transformer",
+    "action_representation": "Continuous action chunks with domain input/output projections",
+    "training": "Flow matching with embodiment-specific soft prompts and balanced heterogeneous data",
+    "data": "Multiple robot datasets and simulation/real adaptation settings",
+    "inference": "Condition action generation on target prompt and robot interface",
+    "contribution": "Separate shared skills from embodiment-specific conditioning efficiently",
+    "limitations": "Soft prompts require valid domain identity/adaptation; not automatic support for arbitrary hardware",
+    "openness": "Code and checkpoints linked from project",
+    "source_ids": [
+      "S051",
+      "S052"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "lingbot-vla2",
+    "name": "LingBot-VLA 2.0",
+    "year": 2026,
+    "family": "MoE and predictive VLA",
+    "inputs": "Images, text, canonical robot state",
+    "architecture": "Qwen3-VL-based model, sparse MoE action expert and semantic/depth future distillation",
+    "action_representation": "55-dimensional canonical state/action including four reserved slots",
+    "training": "Action learning plus dual-query future-feature/depth supervision; action-loss choices ablated",
+    "data": "60k curated hours: 50k robot from 20 configurations and 10k human ego",
+    "inference": "Predict physical actions with target embodiment mapping and feedback",
+    "contribution": "Combine scaling, wider body action coverage and predictive priors",
+    "limitations": "Nine GM-100 tasks are not the whole benchmark; OOD full-task success remains low in some tests",
+    "openness": "6B native-depth checkpoint and code released",
+    "source_ids": [
+      "S053",
+      "S054"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "rtc",
+    "name": "Real-Time Chunking (RTC)",
+    "year": 2025,
+    "family": "execution and conditioning method",
+    "inputs": "Current observations plus already committed action prefix",
+    "architecture": "Inpainting/conditioning procedure around an existing flow policy",
+    "action_representation": "Continuous chunks with a fixed prefix",
+    "training": "Original approach can operate without retraining the backbone",
+    "data": "Existing pretrained policy; evaluate delayed/asynchronous execution",
+    "inference": "Compute next chunk while executing current actions; preserve prefix continuity",
+    "contribution": "Reduce pauses and discontinuities from delayed large-model inference",
+    "limitations": "Requires latency budgeting; not a fix for incorrect goals or unobserved collisions",
+    "openness": "Research algorithm; integrations available in robot stacks",
+    "source_ids": [
+      "S055"
+    ],
+    "research_group": "vla"
+  },
+  {
+    "id": "saycan",
+    "name": "SayCan",
+    "year": 2022,
+    "family": "hierarchical_planning",
+    "inputs": [
+      "instruction",
+      "skill history",
+      "state affordances"
+    ],
+    "architecture": "Language relevance multiplied by learned skill feasibility.",
+    "action_representation": "Named skills",
+    "training": "Pretrained LLM plus skill policy/value learning.",
+    "data": "Language pretraining and robot skill experience.",
+    "inference": "Select skill, execute, repeat.",
+    "contribution": "Connects semantic intent to executable abilities.",
+    "limitations": "Fixed skills; incomplete failure feedback.",
+    "openness": "Tabletop simulation code and instruction dataset.",
+    "source_ids": [
+      "S056"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "palme",
+    "name": "PaLM-E",
+    "year": 2023,
+    "family": "embodied_reasoning",
+    "inputs": [
+      "images",
+      "continuous state",
+      "language"
+    ],
+    "architecture": "Continuous sensor embeddings inserted into decoder language model.",
+    "action_representation": "Textual low-level subgoals",
+    "training": "Joint multimodal and embodied task learning.",
+    "data": "Internet multimodal and robot data.",
+    "inference": "Generate plan; execute through separate policies; add feedback.",
+    "contribution": "Direct sensor-conditioned language reasoning.",
+    "limitations": "Large compute; low-level execution remains separate.",
+    "openness": "Paper/project; full public weights not verified.",
+    "source_ids": [
+      "S057"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "embodiedgpt",
+    "name": "EmbodiedGPT",
+    "year": 2023,
+    "family": "hierarchical_planning",
+    "inputs": [
+      "video",
+      "instruction"
+    ],
+    "architecture": "Prefix-tuned 7B language model plus planning-query features.",
+    "action_representation": "Subgoals and action-relevant features",
+    "training": "EgoCOT adaptation and downstream control training.",
+    "data": "Ego4D-derived EgoCOT; benchmark control data.",
+    "inference": "Plan and extract features for controller.",
+    "contribution": "Learned high-/low-level interface.",
+    "limitations": "Benchmark-specific transfer.",
+    "openness": "Paper; release completeness not audited.",
+    "source_ids": [
+      "S059"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "vima",
+    "name": "VIMA",
+    "year": 2023,
+    "family": "multimodal_policy",
+    "inputs": [
+      "text/image prompts",
+      "object observations",
+      "history"
+    ],
+    "architecture": "T5 prompt encoder; cross-attention causal decoder.",
+    "action_representation": "Tabletop manipulation primitives",
+    "training": "Behavior cloning.",
+    "data": "600K+ VIMA expert trajectories.",
+    "inference": "Autoregressively choose actions and observe outcomes.",
+    "contribution": "Unified visual/text task interface.",
+    "limitations": "Procedural simulation and object-token assumptions.",
+    "openness": "Code, weights, benchmark and dataset linked.",
+    "source_ids": [
+      "S058"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "voxposer",
+    "name": "VoxPoser",
+    "year": 2023,
+    "family": "geometric_planning",
+    "inputs": [
+      "RGB-D",
+      "instruction"
+    ],
+    "architecture": "LLM-generated programs compose VLM-grounded 3D value maps.",
+    "action_representation": "6-DoF end-effector waypoints",
+    "training": "Pretrained components; optional online dynamics.",
+    "data": "Pretrained foundation data; manipulation evaluation.",
+    "inference": "Recompute maps and plan trajectories with feedback.",
+    "contribution": "Inspectable geometric objectives.",
+    "limitations": "Perception/calibration/planner assumptions.",
+    "openness": "Project provides code and prompts.",
+    "source_ids": [
+      "S060"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "r3m",
+    "name": "R3M",
+    "year": 2022,
+    "family": "visual_representation",
+    "inputs": [
+      "RGB frames"
+    ],
+    "architecture": "Visual encoder with temporal and language-alignment objectives.",
+    "action_representation": "None; downstream controller required",
+    "training": "Contrastive and compactness pretraining.",
+    "data": "Ego4D human videos.",
+    "inference": "Encode observations for learned policy.",
+    "contribution": "Data-efficient reusable perception.",
+    "limitations": "No direct actions or transition model.",
+    "openness": "Paper links code and pretrained models.",
+    "source_ids": [
+      "S061"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "vc1",
+    "name": "VC-1",
+    "year": 2023,
+    "family": "visual_representation",
+    "inputs": [
+      "RGB images"
+    ],
+    "architecture": "MAE-pretrained vision transformer.",
+    "action_representation": "None; downstream controller required",
+    "training": "Visual pretraining plus optional adaptation.",
+    "data": "Egocentric video sources and ImageNet.",
+    "inference": "Encode sensor input for downstream policy.",
+    "contribution": "Broad sensorimotor representation evaluation.",
+    "limitations": "Adaptation and task protocol determine transfer.",
+    "openness": "Models/code described as released.",
+    "source_ids": [
+      "S062"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "peract",
+    "name": "PerAct",
+    "year": 2022,
+    "family": "geometric_policy",
+    "inputs": [
+      "RGB-D",
+      "language"
+    ],
+    "architecture": "Perceiver over voxel and language tokens.",
+    "action_representation": "Discrete 3D location, orientation, gripper",
+    "training": "Behavior cloning with keypose supervision.",
+    "data": "RLBench and real demonstrations.",
+    "inference": "Predict keypose; planner executes.",
+    "contribution": "Shared geometric observation/action space.",
+    "limitations": "Voxel cost and RGB-D calibration.",
+    "openness": "Official code, tutorial and checkpoints.",
+    "source_ids": [
+      "S063"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "rvt",
+    "name": "RVT",
+    "year": 2023,
+    "family": "geometric_policy",
+    "inputs": [
+      "RGB-D-derived scene",
+      "language"
+    ],
+    "architecture": "Virtual-view rendering and cross-view transformer.",
+    "action_representation": "Gripper keypose",
+    "training": "Behavior cloning.",
+    "data": "RLBench and real demonstrations.",
+    "inference": "Fuse views, predict pose, execute.",
+    "contribution": "Efficient spatial policy computation.",
+    "limitations": "View construction and protocol dependence.",
+    "openness": "Official project links code and trained model.",
+    "source_ids": [
+      "S064"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "3d-diffuser-actor",
+    "name": "3D Diffuser Actor",
+    "year": 2024,
+    "family": "geometric_diffusion_policy",
+    "inputs": [
+      "RGB-D",
+      "language",
+      "robot state"
+    ],
+    "architecture": "3D relative attention conditions pose denoising.",
+    "action_representation": "End-effector translations, rotations, gripper",
+    "training": "Conditional action diffusion.",
+    "data": "RLBench, CALVIN, real demonstrations.",
+    "inference": "Denoise action; execute with task controller/planner.",
+    "contribution": "Unifies 3D geometry and multimodal actions.",
+    "limitations": "Quaternion and benchmark conventions matter.",
+    "openness": "Code, weights and data links.",
+    "source_ids": [
+      "S065",
+      "S066"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "dreamerv3",
+    "name": "DreamerV3",
+    "year": 2023,
+    "family": "latent_model_based_rl",
+    "inputs": [
+      "observations",
+      "actions",
+      "rewards"
+    ],
+    "architecture": "Recurrent latent dynamics and actor-critic.",
+    "action_representation": "Environment-dependent controls",
+    "training": "World-model learning and imagined RL.",
+    "data": "Online environment interaction.",
+    "inference": "Infer state, act; update model and policy.",
+    "contribution": "Robust cross-domain algorithm configuration.",
+    "limitations": "Exploration, rewards and model error; not universal weights.",
+    "openness": "Official algorithm code; paper/author project.",
+    "source_ids": [
+      "S067",
+      "S068"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "unisim",
+    "name": "UniSim",
+    "year": 2023,
+    "family": "video_world_model",
+    "inputs": [
+      "observation history",
+      "language or numeric action"
+    ],
+    "architecture": "Conditional video diffusion trained across data domains.",
+    "action_representation": "Input action conditions future video",
+    "training": "Heterogeneous generative modeling.",
+    "data": "Images, videos, robot and navigation data.",
+    "inference": "Simulate transitions for planner/policy learning.",
+    "contribution": "Generated interaction as training experience.",
+    "limitations": "Task-bounded transfer and model exploitation.",
+    "openness": "Paper/project; full reproduction not verified.",
+    "source_ids": [
+      "S069",
+      "S070"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "genie1",
+    "name": "Genie",
+    "year": 2024,
+    "family": "interactive_world_model",
+    "inputs": [
+      "initial image",
+      "latent action",
+      "history"
+    ],
+    "architecture": "Video tokenizer, latent action model and autoregressive dynamics.",
+    "action_representation": "Learned latent actions",
+    "training": "Unsupervised action-label-free video learning.",
+    "data": "Internet video.",
+    "inference": "User action selects generated next frame.",
+    "contribution": "Controllability from unlabeled video.",
+    "limitations": "Latent controls not calibrated motor actions.",
+    "openness": "Research paper; open full checkpoint not verified.",
+    "source_ids": [
+      "S071"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "genie2",
+    "name": "Genie 2",
+    "year": 2024,
+    "family": "interactive_world_model",
+    "inputs": [
+      "initial image",
+      "user actions",
+      "history"
+    ],
+    "architecture": "Autoregressive latent diffusion with causal dynamics.",
+    "action_representation": "Interactive environment commands",
+    "training": "Large-scale video training.",
+    "data": "Video corpus; full composition undisclosed.",
+    "inference": "Generate next frame conditioned on actions.",
+    "contribution": "Interactive 3D environment diversity.",
+    "limitations": "Consistency and physical validity remain limited.",
+    "openness": "Official research demonstration.",
+    "source_ids": [
+      "S072"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "genie3",
+    "name": "Genie 3",
+    "year": 2025,
+    "family": "interactive_world_model",
+    "inputs": [
+      "prompt",
+      "interactive actions"
+    ],
+    "architecture": "Detailed architecture not disclosed in checked source.",
+    "action_representation": "Limited direct actions; promptable world events",
+    "training": "Training details not fully disclosed.",
+    "data": "Undisclosed full corpus.",
+    "inference": "Real-time interactive world generation.",
+    "contribution": "Higher resolution and longer coherent interaction.",
+    "limitations": "Minutes-long horizon, action and multi-agent limits.",
+    "openness": "Official model page and gated Project Genie prototype.",
+    "source_ids": [
+      "S073",
+      "S074"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "gr1",
+    "name": "GR-1",
+    "year": 2023,
+    "family": "video_action_policy",
+    "inputs": [
+      "language",
+      "image history",
+      "robot states"
+    ],
+    "architecture": "GPT-style joint image/action sequence model.",
+    "action_representation": "Robot motor actions",
+    "training": "Video pretraining then robot adaptation.",
+    "data": "Large video data; CALVIN and real robot trajectories.",
+    "inference": "Predict actions and future images; execute actions.",
+    "contribution": "Video generative priors for manipulation.",
+    "limitations": "Joint prediction not equivalent to explicit planning.",
+    "openness": "Project/paper; release completeness not audited.",
+    "source_ids": [
+      "S075",
+      "S076"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "gr2",
+    "name": "GR-2",
+    "year": 2024,
+    "family": "video_action_policy",
+    "inputs": [
+      "language",
+      "images",
+      "robot states"
+    ],
+    "architecture": "Scaled generative video-language-action model.",
+    "action_representation": "Robot actions",
+    "training": "Video pretraining then joint video/action fine-tuning.",
+    "data": "38M video clips, 50B+ tokens; robot trajectories.",
+    "inference": "Generate robot actions with visual predictions.",
+    "contribution": "Scales temporal pretraining for policy generalization.",
+    "limitations": "97.7% is the 105-task Simple setting; unseen manipulations remain substantially harder.",
+    "openness": "Paper; complete public reproduction not verified.",
+    "source_ids": [
+      "S077",
+      "S091"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "vjepa2",
+    "name": "V-JEPA 2",
+    "year": 2025,
+    "family": "predictive_visual_representation",
+    "inputs": [
+      "video patches"
+    ],
+    "architecture": "Encoder/predictor with masked latent targets.",
+    "action_representation": "None without action-conditioned adaptation",
+    "training": "Self-supervised latent prediction.",
+    "data": "Large unlabeled video corpus.",
+    "inference": "Encode and predict latent visual structure.",
+    "contribution": "Video understanding without pixel reconstruction.",
+    "limitations": "Base model is not a direct controller.",
+    "openness": "Code and model family released.",
+    "source_ids": [
+      "S078",
+      "S079",
+      "S081"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "vjepa2-ac",
+    "name": "V-JEPA 2-AC",
+    "year": 2025,
+    "family": "latent_world_model",
+    "inputs": [
+      "RGB",
+      "robot state/actions",
+      "goal image"
+    ],
+    "architecture": "Action-conditioned predictor on pretrained latent encoder.",
+    "action_representation": "Candidate robot action sequences",
+    "training": "Post-train dynamics with robot video/action records.",
+    "data": "Less than 62 hours of DROID.",
+    "inference": "Optimize image-goal latent distance with MPC.",
+    "contribution": "Deployment transfer without environment-specific collection.",
+    "limitations": "Action data used; small task collection and planning latency.",
+    "openness": "Official code/checkpoint and planning components.",
+    "source_ids": [
+      "S078",
+      "S079",
+      "S081"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "vjepa21",
+    "name": "V-JEPA 2.1",
+    "year": 2026,
+    "family": "predictive_visual_representation",
+    "inputs": [
+      "images/video",
+      "actions for adapted planner"
+    ],
+    "architecture": "Dense/deep predictive supervision; image/video tokenizers.",
+    "action_representation": "Via 2-AC-style planner",
+    "training": "Dense latent pretraining; action-conditioned adaptation.",
+    "data": "Scaled image/video corpus; DROID robot data.",
+    "inference": "Improved features support goal-directed MPC.",
+    "contribution": "Better spatially structured temporal representations.",
+    "limitations": "Grasp gain depends on planning budget; ten tasks per skill.",
+    "openness": "80M/300M/1B/2B models and code released.",
+    "source_ids": [
+      "S080",
+      "S081"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "cosmos-predict25",
+    "name": "Cosmos Predict 2.5",
+    "year": 2025,
+    "family": "video_world_model",
+    "inputs": [
+      "text",
+      "images",
+      "video"
+    ],
+    "architecture": "Video generative foundation model.",
+    "action_representation": "No direct control by default",
+    "training": "Generative world-model pretraining/adaptation.",
+    "data": "Physical-world video data; full corpus not audited.",
+    "inference": "Generate conditional future video.",
+    "contribution": "Unified text/image/video-to-world interface.",
+    "limitations": "Visual generation alone does not establish robot control.",
+    "openness": "NIM deployment and available model artifacts.",
+    "source_ids": [
+      "S082"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "cosmos-policy",
+    "name": "Cosmos Policy",
+    "year": 2026,
+    "family": "joint_policy_world_value",
+    "inputs": [
+      "multiview images",
+      "proprioception",
+      "language"
+    ],
+    "architecture": "Predict2-2B with action/state/value encoded as latent frames.",
+    "action_representation": "Continuous action chunks",
+    "training": "Single-stage target-platform post-training.",
+    "data": "Robot demonstrations; optional policy rollout data.",
+    "inference": "Direct policy or best-of-N imagined planning.",
+    "contribution": "Video priors become policy, dynamics and value.",
+    "limitations": "Search adds compute; training is platform-specific.",
+    "openness": "Official code, checkpoints and data links.",
+    "source_ids": [
+      "S083",
+      "S090"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "cosmos3",
+    "name": "Cosmos 3",
+    "year": 2026,
+    "family": "unified_reasoning_world_action",
+    "inputs": [
+      "text",
+      "image/video",
+      "actions"
+    ],
+    "architecture": "Autoregressive reasoner plus diffusion generator, Mixture-of-Transformers.",
+    "action_representation": "Embodiment-specific action outputs",
+    "training": "Multimodal training and domain post-training.",
+    "data": "Physical AI mixtures; specific DROID checkpoints.",
+    "inference": "Reason independently or generate futures/actions.",
+    "contribution": "Unifies world understanding, prediction and action.",
+    "limitations": "Mode/hardware limits; Edge lacks video-to-video transfer.",
+    "openness": "Super64B/Nano16B/Edge4B; current OpenMDW-1.1.",
+    "source_ids": [
+      "S084",
+      "S085"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "gaia2",
+    "name": "GAIA-2",
+    "year": 2025,
+    "family": "driving_world_model",
+    "inputs": [
+      "multicamera history",
+      "ego action",
+      "structured conditions"
+    ],
+    "architecture": "Latent multiview generative dynamics.",
+    "action_representation": "Ego driving conditions",
+    "training": "Controlled video generation.",
+    "data": "Driving sensor/video data.",
+    "inference": "Simulate action-conditioned driving futures.",
+    "contribution": "Controlled multi-camera synthetic driving scenes.",
+    "limitations": "Driving-specific; not manipulation policy.",
+    "openness": "Paper/official media; open weights not verified.",
+    "source_ids": [
+      "S086"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "gaia3",
+    "name": "GAIA-3",
+    "year": 2025,
+    "family": "driving_world_model",
+    "inputs": [
+      "driving scenes",
+      "conditions"
+    ],
+    "architecture": "Detailed architecture not established in checked release.",
+    "action_representation": "Driving scenario conditions",
+    "training": "Generative modeling; full recipe undisclosed.",
+    "data": "Driving data.",
+    "inference": "Generate scenarios for evaluation/validation.",
+    "contribution": "Moves world-model emphasis toward evaluation.",
+    "limitations": "Official report, not independent safety proof.",
+    "openness": "Official release; no open weights verified.",
+    "source_ids": [
+      "S087"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "gaia4",
+    "name": "GAIA-4",
+    "year": 2026,
+    "family": "closed_loop_driving_simulator",
+    "inputs": [
+      "recorded sensors",
+      "AI Driver actions"
+    ],
+    "architecture": "Learned multimodal simulator; architecture incompletely disclosed.",
+    "action_representation": "Ego controls; optional reactive-agent behavior",
+    "training": "World-on-rails and reactive generation training.",
+    "data": "Driving sensor logs; full recipe undisclosed.",
+    "inference": "Actions alter next camera/radar inputs.",
+    "contribution": "Behavioral counterfactual evaluation in a sensor loop.",
+    "limitations": "Simulation assumptions and fidelity bound validation.",
+    "openness": "Official technical account; no full open reproduction verified.",
+    "source_ids": [
+      "S088"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "cosmos-predict2",
+    "name": "Cosmos Predict2-2B",
+    "year": 2025,
+    "family": "video_world_model",
+    "inputs": [
+      "initial image",
+      "text"
+    ],
+    "architecture": "Latent video diffusion model used as Cosmos Policy initialization.",
+    "action_representation": "No robot controls in the base model.",
+    "training": "Video generative pretraining.",
+    "data": "Video pretraining data; complete corpus not audited.",
+    "inference": "Generate conditional future frames.",
+    "contribution": "Reusable temporal priors for subsequent policy adaptation.",
+    "limitations": "Base video generation is not calibrated robot control.",
+    "openness": "Base checkpoint identified by Cosmos Policy paper and code.",
+    "source_ids": [
+      "S083",
+      "S090"
+    ],
+    "research_group": "world"
+  },
+  {
+    "id": "H-M01",
+    "name": "DeepMimic",
+    "year": 2018,
+    "family": "reference-motion RL",
+    "problem": "Turn example movement into dynamically executable behavior.",
+    "inputs": "Body state, phase and task goal.",
+    "architecture": "Motion-conditioned policy and value network.",
+    "action_representation": "Joint targets tracked by motor controllers.",
+    "training": "PPO with imitation and task rewards, reference-state initialization.",
+    "data": "Motion-capture/keyframed clips plus simulated rollouts.",
+    "inference": "Observe body; predict target; physics/motor feedback repeats.",
+    "contribution": "Makes human motion a useful prior rather than a playback command.",
+    "limitations": "Original evidence is simulated animation; task coverage and transfer require additional work.",
+    "openness": "Original code linked from project.",
+    "source_ids": [
+      "S092"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M02",
+    "name": "AMP / ASE",
+    "year": 2021,
+    "family": "adversarial motion priors and latent motor skills",
+    "problem": "Avoid hand-crafted clip selection; reuse diverse skills.",
+    "inputs": "AMP: body and task state. ASE adds latent skill z.",
+    "architecture": "Discriminator motion prior; ASE adds skill-conditioned policy and encoder objective.",
+    "action_representation": "Joint-level motor targets; high-level ASE policy selects z.",
+    "training": "Adversarial imitation + RL; ASE additionally rewards informative skill latents.",
+    "data": "Unstructured motion collections and simulated interactions.",
+    "inference": "Task or latent selection feeds reactive motor policy.",
+    "contribution": "AMP learns style from distributions; ASE makes that repertoire steerable and reusable.",
+    "limitations": "Style realism is not task correctness; changing latent too abruptly can destabilize motion; simulated evaluation.",
+    "openness": "Code available; motion-data licenses separate.",
+    "source_ids": [
+      "S093",
+      "S094"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M03",
+    "name": "PHC",
+    "year": 2023,
+    "family": "scalable tracking and recovery",
+    "problem": "Track noisy motion indefinitely despite falls.",
+    "inputs": "Simulated body state and target reference motion.",
+    "architecture": "Progressive multiplicative control policy (PMCP) with capacity allocated to hard sequences and recovery.",
+    "action_representation": "Motor targets for physically simulated humanoid.",
+    "training": "RL tracking; progressive skill learning and fail-state recovery.",
+    "data": "Large human motion databases, noisy reference poses and simulation.",
+    "inference": "Track, recover from failure, resume without resetting environment.",
+    "contribution": "Treats recovery as part of control rather than an external reset.",
+    "limitations": "Avatar result; physical actuator and sensor transfer not established by original paper.",
+    "openness": "Official implementation available.",
+    "source_ids": [
+      "S095",
+      "S096"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M04",
+    "name": "Humanoid Transformer",
+    "year": 2023,
+    "family": "history-conditioned locomotion RL",
+    "problem": "Adapt locomotion to uncertain dynamics without explicit online system identification.",
+    "inputs": "Causal history of proprioceptive observations/actions and walking commands.",
+    "architecture": "Autoregressive causal transformer controller.",
+    "action_representation": "Future motor actions / desired joint commands.",
+    "training": "Large-scale model-free RL in randomized simulation.",
+    "data": "Simulation across terrain/dynamics; real-robot evaluation.",
+    "inference": "Rolling history alters behavior without weight updates.",
+    "contribution": "Uses temporal context for implicit dynamics adaptation.",
+    "limitations": "Does not solve semantic planning, object manipulation or arbitrarily strong disturbances.",
+    "openness": "Paper/project available; complete release scope not verified.",
+    "source_ids": [
+      "S097"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M05",
+    "name": "H2O / OmniH2O",
+    "year": 2024,
+    "family": "sim-to-real teleoperation and control interface",
+    "problem": "Bridge human motion, robot feasibility and multiple command sources.",
+    "inputs": "Human pose from RGB/VR, sparse motion goals, robot proprioception.",
+    "architecture": "H2O privileged feasibility filter; OmniH2O privileged RL teacher distilled to deployable student.",
+    "action_representation": "Kinematic pose goals into whole-body tracking motor actions.",
+    "training": "Retargeting, feasibility filtering, RL/domain randomization; student supervised distillation.",
+    "data": "Human motion corpus; OmniH2O-6 robot demonstrations for learned upper-layer skills.",
+    "inference": "Human or autonomous policy produces pose targets; student stabilizes robot continuously.",
+    "contribution": "Universal pose interface separates goal generation from physical execution.",
+    "limitations": "Teleoperation is not autonomous task competence; sparse goals and retargeting lose information.",
+    "openness": "Project links code and OmniH2O data.",
+    "source_ids": [
+      "S098",
+      "S099"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M06",
+    "name": "HumanPlus",
+    "year": 2024,
+    "family": "human-data to autonomous whole-body skills",
+    "problem": "Collect useful humanoid task demonstrations without bespoke full-body controllers per task.",
+    "inputs": "Low level: body/hand reference and state. High level: egocentric vision.",
+    "architecture": "RL shadowing controller plus supervised visual skill policy.",
+    "action_representation": "Whole-body and hand targets for a 33-DoF humanoid.",
+    "training": "Human-motion RL pretraining; shadowing collects robot data; behavior cloning learns autonomy.",
+    "data": "40-hour human-motion data; up to 40 task demonstrations in reported experiments.",
+    "inference": "Visual policy proposes commands; low-level controller executes with body feedback.",
+    "contribution": "Closes the data-collection loop from humans to real robot learning.",
+    "limitations": "Limited task/robot distribution; human imitation cannot directly infer all contact dynamics.",
+    "openness": "Code, datasets and hardware references linked.",
+    "source_ids": [
+      "S100"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M07",
+    "name": "MaskedMimic",
+    "year": 2024,
+    "family": "partial-motion-conditioned generative control",
+    "problem": "Generate physically feasible whole-body motion from incomplete instructions.",
+    "inputs": "Partial future joints, trajectory, scene and/or text conditions.",
+    "architecture": "Fully constrained tracking teacher; conditional-VAE partial-goal policy via motion inpainting.",
+    "action_representation": "Physical-controller actions conditioned on sampled latent motion.",
+    "training": "RL tracking followed by learning a partially constrained policy with randomized masks.",
+    "data": "Motion data and simulated physical interaction.",
+    "inference": "Infer missing movement consistent with constraints, act, observe and repeat.",
+    "contribution": "Unifies control modalities by representing them as missing motion information.",
+    "limitations": "Mostly simulated character evidence; ambiguous constraints and real hardware transfer remain gaps.",
+    "openness": "Official NVIDIA project links code.",
+    "source_ids": [
+      "S101"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M08",
+    "name": "SONIC / GEAR-SONIC",
+    "year": 2025,
+    "family": "scalable behavioral foundation controller",
+    "problem": "Convert many motion interfaces into reusable robust whole-body execution.",
+    "inputs": "Proprioception plus robot, human or hybrid reference motion.",
+    "architecture": "Specialized encoders -> FSQ universal token -> shared control decoder; auxiliary motion decoder.",
+    "action_representation": "Desired joint positions -> PD controllers; released policy runs at 50 Hz.",
+    "training": "PPO tracking + reconstruction; domain randomization; runtime kinematic planner.",
+    "data": "Original paper: 700-hour motion collection; current release also offers separate public data.",
+    "inference": "VLA/VR/planner produces motion command; token policy and PD loop execute.",
+    "contribution": "Explicit bridge between VLA semantic actions and low-level motor control; released variants improve deployment.",
+    "limitations": "One-task VLA PoC is not broad autonomy; lookahead differs from latency; proprietary original corpus; preprint compute inconsistency omitted.",
+    "openness": "Training/deployment code and checkpoints released; code/weights have different licenses.",
+    "source_ids": [
+      "S102",
+      "S103",
+      "S123"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M09",
+    "name": "ViNT",
+    "year": 2023,
+    "family": "visual navigation foundation policy",
+    "problem": "Transfer navigation experience across mobile robots and goals.",
+    "inputs": "Recent RGB observations and visual goal token.",
+    "architecture": "Visual encoders and transformer; replaceable goal representation.",
+    "action_representation": "Normalized local waypoint trajectory and distance-to-goal estimate.",
+    "training": "Goal-reaching supervised learning on diverse trajectories.",
+    "data": "Hundreds of hours from multiple navigation platforms.",
+    "inference": "Topological/global planner selects subgoal; local policy proposes waypoints; robot controller follows.",
+    "contribution": "Reusable navigation affordances and adaptable task tokens.",
+    "limitations": "Long range depends on planner and mapping; not a semantic manipulator or balance controller.",
+    "openness": "Official code/checkpoints and deployment examples.",
+    "source_ids": [
+      "S104",
+      "S105"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M10",
+    "name": "NoMaD",
+    "year": 2023,
+    "family": "goal-masked diffusion navigation",
+    "problem": "Use one policy for exploration and goal-reaching without averaging incompatible paths.",
+    "inputs": "RGB history and optionally masked goal image.",
+    "architecture": "ViNT context encoder conditions diffusion action decoder.",
+    "action_representation": "Distribution over local waypoint/action sequences.",
+    "training": "Diffusion behavior learning with goal masking.",
+    "data": "Multi-robot navigation trajectories.",
+    "inference": "Sample feasible-looking candidate path; execute segment; update observations and topological planner.",
+    "contribution": "Represents alternative routes with a common exploration/navigation model.",
+    "limitations": "Sampling latency and planner integration matter; no formal collision guarantee.",
+    "openness": "Official code/checkpoints shared with ViNT.",
+    "source_ids": [
+      "S106",
+      "S105"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M11",
+    "name": "GOAT",
+    "year": 2023,
+    "family": "modular lifelong semantic navigation",
+    "problem": "Find a particular object by class, picture or description over repeated missions.",
+    "inputs": "RGB-D/state and multimodal goal; persistent object memory.",
+    "architecture": "Perception, instance-aware semantic mapping, matching and navigation planner.",
+    "action_representation": "Goal locations and navigation commands through a robot-specific controller.",
+    "training": "Pretrained perception modules; map/instance accumulation during deployment.",
+    "data": "Real indoor environments; evaluated in nine homes.",
+    "inference": "Update memory -> match known goal or explore -> navigate -> retain evidence.",
+    "contribution": "Improvement comes from remembered environment state without retraining a universal action model.",
+    "limitations": "Mapping/perception errors persist; system-level benchmark differs from end-to-end VLA tests.",
+    "openness": "Paper/system project; GOAT-Bench has separate code/data.",
+    "source_ids": [
+      "S107",
+      "S108"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M12",
+    "name": "Helix / Helix 02",
+    "year": 2025,
+    "family": "hierarchical humanoid VLA",
+    "problem": "Unify semantic manipulation with dexterity, balance and locomotion.",
+    "inputs": "Language, head/palm cameras, touch and full-body proprioception in Helix 02.",
+    "architecture": "S2 semantic latents -> S1 transformer joint targets at 200 Hz -> S0 10M controller at 1 kHz.",
+    "action_representation": "Joint targets followed by joint-level actuator commands.",
+    "training": "Helix learned visuomotor control; Helix 02 S0 uses randomized simulation RL and human motion tracking.",
+    "data": "S0: over 1,000 hours retargeted motion; complete S1/S2 corpus undisclosed.",
+    "inference": "Multi-rate hierarchy preserves fast balance feedback while slow semantics updates goals.",
+    "contribution": "Extends upper-body Helix to demonstrated full-body room-scale tasks.",
+    "limitations": "Vendor demonstration; failure/intervention distribution, full training recipe and independent evaluation unavailable.",
+    "openness": "Proprietary model; public technical descriptions.",
+    "source_ids": [
+      "S109",
+      "S110"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "H-M13",
+    "name": "Skild Brain / S1",
+    "year": 2025,
+    "family": "cross-embodiment and demonstration-conditioned policy",
+    "problem": "Reduce per-robot and per-task reprogramming.",
+    "inputs": "Body/sensor context; S1 accepts a demonstration video with live observations.",
+    "architecture": "Shared cross-embodiment model; precise layer structure/action decoder undisclosed.",
+    "action_representation": "Robot actions; exact shared action parameterization undisclosed.",
+    "training": "Cross-embodiment training; S1 episodic demonstration-conditioned pretraining.",
+    "data": "Simulation and diverse physical data; complete data mixture not disclosed.",
+    "inference": "Condition execution on example and ongoing context; new task need not update weights in reported ICL setting.",
+    "contribution": "Task specification shifts toward demonstration and reusable physical knowledge.",
+    "limitations": "Manufacturer evidence; unpublished architecture/weights and nonpublic splits prevent complete reproduction.",
+    "openness": "Closed; commercial/partner access.",
+    "source_ids": [
+      "S111",
+      "S112",
+      "S113"
+    ],
+    "research_group": "wholebody"
+  },
+  {
+    "id": "go1",
+    "name": "GO-1 / GO-1 Air",
+    "year": 2025,
+    "family": "Latent-action VLA",
+    "inputs": "Multi-view images, instruction, proprioception",
+    "architecture": "VLM plus latent-action planner plus diffusion action expert; Air removes planner",
+    "action_representation": "Discrete latent plan; continuous action chunks",
+    "training": "Latent action reconstruction/prediction followed by robot action denoising",
+    "data": "Human video, cross-embodiment robot data and AgiBot World",
+    "inference": "Predict latent plan then denoise action chunk and execute with feedback",
+    "contribution": "Separates transfer of video motion knowledge from embodiment-specific continuous execution",
+    "limitations": "Latent plan quality, embodiment alignment, data concentration and task-limited results",
+    "openness": "Code and listed checkpoints/dataset releases; exact training reproducibility must be audited",
+    "source_ids": [
+      "S132",
+      "S133"
+    ],
+    "research_group": "synthesis"
+  },
+  {
+    "id": "serl",
+    "name": "SERL",
+    "year": 2024,
+    "family": "Real-world reinforcement learning",
+    "inputs": "Visual observation, robot state and reward",
+    "architecture": "Off-policy actor-critic training and robot learning infrastructure",
+    "action_representation": "Continuous task-specific control",
+    "training": "Sample-efficient real-world RL with prior demonstrations or experience",
+    "data": "On-robot interaction and optional demonstrations",
+    "inference": "Learned actor executes within the robot control stack",
+    "contribution": "Operationalizes efficient online policy improvement",
+    "limitations": "Reward/reset design and interaction burden; not one universal pretrained model",
+    "openness": "Research software suite",
+    "source_ids": [
+      "S143"
+    ],
+    "research_group": "synthesis"
+  },
+  {
+    "id": "hil-serl",
+    "name": "HIL-SERL",
+    "year": 2024,
+    "family": "Human-in-the-loop reinforcement learning",
+    "inputs": "Images, state, learned success reward and human corrections",
+    "architecture": "Reward classifier, demonstration/replay buffers, actor-learner loop",
+    "action_representation": "Continuous control through task-specific robot interface",
+    "training": "Reward learning from positives/negatives, demonstrations and online off-policy RL with interventions",
+    "data": "Task-specific demonstrations, success labels and online interventions",
+    "inference": "Actor controls robot; human corrections become experience",
+    "contribution": "Uses failure recovery and feedback beyond pure imitation",
+    "limitations": "Human/reset cost, reward misspecification, narrow task protocols",
+    "openness": "Code and workflows available; hardware-specific integration required",
+    "source_ids": [
+      "S142",
+      "S153"
+    ],
+    "research_group": "synthesis"
+  },
+  {
+    "id": "molmoact2",
+    "name": "MolmoAct2",
+    "year": 2026,
+    "family": "Action-reasoning VLA",
+    "inputs": "Images, language, state",
+    "architecture": "Molmo2-ER embodied reasoning backbone plus continuous flow-matching action expert",
+    "action_representation": "Continuous action chunks",
+    "training": "Molmo2-ER backbone -> discrete autoregressive MolmoAct2-Pretrain -> flow-matching action expert; MolmoAct2-Think is a separate depth-token-reasoning variant.",
+    "data": "Released reasoning and robot training datasets, with embodiment-specific adaptation",
+    "inference": "Closed-loop manipulation using conditioned action expert",
+    "contribution": "Combines open embodied reasoning assets with continuous robot action learning",
+    "limitations": "Reasoning metrics alone do not establish contact reliability; base checkpoints are not universal deployment policies",
+    "openness": "Official code, models, staged checkpoints and dataset links",
+    "source_ids": [
+      "S144",
+      "S145"
+    ],
+    "research_group": "synthesis"
+  },
+  {
+    "id": "xiaomi-robotics-0",
+    "name": "Xiaomi-Robotics-0",
+    "year": 2026,
+    "family": "Asynchronous VLA",
+    "inputs": "Multi-view images, instruction and proprioception",
+    "architecture": "Qwen3-VL-4B-Instruct VLM plus diffusion transformer; 4.7B total per official page",
+    "action_representation": "30-step continuous action chunks",
+    "training": "Choice-policy VLM training; freeze VLM and train flow expert; prefix-conditioned post-training",
+    "data": "Robot and vision-language mixtures plus task-specific teleoperation",
+    "inference": "Buffered asynchronous chunks with committed prefix alignment",
+    "contribution": "Treats deployment scheduling and action responsiveness as training-design issues",
+    "limitations": "Requires matching async checkpoint, valid normalization, hardware adaptation and task data",
+    "openness": "Code, weights and full post-training pipeline announced April 2026",
+    "source_ids": [
+      "S151",
+      "S152"
+    ],
+    "research_group": "synthesis"
+  }
+]

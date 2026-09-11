@@ -1,0 +1,134 @@
+[
+  {
+    "organization": "Figure",
+    "model_or_system": "Helix 02 / Figure 03",
+    "product_form": "Vertically integrated humanoid hardware and AI",
+    "stage_as_of": "2026-09-11: Customer-confirmed prior pilot and new industrial sequencing project",
+    "evidence": "Official S0/S1/S2 description, selected demonstrations and BMW confirmation of Figure 02 pilot and Figure 03 project.",
+    "limitations": "Do not transfer Figure 02 production statistics to Figure 03/Helix 02 or extrapolate demo length to unattended reliability.",
+    "source_ids": [
+      "S109",
+      "S110",
+      "S127",
+      "S128"
+    ]
+  },
+  {
+    "organization": "Skild AI",
+    "model_or_system": "Skild Brain / S1",
+    "product_form": "Cross-embodiment software and deployment business",
+    "stage_as_of": "2026-09-11: Company-reported paying deployments plus partner pilots",
+    "evidence": "September 9 report names deployment activity and new S1 use cases.",
+    "limitations": "Commercial totals are vendor-reported and mix products; planned S1 wiring automation differs from already deployed applications.",
+    "source_ids": [
+      "S111",
+      "S112",
+      "S113"
+    ]
+  },
+  {
+    "organization": "Physical Intelligence",
+    "model_or_system": "π family, π0.7 research; π0.6 partner deployments",
+    "product_form": "Foundation-model layer integrated by robot partners",
+    "stage_as_of": "2026-09-11: Partner-reported real customer operations",
+    "evidence": "Weave laundromat and Ultra warehouse packing accounts include remote intervention metrics.",
+    "limitations": "Model/robot versions differ across research and deployed sites; autonomy-time is not per-task success.",
+    "source_ids": [
+      "S027",
+      "S114"
+    ]
+  },
+  {
+    "organization": "NVIDIA",
+    "model_or_system": "Isaac GR00T ecosystem / GEAR-SONIC",
+    "product_form": "Open model and robot development platform, onboard runtime",
+    "stage_as_of": "2026-09-11: Released models/code/workflows; reference hardware announced",
+    "evidence": "WBC repository includes N1.7 workflow and SONIC variants; reference humanoid announced May 31.",
+    "limitations": "Reference humanoid availability stated late 2026; no claim of delivery by cutoff or universal task success.",
+    "source_ids": [
+      "S103",
+      "S033",
+      "S115"
+    ]
+  },
+  {
+    "organization": "Google DeepMind",
+    "model_or_system": "Gemini Robotics 2 / ER 2 / On-Device 2",
+    "product_form": "Robotics model family and partner integration",
+    "stage_as_of": "2026-09-11: Official release and differentiated early-access/API routes",
+    "evidence": "July 30 release shows shared-model whole-body and dexterous behaviors.",
+    "limitations": "ER access, trusted-tester control-model access and open weights are different categories.",
+    "source_ids": [
+      "S042"
+    ]
+  },
+  {
+    "organization": "Agility Robotics",
+    "model_or_system": "Digit / Arc",
+    "product_form": "Industrial humanoid plus orchestration platform, RaaS",
+    "stage_as_of": "2026-09-11: Customer-confirmed commercial logistics deployment",
+    "evidence": "GXO agreement; vendor cumulative 100,000-tote milestone.",
+    "limitations": "No basis to call proprietary Digit controller a fully disclosed VLA or infer uptime/failure rate from cumulative counts.",
+    "source_ids": [
+      "S118",
+      "S119"
+    ]
+  },
+  {
+    "organization": "1X",
+    "model_or_system": "NEO / Redwood / 1XWM",
+    "product_form": "Home humanoid with autonomy plus expert assistance",
+    "stage_as_of": "2026-09-11: Order availability and announced 2026 deliveries",
+    "evidence": "Order page explicitly describes basic autonomy and scheduled Expert Mode; world-model technical report.",
+    "limitations": "Do not equate preorders with completed deliveries; January WM implementation is slow and not broad closed-loop autonomy.",
+    "source_ids": [
+      "S116",
+      "S117"
+    ]
+  },
+  {
+    "organization": "Boston Dynamics",
+    "model_or_system": "Electric Atlas and learned behavior stack",
+    "product_form": "Enterprise industrial humanoid",
+    "stage_as_of": "2026-09-11: Production version; pilot experience and scheduled deployments",
+    "evidence": "Official retrospective describes 2025 part sequencing and 2026 manufacturing.",
+    "limitations": "Hardware productization is distinct from a fully disclosed foundation model; planned deployments remain planned.",
+    "source_ids": [
+      "S120"
+    ]
+  },
+  {
+    "organization": "Unitree Robotics",
+    "model_or_system": "G1 ecosystem / UnifoLM-VLA",
+    "product_form": "Robot hardware plus developer models and datasets",
+    "stage_as_of": "2026-09-11: Public code/checkpoints and research platform availability",
+    "evidence": "Official repository lists VLM/VLA variants and robotic datasets.",
+    "limitations": "Hardware sales, benchmark releases and autonomous commercial usefulness are separate evidence.",
+    "source_ids": [
+      "S122"
+    ]
+  },
+  {
+    "organization": "Galbot",
+    "model_or_system": "G1/S1 and AstraBrain family",
+    "product_form": "Mobile manipulation products and proprietary models",
+    "stage_as_of": "2026-09-11: Officially claimed multi-sector deployment",
+    "evidence": "Company page presents retail/industrial applications and WAM/WBC/DexNDM stack.",
+    "limitations": "Technical and commercial positioning is vendor evidence; comparative first/best claims and fleet throughput not independently accepted.",
+    "source_ids": [
+      "S121"
+    ]
+  },
+  {
+    "organization": "Generalist",
+    "model_or_system": "GEN-1 / GEN-1.5",
+    "product_form": "Native embodied foundation model, enterprise partner access",
+    "stage_as_of": "2026-09-11: Early-access offering and official real-robot evaluations",
+    "evidence": "GEN-1 selected-task reliability; GEN-1.5 one-shot/few-step adaptation.",
+    "limitations": "Simple short-horizon ICL tasks, modest success and closed reproduction; selected-task 99% is not universal readiness.",
+    "source_ids": [
+      "S125",
+      "S126"
+    ]
+  }
+]

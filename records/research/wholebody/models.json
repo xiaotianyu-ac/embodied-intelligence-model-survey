@@ -1,0 +1,260 @@
+[
+  {
+    "id": "H-M01",
+    "name": "DeepMimic",
+    "year": 2018,
+    "family": "reference-motion RL",
+    "problem": "Turn example movement into dynamically executable behavior.",
+    "inputs": "Body state, phase and task goal.",
+    "architecture": "Motion-conditioned policy and value network.",
+    "action_representation": "Joint targets tracked by motor controllers.",
+    "training": "PPO with imitation and task rewards, reference-state initialization.",
+    "data": "Motion-capture/keyframed clips plus simulated rollouts.",
+    "inference": "Observe body; predict target; physics/motor feedback repeats.",
+    "contribution": "Makes human motion a useful prior rather than a playback command.",
+    "limitations": "Original evidence is simulated animation; task coverage and transfer require additional work.",
+    "openness": "Original code linked from project.",
+    "source_ids": [
+      "H001"
+    ]
+  },
+  {
+    "id": "H-M02",
+    "name": "AMP / ASE",
+    "year": 2021,
+    "family": "adversarial motion priors and latent motor skills",
+    "problem": "Avoid hand-crafted clip selection; reuse diverse skills.",
+    "inputs": "AMP: body and task state. ASE adds latent skill z.",
+    "architecture": "Discriminator motion prior; ASE adds skill-conditioned policy and encoder objective.",
+    "action_representation": "Joint-level motor targets; high-level ASE policy selects z.",
+    "training": "Adversarial imitation + RL; ASE additionally rewards informative skill latents.",
+    "data": "Unstructured motion collections and simulated interactions.",
+    "inference": "Task or latent selection feeds reactive motor policy.",
+    "contribution": "AMP learns style from distributions; ASE makes that repertoire steerable and reusable.",
+    "limitations": "Style realism is not task correctness; changing latent too abruptly can destabilize motion; simulated evaluation.",
+    "openness": "Code available; motion-data licenses separate.",
+    "source_ids": [
+      "H002",
+      "H003"
+    ]
+  },
+  {
+    "id": "H-M03",
+    "name": "PHC",
+    "year": 2023,
+    "family": "scalable tracking and recovery",
+    "problem": "Track noisy motion indefinitely despite falls.",
+    "inputs": "Simulated body state and target reference motion.",
+    "architecture": "Progressive multiplicative control policy (PMCP) with capacity allocated to hard sequences and recovery.",
+    "action_representation": "Motor targets for physically simulated humanoid.",
+    "training": "RL tracking; progressive skill learning and fail-state recovery.",
+    "data": "Large human motion databases, noisy reference poses and simulation.",
+    "inference": "Track, recover from failure, resume without resetting environment.",
+    "contribution": "Treats recovery as part of control rather than an external reset.",
+    "limitations": "Avatar result; physical actuator and sensor transfer not established by original paper.",
+    "openness": "Official implementation available.",
+    "source_ids": [
+      "H004",
+      "H005"
+    ]
+  },
+  {
+    "id": "H-M04",
+    "name": "Humanoid Transformer",
+    "year": 2023,
+    "family": "history-conditioned locomotion RL",
+    "problem": "Adapt locomotion to uncertain dynamics without explicit online system identification.",
+    "inputs": "Causal history of proprioceptive observations/actions and walking commands.",
+    "architecture": "Autoregressive causal transformer controller.",
+    "action_representation": "Future motor actions / desired joint commands.",
+    "training": "Large-scale model-free RL in randomized simulation.",
+    "data": "Simulation across terrain/dynamics; real-robot evaluation.",
+    "inference": "Rolling history alters behavior without weight updates.",
+    "contribution": "Uses temporal context for implicit dynamics adaptation.",
+    "limitations": "Does not solve semantic planning, object manipulation or arbitrarily strong disturbances.",
+    "openness": "Paper/project available; complete release scope not verified.",
+    "source_ids": [
+      "H006"
+    ]
+  },
+  {
+    "id": "H-M05",
+    "name": "H2O / OmniH2O",
+    "year": 2024,
+    "family": "sim-to-real teleoperation and control interface",
+    "problem": "Bridge human motion, robot feasibility and multiple command sources.",
+    "inputs": "Human pose from RGB/VR, sparse motion goals, robot proprioception.",
+    "architecture": "H2O privileged feasibility filter; OmniH2O privileged RL teacher distilled to deployable student.",
+    "action_representation": "Kinematic pose goals into whole-body tracking motor actions.",
+    "training": "Retargeting, feasibility filtering, RL/domain randomization; student supervised distillation.",
+    "data": "Human motion corpus; OmniH2O-6 robot demonstrations for learned upper-layer skills.",
+    "inference": "Human or autonomous policy produces pose targets; student stabilizes robot continuously.",
+    "contribution": "Universal pose interface separates goal generation from physical execution.",
+    "limitations": "Teleoperation is not autonomous task competence; sparse goals and retargeting lose information.",
+    "openness": "Project links code and OmniH2O data.",
+    "source_ids": [
+      "H007",
+      "H008"
+    ]
+  },
+  {
+    "id": "H-M06",
+    "name": "HumanPlus",
+    "year": 2024,
+    "family": "human-data to autonomous whole-body skills",
+    "problem": "Collect useful humanoid task demonstrations without bespoke full-body controllers per task.",
+    "inputs": "Low level: body/hand reference and state. High level: egocentric vision.",
+    "architecture": "RL shadowing controller plus supervised visual skill policy.",
+    "action_representation": "Whole-body and hand targets for a 33-DoF humanoid.",
+    "training": "Human-motion RL pretraining; shadowing collects robot data; behavior cloning learns autonomy.",
+    "data": "40-hour human-motion data; up to 40 task demonstrations in reported experiments.",
+    "inference": "Visual policy proposes commands; low-level controller executes with body feedback.",
+    "contribution": "Closes the data-collection loop from humans to real robot learning.",
+    "limitations": "Limited task/robot distribution; human imitation cannot directly infer all contact dynamics.",
+    "openness": "Code, datasets and hardware references linked.",
+    "source_ids": [
+      "H009"
+    ]
+  },
+  {
+    "id": "H-M07",
+    "name": "MaskedMimic",
+    "year": 2024,
+    "family": "partial-motion-conditioned generative control",
+    "problem": "Generate physically feasible whole-body motion from incomplete instructions.",
+    "inputs": "Partial future joints, trajectory, scene and/or text conditions.",
+    "architecture": "Fully constrained tracking teacher; conditional-VAE partial-goal policy via motion inpainting.",
+    "action_representation": "Physical-controller actions conditioned on sampled latent motion.",
+    "training": "RL tracking followed by learning a partially constrained policy with randomized masks.",
+    "data": "Motion data and simulated physical interaction.",
+    "inference": "Infer missing movement consistent with constraints, act, observe and repeat.",
+    "contribution": "Unifies control modalities by representing them as missing motion information.",
+    "limitations": "Mostly simulated character evidence; ambiguous constraints and real hardware transfer remain gaps.",
+    "openness": "Official NVIDIA project links code.",
+    "source_ids": [
+      "H010"
+    ]
+  },
+  {
+    "id": "H-M08",
+    "name": "SONIC / GEAR-SONIC",
+    "year": 2025,
+    "family": "scalable behavioral foundation controller",
+    "problem": "Convert many motion interfaces into reusable robust whole-body execution.",
+    "inputs": "Proprioception plus robot, human or hybrid reference motion.",
+    "architecture": "Specialized encoders -> FSQ universal token -> shared control decoder; auxiliary motion decoder.",
+    "action_representation": "Desired joint positions -> PD controllers; released policy runs at 50 Hz.",
+    "training": "PPO tracking + reconstruction; domain randomization; runtime kinematic planner.",
+    "data": "Original paper: 700-hour motion collection; current release also offers separate public data.",
+    "inference": "VLA/VR/planner produces motion command; token policy and PD loop execute.",
+    "contribution": "Explicit bridge between VLA semantic actions and low-level motor control; released variants improve deployment.",
+    "limitations": "One-task VLA PoC is not broad autonomy; lookahead differs from latency; proprietary original corpus; preprint compute inconsistency omitted.",
+    "openness": "Training/deployment code and checkpoints released; code/weights have different licenses.",
+    "source_ids": [
+      "H011",
+      "H012",
+      "H035"
+    ]
+  },
+  {
+    "id": "H-M09",
+    "name": "ViNT",
+    "year": 2023,
+    "family": "visual navigation foundation policy",
+    "problem": "Transfer navigation experience across mobile robots and goals.",
+    "inputs": "Recent RGB observations and visual goal token.",
+    "architecture": "Visual encoders and transformer; replaceable goal representation.",
+    "action_representation": "Normalized local waypoint trajectory and distance-to-goal estimate.",
+    "training": "Goal-reaching supervised learning on diverse trajectories.",
+    "data": "Hundreds of hours from multiple navigation platforms.",
+    "inference": "Topological/global planner selects subgoal; local policy proposes waypoints; robot controller follows.",
+    "contribution": "Reusable navigation affordances and adaptable task tokens.",
+    "limitations": "Long range depends on planner and mapping; not a semantic manipulator or balance controller.",
+    "openness": "Official code/checkpoints and deployment examples.",
+    "source_ids": [
+      "H013",
+      "H014"
+    ]
+  },
+  {
+    "id": "H-M10",
+    "name": "NoMaD",
+    "year": 2023,
+    "family": "goal-masked diffusion navigation",
+    "problem": "Use one policy for exploration and goal-reaching without averaging incompatible paths.",
+    "inputs": "RGB history and optionally masked goal image.",
+    "architecture": "ViNT context encoder conditions diffusion action decoder.",
+    "action_representation": "Distribution over local waypoint/action sequences.",
+    "training": "Diffusion behavior learning with goal masking.",
+    "data": "Multi-robot navigation trajectories.",
+    "inference": "Sample feasible-looking candidate path; execute segment; update observations and topological planner.",
+    "contribution": "Represents alternative routes with a common exploration/navigation model.",
+    "limitations": "Sampling latency and planner integration matter; no formal collision guarantee.",
+    "openness": "Official code/checkpoints shared with ViNT.",
+    "source_ids": [
+      "H015",
+      "H014"
+    ]
+  },
+  {
+    "id": "H-M11",
+    "name": "GOAT",
+    "year": 2023,
+    "family": "modular lifelong semantic navigation",
+    "problem": "Find a particular object by class, picture or description over repeated missions.",
+    "inputs": "RGB-D/state and multimodal goal; persistent object memory.",
+    "architecture": "Perception, instance-aware semantic mapping, matching and navigation planner.",
+    "action_representation": "Goal locations and navigation commands through a robot-specific controller.",
+    "training": "Pretrained perception modules; map/instance accumulation during deployment.",
+    "data": "Real indoor environments; evaluated in nine homes.",
+    "inference": "Update memory -> match known goal or explore -> navigate -> retain evidence.",
+    "contribution": "Improvement comes from remembered environment state without retraining a universal action model.",
+    "limitations": "Mapping/perception errors persist; system-level benchmark differs from end-to-end VLA tests.",
+    "openness": "Paper/system project; GOAT-Bench has separate code/data.",
+    "source_ids": [
+      "H016",
+      "H017"
+    ]
+  },
+  {
+    "id": "H-M12",
+    "name": "Helix / Helix 02",
+    "year": 2025,
+    "family": "hierarchical humanoid VLA",
+    "problem": "Unify semantic manipulation with dexterity, balance and locomotion.",
+    "inputs": "Language, head/palm cameras, touch and full-body proprioception in Helix 02.",
+    "architecture": "S2 semantic latents -> S1 transformer joint targets at 200 Hz -> S0 10M controller at 1 kHz.",
+    "action_representation": "Joint targets followed by joint-level actuator commands.",
+    "training": "Helix learned visuomotor control; Helix 02 S0 uses randomized simulation RL and human motion tracking.",
+    "data": "S0: over 1,000 hours retargeted motion; complete S1/S2 corpus undisclosed.",
+    "inference": "Multi-rate hierarchy preserves fast balance feedback while slow semantics updates goals.",
+    "contribution": "Extends upper-body Helix to demonstrated full-body room-scale tasks.",
+    "limitations": "Vendor demonstration; failure/intervention distribution, full training recipe and independent evaluation unavailable.",
+    "openness": "Proprietary model; public technical descriptions.",
+    "source_ids": [
+      "H018",
+      "H019"
+    ]
+  },
+  {
+    "id": "H-M13",
+    "name": "Skild Brain / S1",
+    "year": 2025,
+    "family": "cross-embodiment and demonstration-conditioned policy",
+    "problem": "Reduce per-robot and per-task reprogramming.",
+    "inputs": "Body/sensor context; S1 accepts a demonstration video with live observations.",
+    "architecture": "Shared cross-embodiment model; precise layer structure/action decoder undisclosed.",
+    "action_representation": "Robot actions; exact shared action parameterization undisclosed.",
+    "training": "Cross-embodiment training; S1 episodic demonstration-conditioned pretraining.",
+    "data": "Simulation and diverse physical data; complete data mixture not disclosed.",
+    "inference": "Condition execution on example and ongoing context; new task need not update weights in reported ICL setting.",
+    "contribution": "Task specification shifts toward demonstration and reusable physical knowledge.",
+    "limitations": "Manufacturer evidence; unpublished architecture/weights and nonpublic splits prevent complete reproduction.",
+    "openness": "Closed; commercial/partner access.",
+    "source_ids": [
+      "H020",
+      "H021",
+      "H022"
+    ]
+  }
+]

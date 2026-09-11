@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "evidence_cutoff": "2026-09-11",
+  "checks": 885,
+  "sources": 155,
+  "model_method_cards": 77,
+  "relationships": 80,
+  "products": 11,
+  "pdfs": {
+    "zh": {
+      "pages": 27,
+      "bytes": 661377,
+      "citation_occurrences": 382,
+      "headings": 13
+    },
+    "-en": {
+      "pages": 31,
+      "bytes": 311866,
+      "citation_occurrences": 382,
+      "headings": 13
+    }
+  },
+  "errors": [],
+  "scope": "Artifact integrity and citation consistency; not experimental reproduction or proof of all source claims."
+}

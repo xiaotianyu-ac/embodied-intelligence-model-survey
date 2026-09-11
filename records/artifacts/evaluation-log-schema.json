@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Proposed embodied-policy evaluation episode",
+  "description": "Schema proposal; no experimental records are supplied.",
+  "type": "object",
+  "required": ["episode_id", "task", "scene", "split", "robot_config_hash", "checkpoint", "code_commit", "data_revision", "control_mode", "success", "termination", "interventions", "elapsed_seconds"],
+  "properties": {
+    "episode_id": {"type": "string"},
+    "task": {"type": "string"},
+    "scene": {"type": "string"},
+    "split": {"type": "string"},
+    "robot_config_hash": {"type": "string"},
+    "checkpoint": {"type": "string"},
+    "code_commit": {"type": "string"},
+    "data_revision": {"type": "string"},
+    "control_mode": {"type": "string"},
+    "seed": {"type": "integer"},
+    "instruction": {"type": "string"},
+    "zero_shot_dimension": {"type": "string"},
+    "success": {"type": "boolean"},
+    "termination": {"enum": ["success", "timeout", "failure", "manual_stop", "system_error"]},
+    "interventions": {"type": "integer", "minimum": 0},
+    "elapsed_seconds": {"type": "number", "minimum": 0},
+    "human_seconds": {"type": "number", "minimum": 0},
+    "latency_p50_ms": {"type": "number", "minimum": 0},
+    "latency_p95_ms": {"type": "number", "minimum": 0},
+    "observation_age_p95_ms": {"type": "number", "minimum": 0},
+    "energy_joules": {"type": "number", "minimum": 0},
+    "failure_notes": {"type": "string"}
+  },
+  "additionalProperties": true
+}

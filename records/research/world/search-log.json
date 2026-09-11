@@ -1,0 +1,129 @@
+{
+  "accessed": "2026-09-11",
+  "scope": "World models, representations, hierarchical embodied reasoning; primary sources only for substantive claims.",
+  "searches": [
+    {
+      "queries": [
+        "SayCan PaLM-E VIMA official project robot language model",
+        "R3M VC-1 visual cortex robot manipulation official paper",
+        "PerAct RVT 3D Diffuser Actor official project"
+      ],
+      "selected": [
+        "W001",
+        "W002",
+        "W003",
+        "W006",
+        "W007",
+        "W008",
+        "W009",
+        "W010"
+      ]
+    },
+    {
+      "queries": [
+        "DreamerV3 mastering diverse control world models Nature 2025 official",
+        "UniSim Learning Interactive Real-World Simulators official project",
+        "Genie 3 world model official Google DeepMind August 2025",
+        "V-JEPA 2 self supervised world model zero shot robot planning official Meta"
+      ],
+      "selected": [
+        "W012",
+        "W013",
+        "W014",
+        "W015",
+        "W018",
+        "W019",
+        "W023",
+        "W024",
+        "W025"
+      ]
+    },
+    {
+      "queries": [
+        "site.nvidia.com Cosmos Predict 2.5 3 world foundation models 2026",
+        "site.wayve.ai GAIA-2 world model 2025",
+        "site.arxiv.org GR-1 GR-2 video prediction robot 2024",
+        "MoLe world model robot MoLe-VLA paper"
+      ],
+      "selected": [
+        "W020",
+        "W021",
+        "W022",
+        "W027",
+        "W029",
+        "W030",
+        "W031",
+        "W032",
+        "W034"
+      ]
+    },
+    {
+      "queries": [
+        "site.wayve.ai GAIA-4 August 2026",
+        "site.arxiv.org Cosmos Policy 2026 robot",
+        "site.vimalabs.github.io VIMA General Robot Manipulation Multimodal Prompts"
+      ],
+      "selected": [
+        "W003",
+        "W028",
+        "W033"
+      ]
+    },
+    {
+      "queries": [
+        "VoxPoser official composable 3D value maps robotic manipulation language models",
+        "EmbodiedGPT Embodied Chain of Thought official paper",
+        "Genie generative interactive environments 2024 arxiv",
+        "DreamerV3 github danijar RSSM symlog"
+      ],
+      "selected": [
+        "W004",
+        "W005",
+        "W012",
+        "W016"
+      ]
+    },
+    {
+      "queries": [
+        "site.ai.meta.com V-JEPA 2.1",
+        "site.github.com Cosmos Policy NVIDIA",
+        "site.github.com GR-2 GR2",
+        "site.github.com R3M facebookresearch"
+      ],
+      "selected": [
+        "W022",
+        "W025",
+        "W026",
+        "W035"
+      ]
+    }
+  ],
+  "follow_up_reads": [
+    "V-JEPA 2.1 methodology and Table 6, including latency and trial count",
+    "GAIA-4 world-on-rails, optional reactive agents, camera/radar and fidelity definitions",
+    "Cosmos official repository model family, modality restrictions and current license",
+    "Genie 2 architecture versus Genie 3 limitations",
+    "Cosmos Policy direct-policy versus model-based planning distinction",
+    "3D Diffuser Actor quaternion and RLBench protocol notes"
+  ],
+  "access_limitations": [
+    {
+      "url": "https://research.nvidia.com/labs/cosmos-lab/cosmos3/technical-report.pdf",
+      "status": "Fetch failed; architecture taken from official technical blog and repository instead."
+    },
+    {
+      "url": "https://www.nature.com/articles/s41586-025-08744-2",
+      "status": "Publisher redirect restriction; publication metadata/indexed summary corroborated with accessible arXiv methods."
+    },
+    {
+      "url": "https://gr2-manipulation.github.io/",
+      "status": "No extractable text; model claims taken from paper."
+    }
+  ],
+  "exclusions": [
+    "Third-party news and social posts used only as discovery leads, not claim evidence.",
+    "No video demonstration is treated as proof of real robot feedback control.",
+    "MoLe-VLA included only as an efficiency taxonomy clarification."
+  ],
+  "stopping_rule": "Representative architectural families and material 2026 versions verified; undisclosed implementation details remain explicitly unknown."
+}

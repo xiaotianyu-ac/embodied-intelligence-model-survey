@@ -1,0 +1,231 @@
+{
+  "cutoff": "2026-09-11",
+  "scope": "Targeted representative claims, not a complete sentence-level claim inventory. Source IDs below refer to research-module aliases and resolve through records/artifacts/source-aliases.json.",
+  "claims": [
+    {
+      "id": "CA01",
+      "subject": "pi0.7 architecture, inheritance and coaching",
+      "source_ids": [
+        "V026",
+        "V027"
+      ],
+      "urls": [
+        "https://www.pi.website/download/pi07.pdf",
+        "https://www.pi.website/blog/pi07"
+      ],
+      "date": "2026-04-16",
+      "verdict": "pass",
+      "evidence": "Paper sections IV and VI explicitly retain pi0.6 architecture, incorporate MEM history/memory, and use a BAGEL-based visual-subgoal generator. Section VI-A explicitly includes pi-star-0.6 RL experience for behavioral distillation. Unseen appliance tasks initially use stepwise coaching; collected coaching episodes subsequently support autonomous high-level-policy adaptation.",
+      "assessment": "The submitted text and explicit inheritance edges are supported. Keep coached task execution separate from unassisted zero-shot autonomy. The paper's data reuse must not be described as direct RL-specialist weight inheritance."
+    },
+    {
+      "id": "CA02",
+      "subject": "MEM / pi0.6-MEM",
+      "source_ids": [
+        "V028"
+      ],
+      "urls": [
+        "https://www.pi.website/research/memory"
+      ],
+      "date": "2026-03-03",
+      "verdict": "pass",
+      "evidence": "Official research page names pi0.6 augmented with visual short-term and language long-term memory, including tasks of up to 15 minutes.",
+      "assessment": "The report correctly distinguishes the demonstrated task-history mechanism from general lifelong personal memory."
+    },
+    {
+      "id": "CA03",
+      "subject": "GR00T N1.7 data, backbone, availability and license",
+      "source_ids": [
+        "V034",
+        "V035"
+      ],
+      "urls": [
+        "https://developer.nvidia.com/blog/develop-humanoid-robot-policies-end-to-end-with-nvidia-isaac-gr00t/",
+        "https://github.com/NVIDIA/Isaac-GR00T"
+      ],
+      "date": "2026-07-07 engineering article; repository inspected at cutoff",
+      "verdict": "pass_after_editor_correction",
+      "evidence": "Official engineering material describes Cosmos-Reason2-2B/Qwen3-VL, a roughly 3B model, 32K hours of real/human data plus 8K simulation and deployment exports. Current repository calls N1.7 GA. Its License section separates Apache 2.0 code from NVIDIA Open Model License weights.",
+      "assessment": "The initial phrase GA and Apache 2.0 was insufficiently specific for weights. Editor corrected both language chapters during this audit. The N1.6 backbone naming disagreement between version-specific documentation and later broad marketing copy is correctly retained as uncertainty."
+    },
+    {
+      "id": "CA04",
+      "subject": "Gemini Robotics-ER 1.6",
+      "source_ids": [
+        "V040",
+        "V041"
+      ],
+      "urls": [
+        "https://deepmind.google/models/model-cards/gemini-robotics-er-1-6/",
+        "https://deepmind.google/blog/gemini-robotics-er-1-6/"
+      ],
+      "date": "2026-04; model card and announcement dates are separately recorded",
+      "verdict": "pass",
+      "evidence": "The official model card identifies Gemini 3.0 Flash as its foundation and text as output.",
+      "assessment": "It is an embodied-reasoning model, not a motor action decoder. The text preserves this distinction."
+    },
+    {
+      "id": "CA05",
+      "subject": "Gemini Robotics 2 whole-body VLA",
+      "source_ids": [
+        "V042",
+        "H027"
+      ],
+      "urls": [
+        "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/"
+      ],
+      "date": "2026-07-30",
+      "verdict": "pass",
+      "evidence": "The official announcement distinguishes a whole-body VLA from ER and on-device variants, reports tests across embodiments, and describes controlled early access. Task-level performance varies substantially.",
+      "assessment": "The report does not equate a release announcement with general public weights or universal task reliability."
+    },
+    {
+      "id": "CA06",
+      "subject": "Gemini Robotics ER 2 and On-Device 2 branch separation",
+      "source_ids": [
+        "V043",
+        "V044"
+      ],
+      "urls": [
+        "https://deepmind.google/models/model-cards/gemini-robotics-er-2/",
+        "https://deepmind.google/models/model-cards/gemini-robotics-on-device-2/"
+      ],
+      "date": "2026-07-30",
+      "verdict": "pass",
+      "evidence": "ER 2 is based on Gemini 3.5 Flash and produces text. On-Device 2 explicitly combines on-device Gemma and Gemini Robotics 1.5 technology and produces numerical actions for trusted testers.",
+      "assessment": "The technology-inheritance edge from Robotics 1.5 to On-Device 2 is directly supported. Do not infer that On-Device 2 is simply a quantized Robotics 2 checkpoint."
+    },
+    {
+      "id": "CA07",
+      "subject": "LingBot-VLA 2.0 architecture and scale",
+      "source_ids": [
+        "V053",
+        "V054"
+      ],
+      "urls": [
+        "https://arxiv.org/abs/2607.06403",
+        "https://arxiv.org/html/2607.06403v1"
+      ],
+      "date": "2026-07-07",
+      "verdict": "pass",
+      "evidence": "Paper describes Qwen3-VL, sparse MoE action-expert components, a 55D canonical state/action representation and 60K retained hours, comprising 50K robot and 10K egocentric data. Its evaluation includes nine GM100 tasks.",
+      "assessment": "The retained training quantity is not confused with raw collected data; internal task scope is preserved instead of extrapolating to all manipulation."
+    },
+    {
+      "id": "CA08",
+      "subject": "SONIC / GEAR-SONIC 2026 engineering updates",
+      "source_ids": [
+        "H012"
+      ],
+      "urls": [
+        "https://github.com/NVlabs/GR00T-WholeBodyControl"
+      ],
+      "date": "2026-05-07 N1.7 workflow; 2026-07-23 v1.1; 2026-08-31 controller update",
+      "verdict": "pass",
+      "evidence": "Current official repository lists the N1.7 collection/fine-tuning/execution workflow, SONIC v1.1 heading-normalization and wrist augmentation, and later per-motor gain scaling.",
+      "assessment": "The repository source date represents an inspected update, not the original SONIC research release. The chapter correctly separates the original N1.5 proof of concept from later N1.7 engineering integration."
+    },
+    {
+      "id": "CA09",
+      "subject": "Helix 02 hierarchy, clock rates and evidence level",
+      "source_ids": [
+        "H019"
+      ],
+      "urls": [
+        "https://www.figure.ai/news/helix-02"
+      ],
+      "date": "2026-01-27",
+      "verdict": "pass",
+      "evidence": "Official page specifies semantic S2, full-body joint targets at 200 Hz from S1, and a 1 kHz S0 controller trained with over 1,000 hours of retargeted human motion and simulated RL.",
+      "assessment": "The four-minute autonomous demonstration is correctly described as a vendor demonstration rather than a multi-environment reliability benchmark. The report does not collapse the three rates into a single VLA inference rate."
+    },
+    {
+      "id": "CA10",
+      "subject": "Skild S1 context training and date",
+      "source_ids": [
+        "H021"
+      ],
+      "urls": [
+        "https://www.skild.ai/blogs/s1",
+        "https://skild.ai/blogs"
+      ],
+      "date": "2026-08-18 confirmed by official blog index; article citation gives August 2026",
+      "verdict": "pass_with_optional_caveat",
+      "evidence": "Official article describes episodic demonstration-conditioned pretraining, video prompts and unchanged weights at inference. It does not publish a complete action architecture. Its quantitative scaling study reports cumulative per-step success with human failure recovery during rollouts.",
+      "assessment": "The current chapter avoids reproducing headline success rates and therefore makes no invalid benchmark comparison. Add the evaluation-protocol caveat if the expanded report or catalog quotes 66%, 96%, 7x, or the 380-demonstration equivalence."
+    },
+    {
+      "id": "CA11",
+      "subject": "Generalist GEN-1.5 memory, prompting and adaptation",
+      "source_ids": [
+        "H038"
+      ],
+      "urls": [
+        "https://generalistai.com/blog/gen-1.5"
+      ],
+      "date": "2026-08-19",
+      "verdict": "pass",
+      "evidence": "Official page describes 30-second memory, 100 Hz action trajectories and physical prompts containing sensor data plus action trajectories. It claims no explicit ICL objective and acknowledges short tasks and brittleness relative to fine-tuning.",
+      "assessment": "The report correctly contrasts the training recipe with S1 and does not equate sensorimotor prompting with arbitrary video imitation. GEN-1 task-adapted reliability and GEN-1.5 one-shot results are treated as different conditions."
+    },
+    {
+      "id": "CA12",
+      "subject": "BMW Figure 03 deployment vs Figure 02 historical production metrics",
+      "source_ids": [
+        "H039",
+        "H040"
+      ],
+      "urls": [
+        "https://www.figure.ai/news/f-03-at-bmw",
+        "https://www.press.bmwgroup.com/canada/article/detail/T0458794EN/bmw-group-advances-the-use-of-physical-ai-in-production-with-figure-03-project-in-spartanburg"
+      ],
+      "date": "2026-06-25 BMW customer announcement; 2026-06-30 Figure article",
+      "verdict": "pass",
+      "evidence": "BMW describes the new Figure 03 logistics sequencing project separately from prior Figure 02 body-shop deployment and its contribution to over 30,000 vehicles.",
+      "assessment": "The chapter's distinction is justified. Do not transfer the older F02 throughput or production counts to F03 or to a new Helix model version."
+    },
+    {
+      "id": "CA13",
+      "subject": "V-JEPA 2.1 planning",
+      "source_ids": [
+        "W025",
+        "W026"
+      ],
+      "verdict": "reviewed_and_qualified",
+      "evidence": "Reuse of predictor architecture and protocol with retraining; 70% uses about 3s planning and 80% about 14s.",
+      "assessment": "Ten tasks per skill; no inherited predictor weights or universal real-time control claim."
+    },
+    {
+      "id": "CA14",
+      "subject": "MolmoAct2 training stages",
+      "source_ids": [
+        "R017",
+        "R018"
+      ],
+      "verdict": "reviewed_and_qualified",
+      "evidence": "Molmo2-ER backbone, discrete autoregressive pretraining and continuous flow expert are distinct stages; Think is a separate variant.",
+      "assessment": "Intermediate checkpoints do not independently establish causal contribution of each stage."
+    },
+    {
+      "id": "CA15",
+      "subject": "1XWM January2026 disclosure",
+      "source_ids": [
+        "H028"
+      ],
+      "verdict": "reviewed_and_qualified",
+      "evidence": "Video generation followed by inverse dynamics grounds generated futures into NEO actions.",
+      "assessment": "Disclosed runtime is slower than the generated horizon; longer closed-loop replanning remains future work."
+    },
+    {
+      "id": "CA16",
+      "subject": "RoboCasa365 version",
+      "source_ids": [
+        "R022",
+        "R027"
+      ],
+      "verdict": "reviewed_and_qualified",
+      "evidence": "Evaluation horizons changed in May2026.",
+      "assessment": "Benchmark results must report the version/horizon rather than be directly merged."
+    }
+  ]
+}

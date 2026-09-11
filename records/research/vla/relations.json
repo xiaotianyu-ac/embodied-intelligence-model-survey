@@ -1,0 +1,389 @@
+[
+  {
+    "source": "act",
+    "target": "diffusion-policy",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "Both predict action sequences to manage the control horizon, but CVAE chunking and diffusion are different policy distributions, not successive checkpoints.",
+    "source_ids": [
+      "V001",
+      "V003"
+    ]
+  },
+  {
+    "source": "diffusion-policy",
+    "target": "octo",
+    "relation_type": "policy_family",
+    "evidence_type": "explicit",
+    "explanation": "Octo describes itself as a transformer-based diffusion policy scaled through diverse robot pretraining.",
+    "source_ids": [
+      "V003",
+      "V011",
+      "V012"
+    ]
+  },
+  {
+    "source": "rt1",
+    "target": "rt2",
+    "relation_type": "research_successor",
+    "evidence_type": "explicit",
+    "explanation": "RT-2 succeeds RT-1 in the same research line but changes to a pretrained VLM and text-form actions; this is not RT-1 weight continuation.",
+    "source_ids": [
+      "V006",
+      "V008"
+    ]
+  },
+  {
+    "source": "rt1",
+    "target": "rtx",
+    "relation_type": "architecture_reuse",
+    "evidence_type": "explicit",
+    "explanation": "RT-1-X applies the RT-1 architecture to cross-embodiment data.",
+    "source_ids": [
+      "V009",
+      "V010"
+    ]
+  },
+  {
+    "source": "rt2",
+    "target": "rtx",
+    "relation_type": "architecture_reuse",
+    "evidence_type": "explicit",
+    "explanation": "RT-2-X is the VLM-based RT-X instantiation.",
+    "source_ids": [
+      "V009",
+      "V010"
+    ]
+  },
+  {
+    "source": "rtx",
+    "target": "octo",
+    "relation_type": "data_infrastructure",
+    "evidence_type": "explicit",
+    "explanation": "Octo pretraining uses the Open X-Embodiment dataset; RT-X weights are not the Octo backbone.",
+    "source_ids": [
+      "V009",
+      "V011"
+    ]
+  },
+  {
+    "source": "rtx",
+    "target": "openvla",
+    "relation_type": "data_infrastructure",
+    "evidence_type": "explicit",
+    "explanation": "OpenVLA uses the Open X-Embodiment data ecosystem while choosing its own VLM architecture.",
+    "source_ids": [
+      "V009",
+      "V013"
+    ]
+  },
+  {
+    "source": "rt2",
+    "target": "openvla",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "Both map VLM features to discretized autoregressive actions; similarity is architectural, not proof of inherited private RT-2 weights.",
+    "source_ids": [
+      "V007",
+      "V013"
+    ]
+  },
+  {
+    "source": "openvla",
+    "target": "openvla-oft",
+    "relation_type": "checkpoint_and_recipe_adaptation",
+    "evidence_type": "explicit",
+    "explanation": "OFT modifies OpenVLA fine-tuning and action decoding while retaining its pretrained foundation.",
+    "source_ids": [
+      "V015",
+      "V016"
+    ]
+  },
+  {
+    "source": "pi0",
+    "target": "fast",
+    "relation_type": "variant",
+    "evidence_type": "explicit",
+    "explanation": "pi0-FAST uses FAST tokenization to instantiate an autoregressive variant; FAST itself is a representation method.",
+    "source_ids": [
+      "V019",
+      "V020"
+    ]
+  },
+  {
+    "source": "pi0",
+    "target": "pi05",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "pi0.5 builds on pi0 and adds heterogeneous training and hierarchical task behavior.",
+    "source_ids": [
+      "V021"
+    ]
+  },
+  {
+    "source": "fast",
+    "target": "pi05",
+    "relation_type": "training_representation",
+    "evidence_type": "explicit",
+    "explanation": "Knowledge insulation uses FAST action tokens as an auxiliary learning signal for the VLM backbone.",
+    "source_ids": [
+      "V022"
+    ]
+  },
+  {
+    "source": "pi05",
+    "target": "pi06",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "The pi0.6 model card explicitly builds on pi0.5 while changing backbone, action expert and data.",
+    "source_ids": [
+      "V023"
+    ]
+  },
+  {
+    "source": "pi06",
+    "target": "pi06-recap",
+    "relation_type": "reinforcement_post_training",
+    "evidence_type": "explicit",
+    "explanation": "RECAP trains pi0.6 with offline and on-robot RL, yielding pi-star-0.6.",
+    "source_ids": [
+      "V024",
+      "V025"
+    ]
+  },
+  {
+    "source": "pi06",
+    "target": "mem",
+    "relation_type": "memory_extension",
+    "evidence_type": "explicit",
+    "explanation": "The memory experiments augment pi0.6 with visual and language memory.",
+    "source_ids": [
+      "V028"
+    ]
+  },
+  {
+    "source": "pi06",
+    "target": "pi07",
+    "relation_type": "architecture_inheritance",
+    "evidence_type": "explicit",
+    "explanation": "pi0.7 retains the pi0.6 architectural foundation and changes context conditioning.",
+    "source_ids": [
+      "V026"
+    ]
+  },
+  {
+    "source": "mem",
+    "target": "pi07",
+    "relation_type": "module_inheritance",
+    "evidence_type": "explicit",
+    "explanation": "pi0.7 uses the MEM-style visual-history encoder and memory system.",
+    "source_ids": [
+      "V026",
+      "V028"
+    ]
+  },
+  {
+    "source": "pi06-recap",
+    "target": "pi07",
+    "relation_type": "experience_distillation",
+    "evidence_type": "explicit",
+    "explanation": "pi0.7 uses experience from RL-trained specialists with strategy metadata to absorb their behaviors.",
+    "source_ids": [
+      "V026",
+      "V027"
+    ]
+  },
+  {
+    "source": "pi0",
+    "target": "groot-n1",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "Both couple VLM features to flow action generation, but GR00T uses cross-attention and embodiment adapters; they do not share published checkpoints.",
+    "source_ids": [
+      "V017",
+      "V031"
+    ]
+  },
+  {
+    "source": "act",
+    "target": "groot-n1",
+    "relation_type": "cited_design",
+    "evidence_type": "explicit",
+    "explanation": "The GR00T N1 paper explicitly cites ACT for action chunking.",
+    "source_ids": [
+      "V031"
+    ]
+  },
+  {
+    "source": "groot-n1",
+    "target": "groot-n15",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "N1.5 modifies the VLM, data and future-feature objective relative to N1.",
+    "source_ids": [
+      "V032"
+    ]
+  },
+  {
+    "source": "groot-n15",
+    "target": "groot-n16",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "N1.6 replaces/updates the backbone, enlarges the DiT and changes action representations.",
+    "source_ids": [
+      "V033"
+    ]
+  },
+  {
+    "source": "groot-n16",
+    "target": "groot-n17",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "The repository positions N1.7 as the next N1 release, with a new Cosmos-Reason2 backbone and deployment support.",
+    "source_ids": [
+      "V034",
+      "V035"
+    ]
+  },
+  {
+    "source": "gemini-robotics1",
+    "target": "gemini-robotics15",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "The 1.5 report extends the Gemini Robotics line through motion transfer and reasoning/action interleaving.",
+    "source_ids": [
+      "V038"
+    ]
+  },
+  {
+    "source": "gemini-robotics15",
+    "target": "gemini-robotics2",
+    "relation_type": "model_successor",
+    "evidence_type": "explicit",
+    "explanation": "Robotics 2 extends the earlier upper-body focus into whole-body control.",
+    "source_ids": [
+      "V042"
+    ]
+  },
+  {
+    "source": "gemini-robotics15",
+    "target": "gemini-er16",
+    "relation_type": "reasoning_branch_successor",
+    "evidence_type": "explicit",
+    "explanation": "ER 1.6 follows ER 1.5 within the reasoning branch; it does not replace the VLA action decoder.",
+    "source_ids": [
+      "V040",
+      "V041"
+    ]
+  },
+  {
+    "source": "gemini-er16",
+    "target": "gemini-er2",
+    "relation_type": "reasoning_branch_successor",
+    "evidence_type": "explicit",
+    "explanation": "ER 2 is the later embodied reasoning model in the same family, now based on Gemini 3.5 Flash.",
+    "source_ids": [
+      "V042",
+      "V043"
+    ]
+  },
+  {
+    "source": "gemini-er2",
+    "target": "gemini-robotics2",
+    "relation_type": "system_composition",
+    "evidence_type": "explicit",
+    "explanation": "ER 2 supplies planning and coordination while Robotics 2 produces executable robot behavior.",
+    "source_ids": [
+      "V042"
+    ]
+  },
+  {
+    "source": "gemini-robotics15",
+    "target": "gemini-ondevice2",
+    "relation_type": "technology_inheritance",
+    "evidence_type": "explicit",
+    "explanation": "The On-Device 2 model card explicitly names Robotics 1.5 technology and on-device Gemma as its basis.",
+    "source_ids": [
+      "V044"
+    ]
+  },
+  {
+    "source": "diffusion-policy",
+    "target": "rdt1b",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "RDT scales continuous generative action modeling and adds unified physical action semantics; comparison is methodological, not weight inheritance.",
+    "source_ids": [
+      "V003",
+      "V045"
+    ]
+  },
+  {
+    "source": "openvla",
+    "target": "univla-odl",
+    "relation_type": "implementation_acknowledgment",
+    "evidence_type": "explicit",
+    "explanation": "OpenDriveLab UniVLA explicitly acknowledges OpenVLA code; its defining change is learning task-centric latent actions from video.",
+    "source_ids": [
+      "V047",
+      "V048"
+    ]
+  },
+  {
+    "source": "univla-odl",
+    "target": "univla-baai",
+    "relation_type": "name_disambiguation",
+    "evidence_type": "explicit",
+    "explanation": "Two independently authored UniVLA papers have different arXiv IDs, repositories, architectures and objectives.",
+    "source_ids": [
+      "V047",
+      "V048",
+      "V049",
+      "V050"
+    ]
+  },
+  {
+    "source": "rdt1b",
+    "target": "lingbot-vla2",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "Both need canonical physical action mappings across embodiments; no direct RDT checkpoint inheritance is claimed.",
+    "source_ids": [
+      "V045",
+      "V053",
+      "V054"
+    ]
+  },
+  {
+    "source": "xvla",
+    "target": "groot-n17",
+    "relation_type": "shared_design_axis",
+    "evidence_type": "analytical",
+    "explanation": "Soft prompts and embodiment adapters are alternative ways to separate shared representations from hardware-specific interfaces.",
+    "source_ids": [
+      "V031",
+      "V034",
+      "V051"
+    ]
+  },
+  {
+    "source": "rtc",
+    "target": "pi0",
+    "relation_type": "execution_layer",
+    "evidence_type": "explicit",
+    "explanation": "RTC is introduced for action-chunking flow policies and addresses latency without replacing semantic pretraining.",
+    "source_ids": [
+      "V055"
+    ]
+  },
+  {
+    "source": "rtc",
+    "target": "groot-n16",
+    "relation_type": "execution_integration",
+    "evidence_type": "explicit",
+    "explanation": "N1.6 reports using real-time chunking during asynchronous robot rollouts.",
+    "source_ids": [
+      "V033"
+    ]
+  }
+]

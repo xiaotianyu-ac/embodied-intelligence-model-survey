@@ -1,0 +1,45 @@
+[
+  {
+    "source": "SERL",
+    "target": "HIL-SERL",
+    "relation_type": "method_extension",
+    "evidence_type": "explicit",
+    "explanation": "Human demonstrations, reward learning and interventions extend sample-efficient real-world RL into a practical correction loop.",
+    "source_ids": [
+      "R015",
+      "R016"
+    ]
+  },
+  {
+    "source": "VLM + latent action learning",
+    "target": "GO-1",
+    "relation_type": "method_combination",
+    "evidence_type": "explicit",
+    "explanation": "GO-1 inserts a latent planner before diffusion action generation; GO-1 Air removes the planner.",
+    "source_ids": [
+      "R005",
+      "R006"
+    ]
+  },
+  {
+    "source": "Molmo2-ER",
+    "target": "MolmoAct2",
+    "relation_type": "backbone_initialization",
+    "evidence_type": "explicit",
+    "explanation": "The official repository identifies Molmo2-ER as the embodied reasoning backbone for a continuous action expert.",
+    "source_ids": [
+      "R017"
+    ]
+  },
+  {
+    "source": "Flow-based VLA",
+    "target": "Xiaomi-Robotics-0",
+    "relation_type": "execution_comparison",
+    "evidence_type": "analytical",
+    "explanation": "A shared action-generator family is augmented with explicit asynchronous training and runtime consistency; no weight inheritance from PI is implied.",
+    "source_ids": [
+      "R024",
+      "R025"
+    ]
+  }
+]
